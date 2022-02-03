@@ -12,11 +12,15 @@
 #include "timers.h"
 
 #define _XTAL_FREQ 64000000 //note intrinsic _delay function is 62.5ns at 64,000,000Hz  
-#define TIME 60 // Normal Mode
-//#define TIME 1 // Test Mode  
+//#define TIME 60 // Normal Mode
+#define TIME 1 // Test Mode  
 
 
 unsigned int second = 0; // Global variable - second
+unsigned int minute = 0; // Set the minute
+unsigned int hour = 0; // Set the hour
+unsigned int day = 0; // Set the day
+
 
 void main(void) {
 	//call your initialisation functions to set up the hardware modules
@@ -30,11 +34,8 @@ void main(void) {
     Timer0_init();// Enable timer0
     LEDarray_init();// Enable LED array (from lab 2)
     
-    unsigned int minute = 0; // Set the minute
-    unsigned int hour = 0; // Set the hour
-    unsigned int day = 0; // Set the day
-
-    
+     //else {LATHbits.LATH3 = 1;}
+   
     while (1) {
         if (second == TIME) { 
             minute += 1; 
@@ -44,12 +45,20 @@ void main(void) {
             hour += 1;
             minute = 0;
         }
-        if (hour == 24){
+        if (hour == 24) {
             day += 1;
             hour = 0;
         }
+        if ((hour >= 1) && (hour < 5)){LATHbits.LATH3 = 0;}
+        if (hour == 5){
+            if (CMOUTbits.MC1OUT == 1){LATHbits.LATH3 = 1;} 
+            else {LATHbits.LATH3 = 0;}
+        }
+        //&& CMOUTbits.MC1OUT
 		LEDarray_disp_bin(hour); // Current timer value
+        
     }
+    
 }
 
 /************************************
@@ -59,12 +68,13 @@ void main(void) {
 void __interrupt(high_priority) HighISR()
 {
 	//add your ISR code here i.e. check the flag, do something (i.e. toggle an LED), clear the flag...	
-    if (PIR2bits.C1IF){ // if C1IF ==1      //check the interrupt source for the comparator; When surrounding light is dark, turn on LED; vice versa.
-        LATHbits.LATH3 = !LATHbits.LATH3;   //toggle LED (same procedure as lab-1)
-        PIR2bits.C1IF = 0; }			        //clear the interrupt flag!
-    
-    if (PIR0bits.TMR0IF){ // if TMR0IF ==1      //check the interrupt source for the timer, if overflow occur
+    if (PIR2bits.C1IF){ // if C1IF ==1        //check the interrupt source for the comparator; When surrounding light is dark, turn on LED; vice versa.
+        
+        LATHbits.LATH3 = !LATHbits.LATH3;     //toggle LED (same procedure as lab-1)
+        PIR2bits.C1IF = 0; }                  //clear the interrupt flag!
+   
+    if (PIR0bits.TMR0IF){ // if TMR0IF ==1    //check the interrupt source for the timer, if overflow occur
         second += 1;
-        PIR0bits.TMR0IF = 0; }			        //clear the interrupt flag!
+        PIR0bits.TMR0IF = 0; }			      //clear the interrupt flag!
     
     }

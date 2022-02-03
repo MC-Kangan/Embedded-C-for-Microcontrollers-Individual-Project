@@ -24297,6 +24297,10 @@ unsigned int get16bitTMR0val(void);
 
 
 unsigned int second = 0;
+unsigned int minute = 0;
+unsigned int hour = 0;
+unsigned int day = 0;
+
 
 void main(void) {
 
@@ -24310,9 +24314,6 @@ void main(void) {
     Timer0_init();
     LEDarray_init();
 
-    unsigned int minute = 0;
-    unsigned int hour = 0;
-    unsigned int day = 0;
 
 
     while (1) {
@@ -24324,12 +24325,20 @@ void main(void) {
             hour += 1;
             minute = 0;
         }
-        if (hour == 24){
+        if (hour == 24) {
             day += 1;
             hour = 0;
         }
+        if ((hour >= 1) && (hour < 5)){LATHbits.LATH3 = 0;}
+        if (hour == 5){
+            if (CMOUTbits.MC1OUT == 1){LATHbits.LATH3 = 1;}
+            else {LATHbits.LATH3 = 0;}
+        }
+
   LEDarray_disp_bin(hour);
+
     }
+
 }
 
 
@@ -24340,6 +24349,7 @@ void __attribute__((picinterrupt(("high_priority")))) HighISR()
 {
 
     if (PIR2bits.C1IF){
+
         LATHbits.LATH3 = !LATHbits.LATH3;
         PIR2bits.C1IF = 0; }
 

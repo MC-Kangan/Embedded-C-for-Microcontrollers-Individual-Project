@@ -54,7 +54,18 @@ Version 4.0 HI-TECH Software Intermediate Code
 "9 ./LEDarray.h
 [; ;./LEDarray.h: 9: void LEDarray_init(void);
 [v _LEDarray_init `(v ~T0 @X0 0 ef ]
-"10
+"14171 C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h
+[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 14171:     struct {
+[s S656 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S656 . MC1OUT MC2OUT MC3OUT ]
+"14170
+[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 14170: typedef union {
+[u S655 `S656 1 ]
+[n S655 . . ]
+"14177
+[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 14177: extern volatile CMOUTbits_t CMOUTbits __attribute__((address(0xED4)));
+[v _CMOUTbits `VS655 ~T0 @X0 0 e@3796 ]
+"10 ./LEDarray.h
 [; ;./LEDarray.h: 10: void LEDarray_disp_bin(unsigned int number);
 [v _LEDarray_disp_bin `(v ~T0 @X0 0 ef1`ui ]
 [t ~ __interrupt . k ]
@@ -2071,136 +2082,171 @@ Version 4.0 HI-TECH Software Intermediate Code
 [i _second
 -> -> 0 `i `ui
 ]
-[v $root$_main `(v ~T0 @X0 0 e ]
+"20
+[; ;main.c: 20: unsigned int minute = 0;
+[v _minute `ui ~T0 @X0 1 e ]
+[i _minute
+-> -> 0 `i `ui
+]
 "21
-[; ;main.c: 21: void main(void) {
+[; ;main.c: 21: unsigned int hour = 0;
+[v _hour `ui ~T0 @X0 1 e ]
+[i _hour
+-> -> 0 `i `ui
+]
+"22
+[; ;main.c: 22: unsigned int day = 0;
+[v _day `ui ~T0 @X0 1 e ]
+[i _day
+-> -> 0 `i `ui
+]
+[v $root$_main `(v ~T0 @X0 0 e ]
+"25
+[; ;main.c: 25: void main(void) {
 [v _main `(v ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"25
-[; ;main.c: 25:     LATHbits.LATH3 = 1;
-[e = . . _LATHbits 0 3 -> -> 1 `i `uc ]
-"26
-[; ;main.c: 26:     TRISHbits.TRISH3 = 0;
-[e = . . _TRISHbits 0 3 -> -> 0 `i `uc ]
-"28
-[; ;main.c: 28:     Interrupts_init();
-[e ( _Interrupts_init ..  ]
 "29
-[; ;main.c: 29:     Comp1_init();
-[e ( _Comp1_init ..  ]
+[; ;main.c: 29:     LATHbits.LATH3 = 1;
+[e = . . _LATHbits 0 3 -> -> 1 `i `uc ]
 "30
-[; ;main.c: 30:     Timer0_init();
-[e ( _Timer0_init ..  ]
-"31
-[; ;main.c: 31:     LEDarray_init();
-[e ( _LEDarray_init ..  ]
+[; ;main.c: 30:     TRISHbits.TRISH3 = 0;
+[e = . . _TRISHbits 0 3 -> -> 0 `i `uc ]
+"32
+[; ;main.c: 32:     Interrupts_init();
+[e ( _Interrupts_init ..  ]
 "33
-[; ;main.c: 33:     unsigned int minute = 0;
-[v _minute `ui ~T0 @X0 1 a ]
-[e = _minute -> -> 0 `i `ui ]
+[; ;main.c: 33:     Comp1_init();
+[e ( _Comp1_init ..  ]
 "34
-[; ;main.c: 34:     unsigned int hour = 0;
-[v _hour `ui ~T0 @X0 1 a ]
-[e = _hour -> -> 0 `i `ui ]
+[; ;main.c: 34:     Timer0_init();
+[e ( _Timer0_init ..  ]
 "35
-[; ;main.c: 35:     unsigned int day = 0;
-[v _day `ui ~T0 @X0 1 a ]
-[e = _day -> -> 0 `i `ui ]
-"38
-[; ;main.c: 38:     while (1) {
+[; ;main.c: 35:     LEDarray_init();
+[e ( _LEDarray_init ..  ]
+"39
+[; ;main.c: 39:     while (1) {
 [e :U 2017 ]
 {
-"39
-[; ;main.c: 39:         if (second == 1) {
+"40
+[; ;main.c: 40:         if (second == 1) {
 [e $ ! == _second -> -> 1 `i `ui 2019  ]
 {
-"40
-[; ;main.c: 40:             minute += 1;
-[e =+ _minute -> -> 1 `i `ui ]
 "41
-[; ;main.c: 41:             second = 0;
-[e = _second -> -> 0 `i `ui ]
+[; ;main.c: 41:             minute += 1;
+[e =+ _minute -> -> 1 `i `ui ]
 "42
-[; ;main.c: 42:         }
+[; ;main.c: 42:             second = 0;
+[e = _second -> -> 0 `i `ui ]
+"43
+[; ;main.c: 43:         }
 }
 [e :U 2019 ]
-"43
-[; ;main.c: 43:         if (minute == 1) {
+"44
+[; ;main.c: 44:         if (minute == 1) {
 [e $ ! == _minute -> -> 1 `i `ui 2020  ]
 {
-"44
-[; ;main.c: 44:             hour += 1;
-[e =+ _hour -> -> 1 `i `ui ]
 "45
-[; ;main.c: 45:             minute = 0;
-[e = _minute -> -> 0 `i `ui ]
+[; ;main.c: 45:             hour += 1;
+[e =+ _hour -> -> 1 `i `ui ]
 "46
-[; ;main.c: 46:         }
+[; ;main.c: 46:             minute = 0;
+[e = _minute -> -> 0 `i `ui ]
+"47
+[; ;main.c: 47:         }
 }
 [e :U 2020 ]
-"47
-[; ;main.c: 47:         if (hour == 24){
+"48
+[; ;main.c: 48:         if (hour == 24) {
 [e $ ! == _hour -> -> 24 `i `ui 2021  ]
 {
-"48
-[; ;main.c: 48:             day += 1;
-[e =+ _day -> -> 1 `i `ui ]
 "49
-[; ;main.c: 49:             hour = 0;
-[e = _hour -> -> 0 `i `ui ]
+[; ;main.c: 49:             day += 1;
+[e =+ _day -> -> 1 `i `ui ]
 "50
-[; ;main.c: 50:         }
+[; ;main.c: 50:             hour = 0;
+[e = _hour -> -> 0 `i `ui ]
+"51
+[; ;main.c: 51:         }
 }
 [e :U 2021 ]
-"51
-[; ;main.c: 51:   LEDarray_disp_bin(hour);
-[e ( _LEDarray_disp_bin (1 _hour ]
 "52
-[; ;main.c: 52:     }
+[; ;main.c: 52:         if ((hour >= 1) && (hour < 5)){LATHbits.LATH3 = 0;}
+[e $ ! && >= _hour -> -> 1 `i `ui < _hour -> -> 5 `i `ui 2022  ]
+{
+[e = . . _LATHbits 0 3 -> -> 0 `i `uc ]
+}
+[e :U 2022 ]
+"53
+[; ;main.c: 53:         if (hour == 5){
+[e $ ! == _hour -> -> 5 `i `ui 2023  ]
+{
+"54
+[; ;main.c: 54:             if (CMOUTbits.MC1OUT == 1){LATHbits.LATH3 = 1;}
+[e $ ! == -> . . _CMOUTbits 0 0 `i -> 1 `i 2024  ]
+{
+[e = . . _LATHbits 0 3 -> -> 1 `i `uc ]
+}
+[e $U 2025  ]
+"55
+[; ;main.c: 55:             else {LATHbits.LATH3 = 0;}
+[e :U 2024 ]
+{
+[e = . . _LATHbits 0 3 -> -> 0 `i `uc ]
+}
+[e :U 2025 ]
+"56
+[; ;main.c: 56:         }
+}
+[e :U 2023 ]
+"58
+[; ;main.c: 58:   LEDarray_disp_bin(hour);
+[e ( _LEDarray_disp_bin (1 _hour ]
+"60
+[; ;main.c: 60:     }
 }
 [e :U 2016 ]
 [e $U 2017  ]
 [e :U 2018 ]
-"53
-[; ;main.c: 53: }
+"62
+[; ;main.c: 62: }
 [e :UE 2015 ]
 }
 [v $root$_HighISR `(v ~T0 @X0 0 e ]
-"59
-[; ;main.c: 59: void __attribute__((picinterrupt(("high_priority")))) HighISR()
+"68
+[; ;main.c: 68: void __attribute__((picinterrupt(("high_priority")))) HighISR()
 [v _HighISR `(v ~T2 @X0 1 ef ]
-"60
-[; ;main.c: 60: {
+"69
+[; ;main.c: 69: {
 {
 [e :U _HighISR ]
 [f ]
-"62
-[; ;main.c: 62:     if (PIR2bits.C1IF){
-[e $ ! != -> . . _PIR2bits 0 0 `i -> 0 `i 2023  ]
+"71
+[; ;main.c: 71:     if (PIR2bits.C1IF){
+[e $ ! != -> . . _PIR2bits 0 0 `i -> 0 `i 2027  ]
 {
-"63
-[; ;main.c: 63:         LATHbits.LATH3 = !LATHbits.LATH3;
+"73
+[; ;main.c: 73:         LATHbits.LATH3 = !LATHbits.LATH3;
 [e = . . _LATHbits 0 3 -> -> ! != -> . . _LATHbits 0 3 `i -> 0 `i `i `uc ]
-"64
-[; ;main.c: 64:         PIR2bits.C1IF = 0; }
+"74
+[; ;main.c: 74:         PIR2bits.C1IF = 0; }
 [e = . . _PIR2bits 0 0 -> -> 0 `i `uc ]
 }
-[e :U 2023 ]
-"66
-[; ;main.c: 66:     if (PIR0bits.TMR0IF){
-[e $ ! != -> . . _PIR0bits 0 5 `i -> 0 `i 2024  ]
+[e :U 2027 ]
+"76
+[; ;main.c: 76:     if (PIR0bits.TMR0IF){
+[e $ ! != -> . . _PIR0bits 0 5 `i -> 0 `i 2028  ]
 {
-"67
-[; ;main.c: 67:         second += 1;
+"77
+[; ;main.c: 77:         second += 1;
 [e =+ _second -> -> 1 `i `ui ]
-"68
-[; ;main.c: 68:         PIR0bits.TMR0IF = 0; }
+"78
+[; ;main.c: 78:         PIR0bits.TMR0IF = 0; }
 [e = . . _PIR0bits 0 5 -> -> 0 `i `uc ]
 }
-[e :U 2024 ]
-"70
-[; ;main.c: 70:     }
-[e :UE 2022 ]
+[e :U 2028 ]
+"80
+[; ;main.c: 80:     }
+[e :UE 2026 ]
 }
