@@ -12,10 +12,10 @@ void Timer0_init(void)
     T0CON0bits.T016BIT=1;	//16 bit mode	
 	
     // it's a good idea to initialise the timer registers so we know we are at 0
-    TMR0H = 65535;            // write High reg first, update happens when low reg is written to
-    TMR0L = 3035;             // when Low reg = 3035, the error in 1 year will be 0. 1 increment will take 1/62500 = 1.6*10^-5s, overflow will happen every 1 second
+    TMR0H = 0b00001011;             // write High reg first, which contains the 8 most sig bits of 3035
+    TMR0L = 0b11011011;             // when Low reg = 3035, the error in 1 year will be 0. 1 increment will take 1/62500 = 1.6*10^-5s, overflow will happen every 1 second
+                                    // TMROL contains the 8 least sig bits of 3035
     T0CON0bits.T0EN=1;	//start the timer
-    
     
 }
 

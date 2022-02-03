@@ -13,13 +13,15 @@
 
 #define _XTAL_FREQ 64000000 //note intrinsic _delay function is 62.5ns at 64,000,000Hz  
 
+unsigned int second = 0; // Global variable 
+
 
 void main(void) {
 	//call your initialisation functions to set up the hardware modules
 
      // setup pin for output (connected to LED2 - RH3)
-    LATHbits.LATH3=0;   //set initial output state - LATx registers (output latch)
-    TRISHbits.TRISH3=0; //set TRIS value for pin (output) - TRISx registers (data direction)
+    LATHbits.LATH3 = 1;   // LATx registers (output latch),set the light to be on initially 
+    TRISHbits.TRISH3 = 0; // TRISx registers (data direction), set TRIS value for pin (output)
     
     Interrupts_init(); // Enable Interrupt
     Comp1_init();// Enable Comparator
@@ -27,7 +29,23 @@ void main(void) {
     LEDarray_init();// Enable LED array (from lab 2)
     
     while (1) {
-        unsigned int disp_value = get16bitTMR0val(); // This contains the 8 most significant figures
-		LEDarray_disp_bin(disp_value); // Current timer value
+		LEDarray_disp_bin(second); // Current timer value
     }
 }
+
+
+/************************************
+ * High priority interrupt service routine
+ * Make sure all enabled interrupts are checked and flags cleared
+************************************/
+void __interrupt(high_priority) HighISR()
+{
+	//add your ISR code here i.e. check the flag, do something (i.e. toggle an LED), clear the flag...	
+    if (PIR2bits.C1IF){ // if C1IF ==1      //check the interrupt source for the comparator; When surrounding light is dark, turn on LED; vice versa.
+        LATHbits.LATH3 = !LATHbits.LATH3;   //toggle LED (same procedure as lab-1)
+        PIR2bits.C1IF = 0; }			        //clear the interrupt flag!
+    if (PIR0bits.TMR0IF){ // if TMR0IF ==1      //check the interrupt source for the comparator; When surrounding light is dark, turn on LED; vice versa.
+        second += 1;
+        PIR0bits.TMR0IF = 0; }			        //clear the interrupt flag!
+    
+    }
