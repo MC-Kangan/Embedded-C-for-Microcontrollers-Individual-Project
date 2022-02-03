@@ -2065,88 +2065,142 @@ Version 4.0 HI-TECH Software Intermediate Code
 "40928
 [; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 40928: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-"16 main.c
-[; ;main.c: 16: unsigned int second = 0;
+"19 main.c
+[; ;main.c: 19: unsigned int second = 0;
 [v _second `ui ~T0 @X0 1 e ]
 [i _second
 -> -> 0 `i `ui
 ]
 [v $root$_main `(v ~T0 @X0 0 e ]
-"19
-[; ;main.c: 19: void main(void) {
+"21
+[; ;main.c: 21: void main(void) {
 [v _main `(v ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"23
-[; ;main.c: 23:     LATHbits.LATH3 = 1;
+"25
+[; ;main.c: 25:     LATHbits.LATH3 = 1;
 [e = . . _LATHbits 0 3 -> -> 1 `i `uc ]
-"24
-[; ;main.c: 24:     TRISHbits.TRISH3 = 0;
-[e = . . _TRISHbits 0 3 -> -> 0 `i `uc ]
 "26
-[; ;main.c: 26:     Interrupts_init();
-[e ( _Interrupts_init ..  ]
-"27
-[; ;main.c: 27:     Comp1_init();
-[e ( _Comp1_init ..  ]
+[; ;main.c: 26:     TRISHbits.TRISH3 = 0;
+[e = . . _TRISHbits 0 3 -> -> 0 `i `uc ]
 "28
-[; ;main.c: 28:     Timer0_init();
-[e ( _Timer0_init ..  ]
+[; ;main.c: 28:     Interrupts_init();
+[e ( _Interrupts_init ..  ]
 "29
-[; ;main.c: 29:     LEDarray_init();
-[e ( _LEDarray_init ..  ]
+[; ;main.c: 29:     Comp1_init();
+[e ( _Comp1_init ..  ]
+"30
+[; ;main.c: 30:     Timer0_init();
+[e ( _Timer0_init ..  ]
 "31
-[; ;main.c: 31:     while (1) {
+[; ;main.c: 31:     LEDarray_init();
+[e ( _LEDarray_init ..  ]
+"33
+[; ;main.c: 33:     unsigned int minute = 0;
+[v _minute `ui ~T0 @X0 1 a ]
+[e = _minute -> -> 0 `i `ui ]
+"34
+[; ;main.c: 34:     unsigned int hour = 0;
+[v _hour `ui ~T0 @X0 1 a ]
+[e = _hour -> -> 0 `i `ui ]
+"35
+[; ;main.c: 35:     unsigned int day = 0;
+[v _day `ui ~T0 @X0 1 a ]
+[e = _day -> -> 0 `i `ui ]
+"38
+[; ;main.c: 38:     while (1) {
 [e :U 2017 ]
 {
-"32
-[; ;main.c: 32:   LEDarray_disp_bin(second);
-[e ( _LEDarray_disp_bin (1 _second ]
-"33
-[; ;main.c: 33:     }
+"39
+[; ;main.c: 39:         if (second == 1) {
+[e $ ! == _second -> -> 1 `i `ui 2019  ]
+{
+"40
+[; ;main.c: 40:             minute += 1;
+[e =+ _minute -> -> 1 `i `ui ]
+"41
+[; ;main.c: 41:             second = 0;
+[e = _second -> -> 0 `i `ui ]
+"42
+[; ;main.c: 42:         }
+}
+[e :U 2019 ]
+"43
+[; ;main.c: 43:         if (minute == 1) {
+[e $ ! == _minute -> -> 1 `i `ui 2020  ]
+{
+"44
+[; ;main.c: 44:             hour += 1;
+[e =+ _hour -> -> 1 `i `ui ]
+"45
+[; ;main.c: 45:             minute = 0;
+[e = _minute -> -> 0 `i `ui ]
+"46
+[; ;main.c: 46:         }
+}
+[e :U 2020 ]
+"47
+[; ;main.c: 47:         if (hour == 24){
+[e $ ! == _hour -> -> 24 `i `ui 2021  ]
+{
+"48
+[; ;main.c: 48:             day += 1;
+[e =+ _day -> -> 1 `i `ui ]
+"49
+[; ;main.c: 49:             hour = 0;
+[e = _hour -> -> 0 `i `ui ]
+"50
+[; ;main.c: 50:         }
+}
+[e :U 2021 ]
+"51
+[; ;main.c: 51:   LEDarray_disp_bin(hour);
+[e ( _LEDarray_disp_bin (1 _hour ]
+"52
+[; ;main.c: 52:     }
 }
 [e :U 2016 ]
 [e $U 2017  ]
 [e :U 2018 ]
-"34
-[; ;main.c: 34: }
+"53
+[; ;main.c: 53: }
 [e :UE 2015 ]
 }
 [v $root$_HighISR `(v ~T0 @X0 0 e ]
-"41
-[; ;main.c: 41: void __attribute__((picinterrupt(("high_priority")))) HighISR()
+"59
+[; ;main.c: 59: void __attribute__((picinterrupt(("high_priority")))) HighISR()
 [v _HighISR `(v ~T2 @X0 1 ef ]
-"42
-[; ;main.c: 42: {
+"60
+[; ;main.c: 60: {
 {
 [e :U _HighISR ]
 [f ]
-"44
-[; ;main.c: 44:     if (PIR2bits.C1IF){
-[e $ ! != -> . . _PIR2bits 0 0 `i -> 0 `i 2020  ]
+"62
+[; ;main.c: 62:     if (PIR2bits.C1IF){
+[e $ ! != -> . . _PIR2bits 0 0 `i -> 0 `i 2023  ]
 {
-"45
-[; ;main.c: 45:         LATHbits.LATH3 = !LATHbits.LATH3;
+"63
+[; ;main.c: 63:         LATHbits.LATH3 = !LATHbits.LATH3;
 [e = . . _LATHbits 0 3 -> -> ! != -> . . _LATHbits 0 3 `i -> 0 `i `i `uc ]
-"46
-[; ;main.c: 46:         PIR2bits.C1IF = 0; }
+"64
+[; ;main.c: 64:         PIR2bits.C1IF = 0; }
 [e = . . _PIR2bits 0 0 -> -> 0 `i `uc ]
 }
-[e :U 2020 ]
-"47
-[; ;main.c: 47:     if (PIR0bits.TMR0IF){
-[e $ ! != -> . . _PIR0bits 0 5 `i -> 0 `i 2021  ]
+[e :U 2023 ]
+"66
+[; ;main.c: 66:     if (PIR0bits.TMR0IF){
+[e $ ! != -> . . _PIR0bits 0 5 `i -> 0 `i 2024  ]
 {
-"48
-[; ;main.c: 48:         second += 1;
+"67
+[; ;main.c: 67:         second += 1;
 [e =+ _second -> -> 1 `i `ui ]
-"49
-[; ;main.c: 49:         PIR0bits.TMR0IF = 0; }
+"68
+[; ;main.c: 68:         PIR0bits.TMR0IF = 0; }
 [e = . . _PIR0bits 0 5 -> -> 0 `i `uc ]
 }
-[e :U 2021 ]
-"51
-[; ;main.c: 51:     }
-[e :UE 2019 ]
+[e :U 2024 ]
+"70
+[; ;main.c: 70:     }
+[e :UE 2022 ]
 }
