@@ -1,4 +1,4 @@
-// CONFIG1L
+// CONFIG1
 #pragma config FEXTOSC = HS     // External Oscillator mode Selection bits (HS (crystal oscillator) above 8 MHz; PFM set to high power)
 #pragma config RSTOSC = EXTOSC_4PLL// Power-up default value for COSC bits (EXTOSC with 4x PLL, with EXTOSC operating per FEXTOSC bits)
 
@@ -12,12 +12,16 @@
 #include "timers.h"
 
 #define _XTAL_FREQ 64000000 //note intrinsic _delay function is 62.5ns at 64,000,000Hz  
-//#define TIME 60 // Normal Mode
-#define TIME 1 // Test Mode  
+//#define TIME 60 // Normal Mode (1 min = 60 seconds, 1 hour = 60 minutes)
+#define TIME 1 // Test Mode (1 min = 1 seconds, 1 hour = 1 minutes)  
 
 
-unsigned int second = 0, sun_set = 0, sun_rise = 0, min_accu = 0, daylight = 0, daylight_pre = 0; // Global variable - second, sun_set (when LED is on), sun_rise (when LED is off), min_accu (accumulative minute)
-unsigned char minute = 0, hour = 0; summer = 1; midday = 12; // Set the minute, max minute is 60, thus use unsigned char to save memory
+// Set the second, minute and hour to 0 initially; the midday is 12 o'clock for winter time and 13 o'clock for summer time
+unsigned char second = 0, minute = 0, hour = 0, midday = 12; 
+
+// Set the min_accu (accumulative minute); sun_set (time when LED is on); sun_rise (time when LED is off);
+// daylight (daylight time); daylight_pre (daylight time of the previous day)
+unsigned int min_accu = 0, sun_set = 0, sun_rise = 0, daylight = 0, daylight_pre = 0; 
 
 void main(void) {
 	//call your initialisation functions to set up the hardware modules
@@ -26,25 +30,25 @@ void main(void) {
     LATHbits.LATH3 = 1;   // LATx registers (output latch),set the light to be on initially 
     TRISHbits.TRISH3 = 0; // TRISx registers (data direction), set TRIS value for pin (output)
     
-    Interrupts_init(); // Enable Interrupt
-    Comp1_init();// Enable Comparator
-    Timer0_init();// Enable timer0
-    LEDarray_init();// Enable LED array (from lab 2)
+    Interrupts_init();   // Enable Interrupt
+    Comp1_init();        // Enable Comparator
+    Timer0_init();       // Enable timer0
+    LEDarray_init();     // Enable LED array (from lab 2)
     
     while (1) {
         if (second == TIME) {minute += 1; min_accu += 1; second = 0;}
         if (minute == TIME) {hour += 1; minute = 0;}
         if (hour == 24) {hour = 0; min_accu = 0; sun_rise = 0; sun_set = 0;} // When time passes 12am/0am min_accu, sun_rise and sun_set is reset 
         
-        if (summer == 0){ // Summer = 0 means winter; 
-            if (daylight >= 11*TIME && daylight_pre >= 11*TIME){// At winter, if two consecutive days have a daylight time more than 11 hours, it becomes summer time
-                summer = 1;
+        if (midday == 12){ // Means winter; 
+            // At winter, if two consecutive days have a daylight time more than 11 hours, it becomes summer time
+            if (daylight >= 11*TIME && daylight_pre >= 11*TIME){
                 midday = 13; 
             }
         }
-        if (summer == 1){ //Summer = 1 means summer.
-            if (daylight < 11*TIME && daylight_pre < 11*TIME){// At summer, if two consecutive days have a daylight time less than 11 hours, it becomes winter time
-                summer = 0;
+        if (midday == 13){ //Summer = 1 means summer.
+            // At summer, if two consecutive days have a daylight time less than 11 hours, it becomes winter time
+            if (daylight < 11*TIME && daylight_pre < 11*TIME){
                 midday = 12;
             }
         }    
@@ -55,14 +59,14 @@ void main(void) {
             else {LATHbits.LATH3 = 0;} // At 5 am, if the sun rises, turn off LED
         }
         
-        
         if (sun_rise > 0 && sun_set > 0){
             daylight = sun_set - sun_rise; // Daylight time in minutes
+            second = 0;
             hour = midday + (daylight/2)/TIME; // Overwrite the current hour
             minute = (daylight/2) % TIME; // Overwrite the current minute
-            daylight_pre = daylight;
+            daylight_pre = daylight; // Store today's daylight to daylight of the previous day
             sun_rise = 0; // Clear the sun_rise time today
-            sun_set = 0; // Clear the sun_rise time today
+            sun_set = 0; // Clear the sun_set time today
         }
         
 		LEDarray_disp_bin(hour); // Current timer value

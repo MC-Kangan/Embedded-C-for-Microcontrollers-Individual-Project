@@ -24296,9 +24296,12 @@ unsigned int get16bitTMR0val(void);
 
 
 
-unsigned int second = 0, sun_set = 0, sun_rise = 0, min_accu = 0, daylight = 0, daylight_pre = 0;
-unsigned char minute = 0, hour = 0; summer = 1; midday = 12;
 
+unsigned char second = 0, minute = 0, hour = 0, midday = 12;
+
+
+
+unsigned int min_accu = 0, sun_set = 0, sun_rise = 0, daylight = 0, daylight_pre = 0;
 
 void main(void) {
 
@@ -24312,21 +24315,20 @@ void main(void) {
     Timer0_init();
     LEDarray_init();
 
-
     while (1) {
         if (second == 1) {minute += 1; min_accu += 1; second = 0;}
         if (minute == 1) {hour += 1; minute = 0;}
         if (hour == 24) {hour = 0; min_accu = 0; sun_rise = 0; sun_set = 0;}
 
-        if (summer == 0){
+        if (midday == 12){
+
             if (daylight >= 11*1 && daylight_pre >= 11*1){
-                summer = 1;
                 midday = 13;
             }
         }
-        if (summer == 1){
+        if (midday == 13){
+
             if (daylight < 11*1 && daylight_pre < 11*1){
-                summer = 0;
                 midday = 12;
             }
         }
@@ -24337,9 +24339,9 @@ void main(void) {
             else {LATHbits.LATH3 = 0;}
         }
 
-
         if (sun_rise > 0 && sun_set > 0){
             daylight = sun_set - sun_rise;
+            second = 0;
             hour = midday + (daylight/2)/1;
             minute = (daylight/2) % 1;
             daylight_pre = daylight;
