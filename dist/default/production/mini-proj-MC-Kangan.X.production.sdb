@@ -37,9 +37,9 @@
 [v _LEDarray_init LEDarray_init `(v  1 e 1 0 ]
 "39
 [v _LEDarray_disp_bin LEDarray_disp_bin `(v  1 e 1 0 ]
-"25 C:\Users\Kangan Chen\MPLABXProjects\mini-proj-MC-Kangan.X\main.c
+"24 C:\Users\Kangan Chen\MPLABXProjects\mini-proj-MC-Kangan.X\main.c
 [v _main main `(v  1 e 1 0 ]
-"62
+"67
 [v _HighISR HighISR `IIH(v  1 e 1 0 ]
 "7 C:\Users\Kangan Chen\MPLABXProjects\mini-proj-MC-Kangan.X\timers.c
 [v _Timer0_init Timer0_init `(v  1 e 1 0 ]
@@ -352,29 +352,29 @@
 [v _TMR0L TMR0L `VEuc  1 e 1 @4051 ]
 "39327
 [v _TMR0H TMR0H `VEuc  1 e 1 @4052 ]
-[s S867 . 1 `uc 1 T0OUTPS 1 0 :4:0 
+[s S869 . 1 `uc 1 T0OUTPS 1 0 :4:0 
 `uc 1 T016BIT 1 0 :1:4 
 `uc 1 T0OUT 1 0 :1:5 
 `uc 1 . 1 0 :1:6 
 `uc 1 T0EN 1 0 :1:7 
 ]
 "39601
-[s S873 . 1 `uc 1 T0OUTPS0 1 0 :1:0 
+[s S875 . 1 `uc 1 T0OUTPS0 1 0 :1:0 
 `uc 1 T0OUTPS1 1 0 :1:1 
 `uc 1 T0OUTPS2 1 0 :1:2 
 `uc 1 T0OUTPS3 1 0 :1:3 
 ]
 "39601
-[u S878 . 1 `S867 1 . 1 0 `S873 1 . 1 0 ]
+[u S880 . 1 `S869 1 . 1 0 `S875 1 . 1 0 ]
 "39601
 "39601
-[v _T0CON0bits T0CON0bits `VES878  1 e 1 @4053 ]
-[s S821 . 1 `uc 1 T0CKPS 1 0 :4:0 
+[v _T0CON0bits T0CON0bits `VES880  1 e 1 @4053 ]
+[s S823 . 1 `uc 1 T0CKPS 1 0 :4:0 
 `uc 1 T0ASYNC 1 0 :1:4 
 `uc 1 T0CS 1 0 :3:5 
 ]
 "39677
-[s S825 . 1 `uc 1 T0CKPS0 1 0 :1:0 
+[s S827 . 1 `uc 1 T0CKPS0 1 0 :1:0 
 `uc 1 T0CKPS1 1 0 :1:1 
 `uc 1 T0CKPS2 1 0 :1:2 
 `uc 1 T0CKPS3 1 0 :1:3 
@@ -384,19 +384,19 @@
 `uc 1 T0CS2 1 0 :1:7 
 ]
 "39677
-[s S834 . 1 `uc 1 T0PS0 1 0 :1:0 
+[s S836 . 1 `uc 1 T0PS0 1 0 :1:0 
 `uc 1 T0PS1 1 0 :1:1 
 `uc 1 T0PS2 1 0 :1:2 
 `uc 1 T0PS3 1 0 :1:3 
 ]
 "39677
-[s S839 . 1 `uc 1 T0PS 1 0 :4:0 
+[s S841 . 1 `uc 1 T0PS 1 0 :4:0 
 ]
 "39677
-[u S841 . 1 `S821 1 . 1 0 `S825 1 . 1 0 `S834 1 . 1 0 `S839 1 . 1 0 ]
+[u S843 . 1 `S823 1 . 1 0 `S827 1 . 1 0 `S836 1 . 1 0 `S841 1 . 1 0 ]
 "39677
 "39677
-[v _T0CON1bits T0CON1bits `VES841  1 e 1 @4054 ]
+[v _T0CON1bits T0CON1bits `VES843  1 e 1 @4054 ]
 [s S549 . 1 `uc 1 INT0EDG 1 0 :1:0 
 `uc 1 INT1EDG 1 0 :1:1 
 `uc 1 INT2EDG 1 0 :1:2 
@@ -423,16 +423,16 @@
 [v _INTCONbits INTCONbits `VES566  1 e 1 @4082 ]
 "19 C:\Users\Kangan Chen\MPLABXProjects\mini-proj-MC-Kangan.X\main.c
 [v _second second `ui  1 e 2 0 ]
+[v _sun_set sun_set `ui  1 e 2 0 ]
+[v _sun_rise sun_rise `ui  1 e 2 0 ]
+[v _min_accu min_accu `ui  1 e 2 0 ]
 "20
-[v _minute minute `ui  1 e 2 0 ]
-"21
-[v _hour hour `ui  1 e 2 0 ]
-"22
-[v _day day `ui  1 e 2 0 ]
-"25
+[v _minute minute `uc  1 e 1 0 ]
+[v _hour hour `uc  1 e 1 0 ]
+"24
 [v _main main `(v  1 e 1 0 ]
 {
-"54
+"60
 } 0
 "7 C:\Users\Kangan Chen\MPLABXProjects\mini-proj-MC-Kangan.X\timers.c
 [v _Timer0_init Timer0_init `(v  1 e 1 0 ]
@@ -465,8 +465,8 @@
 {
 "16
 } 0
-"62 C:\Users\Kangan Chen\MPLABXProjects\mini-proj-MC-Kangan.X\main.c
+"67 C:\Users\Kangan Chen\MPLABXProjects\mini-proj-MC-Kangan.X\main.c
 [v _HighISR HighISR `IIH(v  1 e 1 0 ]
 {
-"73
+"79
 } 0

@@ -24296,10 +24296,9 @@ unsigned int get16bitTMR0val(void);
 
 
 
-unsigned int second = 0;
-unsigned int minute = 0;
-unsigned int hour = 0;
-unsigned int day = 0;
+unsigned int second = 0, sun_set = 0, sun_rise = 0, min_accu = 0;
+unsigned char minute = 0, hour = 0;
+
 
 
 void main(void) {
@@ -24315,24 +24314,30 @@ void main(void) {
     LEDarray_init();
 
 
-
     while (1) {
-        if (second == 1) {minute += 1; second = 0;}
+        if (second == 1) {minute += 1; min_accu += 1; second = 0;}
         if (minute == 1) {hour += 1; minute = 0;}
-        if (hour == 24) {day += 1; hour = 0;}
+        if (hour == 24) {hour = 0; min_accu = 0; sun_rise = 0; sun_set = 0;}
 
         if ((hour >= 1) && (hour < 5)){LATHbits.LATH3 = 0;}
-        if (hour == 5){
+        else if (hour == 5){
             if (CMOUTbits.MC1OUT == 1){LATHbits.LATH3 = 1;}
             else {LATHbits.LATH3 = 0;}
         }
 
-  LEDarray_disp_bin(hour);
+        if (sun_rise > 0 && sun_set > 0){
 
+            hour = 12 + ((sun_set - sun_rise)/2)/1;
+            minute = ((sun_set - sun_rise)/2) % 1;
+            sun_rise = 0;
+            sun_set = 0;
+
+        }
+
+  LEDarray_disp_bin(hour);
     }
 
 }
-
 
 
 
@@ -24344,6 +24349,7 @@ void __attribute__((picinterrupt(("high_priority")))) HighISR()
 
     if (PIR2bits.C1IF){
         LATHbits.LATH3 = !LATHbits.LATH3;
+        if (LATHbits.LATH3){sun_set = min_accu;} else {sun_rise = min_accu;}
         PIR2bits.C1IF = 0; }
 
     if (PIR0bits.TMR0IF){

@@ -16,10 +16,9 @@
 #define TIME 1 // Test Mode  
 
 
-unsigned int second = 0; // Global variable - second
-unsigned int minute = 0; // Set the minute
-unsigned int hour = 0; // Set the hour
-unsigned int day = 0; // Set the day
+unsigned int second = 0, sun_set = 0, sun_rise = 0, min_accu = 0; // Global variable - second, sun_set (when LED is on), sun_rise (when LED is off), min_accu (accumulative minute)
+unsigned char minute = 0, hour = 0; // Set the minute, max minute is 60, thus use unsigned char to save memory
+//unsigned char hour = 0; // Set the hour, max hour is 24, thus use unsigned char to save memory
 
 
 void main(void) {
@@ -33,26 +32,32 @@ void main(void) {
     Comp1_init();// Enable Comparator
     Timer0_init();// Enable timer0
     LEDarray_init();// Enable LED array (from lab 2)
-    
-     //else {LATHbits.LATH3 = 1;}
    
+    
     while (1) {
-        if (second == TIME) {minute += 1; second = 0;}
+        if (second == TIME) {minute += 1; min_accu += 1; second = 0;}
         if (minute == TIME) {hour += 1; minute = 0;}
-        if (hour == 24) {day += 1; hour = 0;}
-
+        if (hour == 24) {hour = 0; min_accu = 0; sun_rise = 0; sun_set = 0;} // When time passes 12am/0am min_accu, sun_rise and sun_set is reset 
+      
         if ((hour >= 1) && (hour < 5)){LATHbits.LATH3 = 0;} // During 1 am to 5 am, turn off LED
-        if (hour == 5){ 
+        else if (hour == 5){ 
             if (CMOUTbits.MC1OUT == 1){LATHbits.LATH3 = 1;} // At 5 am, if the surrounding environment is still dark, turn on LED (Check the comparator output pin)
             else {LATHbits.LATH3 = 0;} // At 5 am, if the sun rises, turn off LED
         }
-        //&& CMOUTbits.MC1OUT
-		LEDarray_disp_bin(hour); // Current timer value
         
+        if (sun_rise > 0 && sun_set > 0){
+            
+            hour = 12 + ((sun_set - sun_rise)/2)/TIME; // Overwrite the current hour
+            minute = ((sun_set - sun_rise)/2) % TIME; // Overwrite the current minute
+            sun_rise = 0;
+            sun_set = 0;
+                   
+        }
+            
+		LEDarray_disp_bin(hour); // Current timer value
     }
     
 }
-
 
 
 /************************************
@@ -64,6 +69,7 @@ void __interrupt(high_priority) HighISR()
 	//add your ISR code here i.e. check the flag, do something (i.e. toggle an LED), clear the flag...	
     if (PIR2bits.C1IF){ // if C1IF ==1        //check the interrupt source for the comparator; When surrounding light is dark, turn on LED; vice versa.
         LATHbits.LATH3 = !LATHbits.LATH3;     //toggle LED (same procedure as lab-1)
+        if (LATHbits.LATH3){sun_set = min_accu;} else {sun_rise = min_accu;}    // After the toggle, if LED is on, means sun set; if LED is off, means sun rise
         PIR2bits.C1IF = 0; }                  //clear the interrupt flag!
    
     if (PIR0bits.TMR0IF){ // if TMR0IF ==1    //check the interrupt source for the timer, if overflow occur
