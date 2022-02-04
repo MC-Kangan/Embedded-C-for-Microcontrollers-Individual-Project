@@ -2130,123 +2130,105 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 2017 ]
 {
 "40
-[; ;main.c: 40:         if (second == 1) {
+[; ;main.c: 40:         if (second == 1) {minute += 1; second = 0;}
 [e $ ! == _second -> -> 1 `i `ui 2019  ]
 {
-"41
-[; ;main.c: 41:             minute += 1;
 [e =+ _minute -> -> 1 `i `ui ]
-"42
-[; ;main.c: 42:             second = 0;
 [e = _second -> -> 0 `i `ui ]
-"43
-[; ;main.c: 43:         }
 }
 [e :U 2019 ]
-"44
-[; ;main.c: 44:         if (minute == 1) {
+"41
+[; ;main.c: 41:         if (minute == 1) {hour += 1; minute = 0;}
 [e $ ! == _minute -> -> 1 `i `ui 2020  ]
 {
-"45
-[; ;main.c: 45:             hour += 1;
 [e =+ _hour -> -> 1 `i `ui ]
-"46
-[; ;main.c: 46:             minute = 0;
 [e = _minute -> -> 0 `i `ui ]
-"47
-[; ;main.c: 47:         }
 }
 [e :U 2020 ]
-"48
-[; ;main.c: 48:         if (hour == 24) {
+"42
+[; ;main.c: 42:         if (hour == 24) {day += 1; hour = 0;}
 [e $ ! == _hour -> -> 24 `i `ui 2021  ]
 {
-"49
-[; ;main.c: 49:             day += 1;
 [e =+ _day -> -> 1 `i `ui ]
-"50
-[; ;main.c: 50:             hour = 0;
 [e = _hour -> -> 0 `i `ui ]
-"51
-[; ;main.c: 51:         }
 }
 [e :U 2021 ]
-"52
-[; ;main.c: 52:         if ((hour >= 1) && (hour < 5)){LATHbits.LATH3 = 0;}
+"44
+[; ;main.c: 44:         if ((hour >= 1) && (hour < 5)){LATHbits.LATH3 = 0;}
 [e $ ! && >= _hour -> -> 1 `i `ui < _hour -> -> 5 `i `ui 2022  ]
 {
 [e = . . _LATHbits 0 3 -> -> 0 `i `uc ]
 }
 [e :U 2022 ]
-"53
-[; ;main.c: 53:         if (hour == 5){
+"45
+[; ;main.c: 45:         if (hour == 5){
 [e $ ! == _hour -> -> 5 `i `ui 2023  ]
 {
-"54
-[; ;main.c: 54:             if (CMOUTbits.MC1OUT == 1){LATHbits.LATH3 = 1;}
+"46
+[; ;main.c: 46:             if (CMOUTbits.MC1OUT == 1){LATHbits.LATH3 = 1;}
 [e $ ! == -> . . _CMOUTbits 0 0 `i -> 1 `i 2024  ]
 {
 [e = . . _LATHbits 0 3 -> -> 1 `i `uc ]
 }
 [e $U 2025  ]
-"55
-[; ;main.c: 55:             else {LATHbits.LATH3 = 0;}
+"47
+[; ;main.c: 47:             else {LATHbits.LATH3 = 0;}
 [e :U 2024 ]
 {
 [e = . . _LATHbits 0 3 -> -> 0 `i `uc ]
 }
 [e :U 2025 ]
-"56
-[; ;main.c: 56:         }
+"48
+[; ;main.c: 48:         }
 }
 [e :U 2023 ]
-"58
-[; ;main.c: 58:   LEDarray_disp_bin(hour);
+"50
+[; ;main.c: 50:   LEDarray_disp_bin(hour);
 [e ( _LEDarray_disp_bin (1 _hour ]
-"60
-[; ;main.c: 60:     }
+"52
+[; ;main.c: 52:     }
 }
 [e :U 2016 ]
 [e $U 2017  ]
 [e :U 2018 ]
-"62
-[; ;main.c: 62: }
+"54
+[; ;main.c: 54: }
 [e :UE 2015 ]
 }
 [v $root$_HighISR `(v ~T0 @X0 0 e ]
-"68
-[; ;main.c: 68: void __attribute__((picinterrupt(("high_priority")))) HighISR()
+"62
+[; ;main.c: 62: void __attribute__((picinterrupt(("high_priority")))) HighISR()
 [v _HighISR `(v ~T2 @X0 1 ef ]
-"69
-[; ;main.c: 69: {
+"63
+[; ;main.c: 63: {
 {
 [e :U _HighISR ]
 [f ]
-"71
-[; ;main.c: 71:     if (PIR2bits.C1IF){
+"65
+[; ;main.c: 65:     if (PIR2bits.C1IF){
 [e $ ! != -> . . _PIR2bits 0 0 `i -> 0 `i 2027  ]
 {
-"73
-[; ;main.c: 73:         LATHbits.LATH3 = !LATHbits.LATH3;
+"66
+[; ;main.c: 66:         LATHbits.LATH3 = !LATHbits.LATH3;
 [e = . . _LATHbits 0 3 -> -> ! != -> . . _LATHbits 0 3 `i -> 0 `i `i `uc ]
-"74
-[; ;main.c: 74:         PIR2bits.C1IF = 0; }
+"67
+[; ;main.c: 67:         PIR2bits.C1IF = 0; }
 [e = . . _PIR2bits 0 0 -> -> 0 `i `uc ]
 }
 [e :U 2027 ]
-"76
-[; ;main.c: 76:     if (PIR0bits.TMR0IF){
+"69
+[; ;main.c: 69:     if (PIR0bits.TMR0IF){
 [e $ ! != -> . . _PIR0bits 0 5 `i -> 0 `i 2028  ]
 {
-"77
-[; ;main.c: 77:         second += 1;
+"70
+[; ;main.c: 70:         second += 1;
 [e =+ _second -> -> 1 `i `ui ]
-"78
-[; ;main.c: 78:         PIR0bits.TMR0IF = 0; }
+"71
+[; ;main.c: 71:         PIR0bits.TMR0IF = 0; }
 [e = . . _PIR0bits 0 5 -> -> 0 `i `uc ]
 }
 [e :U 2028 ]
-"80
-[; ;main.c: 80:     }
+"73
+[; ;main.c: 73:     }
 [e :UE 2026 ]
 }

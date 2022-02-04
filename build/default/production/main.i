@@ -24317,18 +24317,10 @@ void main(void) {
 
 
     while (1) {
-        if (second == 1) {
-            minute += 1;
-            second = 0;
-        }
-        if (minute == 1) {
-            hour += 1;
-            minute = 0;
-        }
-        if (hour == 24) {
-            day += 1;
-            hour = 0;
-        }
+        if (second == 1) {minute += 1; second = 0;}
+        if (minute == 1) {hour += 1; minute = 0;}
+        if (hour == 24) {day += 1; hour = 0;}
+
         if ((hour >= 1) && (hour < 5)){LATHbits.LATH3 = 0;}
         if (hour == 5){
             if (CMOUTbits.MC1OUT == 1){LATHbits.LATH3 = 1;}
@@ -24345,11 +24337,12 @@ void main(void) {
 
 
 
+
+
 void __attribute__((picinterrupt(("high_priority")))) HighISR()
 {
 
     if (PIR2bits.C1IF){
-
         LATHbits.LATH3 = !LATHbits.LATH3;
         PIR2bits.C1IF = 0; }
 

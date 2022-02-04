@@ -37,22 +37,14 @@ void main(void) {
      //else {LATHbits.LATH3 = 1;}
    
     while (1) {
-        if (second == TIME) { 
-            minute += 1; 
-            second = 0;
-        }
-        if (minute == TIME) {
-            hour += 1;
-            minute = 0;
-        }
-        if (hour == 24) {
-            day += 1;
-            hour = 0;
-        }
-        if ((hour >= 1) && (hour < 5)){LATHbits.LATH3 = 0;}
-        if (hour == 5){
-            if (CMOUTbits.MC1OUT == 1){LATHbits.LATH3 = 1;} 
-            else {LATHbits.LATH3 = 0;}
+        if (second == TIME) {minute += 1; second = 0;}
+        if (minute == TIME) {hour += 1; minute = 0;}
+        if (hour == 24) {day += 1; hour = 0;}
+
+        if ((hour >= 1) && (hour < 5)){LATHbits.LATH3 = 0;} // During 1 am to 5 am, turn off LED
+        if (hour == 5){ 
+            if (CMOUTbits.MC1OUT == 1){LATHbits.LATH3 = 1;} // At 5 am, if the surrounding environment is still dark, turn on LED (Check the comparator output pin)
+            else {LATHbits.LATH3 = 0;} // At 5 am, if the sun rises, turn off LED
         }
         //&& CMOUTbits.MC1OUT
 		LEDarray_disp_bin(hour); // Current timer value
@@ -60,6 +52,8 @@ void main(void) {
     }
     
 }
+
+
 
 /************************************
  * High priority interrupt service routine
@@ -69,7 +63,6 @@ void __interrupt(high_priority) HighISR()
 {
 	//add your ISR code here i.e. check the flag, do something (i.e. toggle an LED), clear the flag...	
     if (PIR2bits.C1IF){ // if C1IF ==1        //check the interrupt source for the comparator; When surrounding light is dark, turn on LED; vice versa.
-        
         LATHbits.LATH3 = !LATHbits.LATH3;     //toggle LED (same procedure as lab-1)
         PIR2bits.C1IF = 0; }                  //clear the interrupt flag!
    
