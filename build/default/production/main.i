@@ -24296,9 +24296,8 @@ unsigned int get16bitTMR0val(void);
 
 
 
-unsigned int second = 0, sun_set = 0, sun_rise = 0, min_accu = 0;
-unsigned char minute = 0, hour = 0;
-
+unsigned int second = 0, sun_set = 0, sun_rise = 0, min_accu = 0, daylight = 0, daylight_pre = 0;
+unsigned char minute = 0, hour = 0; summer = 1; midday = 12;
 
 
 void main(void) {
@@ -24319,19 +24318,33 @@ void main(void) {
         if (minute == 1) {hour += 1; minute = 0;}
         if (hour == 24) {hour = 0; min_accu = 0; sun_rise = 0; sun_set = 0;}
 
+        if (summer == 0){
+            if (daylight >= 11*1 && daylight_pre >= 11*1){
+                summer = 1;
+                midday = 13;
+            }
+        }
+        if (summer == 1){
+            if (daylight < 11*1 && daylight_pre < 11*1){
+                summer = 0;
+                midday = 12;
+            }
+        }
+
         if ((hour >= 1) && (hour < 5)){LATHbits.LATH3 = 0;}
         else if (hour == 5){
             if (CMOUTbits.MC1OUT == 1){LATHbits.LATH3 = 1;}
             else {LATHbits.LATH3 = 0;}
         }
 
-        if (sun_rise > 0 && sun_set > 0){
 
-            hour = 12 + ((sun_set - sun_rise)/2)/1;
-            minute = ((sun_set - sun_rise)/2) % 1;
+        if (sun_rise > 0 && sun_set > 0){
+            daylight = sun_set - sun_rise;
+            hour = midday + (daylight/2)/1;
+            minute = (daylight/2) % 1;
+            daylight_pre = daylight;
             sun_rise = 0;
             sun_set = 0;
-
         }
 
   LEDarray_disp_bin(hour);
