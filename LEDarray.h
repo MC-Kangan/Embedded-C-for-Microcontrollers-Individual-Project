@@ -1,3 +1,10 @@
+/* 
+ * File:   LEDarray.h
+ * Author: Kangan Chen
+ *
+ * Created on February 5, 2022, 12:00 AM
+ */
+
 #ifndef _LEDarray_H
 #define _LEDarray_H
 

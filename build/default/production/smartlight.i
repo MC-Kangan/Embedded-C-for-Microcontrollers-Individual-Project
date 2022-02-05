@@ -24236,8 +24236,7 @@ unsigned char __t3rd16on(void);
 unsigned char daylight_saving_time (unsigned char midday, unsigned int daylight, unsigned int daylight_pre);
 void one_to_five(unsigned char hour);
 # 2 "smartlight.c" 2
-
-
+# 13 "smartlight.c"
 unsigned char daylight_saving_time (unsigned char midday, unsigned int daylight, unsigned int daylight_pre){
     if (midday == 12){
 
@@ -24253,7 +24252,7 @@ unsigned char daylight_saving_time (unsigned char midday, unsigned int daylight,
     }
     return midday;
 }
-
+# 37 "smartlight.c"
 void one_to_five(unsigned char hour){
     if ((hour >= 1) && (hour < 5)){LATHbits.LATH3 = 0;}
     else if (hour == 5){

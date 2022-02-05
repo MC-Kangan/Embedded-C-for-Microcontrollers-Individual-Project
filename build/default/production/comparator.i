@@ -24232,13 +24232,7 @@ unsigned char __t3rd16on(void);
 # 1 "comparator.c" 2
 
 # 1 "./comparator.h" 1
-
-
-
-
-
-
-
+# 15 "./comparator.h"
 void DAC_init(void);
 void Comp1_init(void);
 # 2 "comparator.c" 2

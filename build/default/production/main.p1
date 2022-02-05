@@ -42,17 +42,17 @@ Version 4.0 HI-TECH Software Intermediate Code
 "30072
 [; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 30072: extern volatile TRISHbits_t TRISHbits __attribute__((address(0xF88)));
 [v _TRISHbits `VS1391 ~T0 @X0 0 e@3976 ]
-"8 ./interrupts.h
-[; ;./interrupts.h: 8: void Interrupts_init(void);
+"15 ./interrupts.h
+[; ;./interrupts.h: 15: void Interrupts_init(void);
 [v _Interrupts_init `(v ~T0 @X0 0 ef ]
-"9 ./comparator.h
-[; ;./comparator.h: 9: void Comp1_init(void);
+"16 ./comparator.h
+[; ;./comparator.h: 16: void Comp1_init(void);
 [v _Comp1_init `(v ~T0 @X0 0 ef ]
-"8 ./timers.h
-[; ;./timers.h: 8: void Timer0_init(void);
+"15 ./timers.h
+[; ;./timers.h: 15: void Timer0_init(void);
 [v _Timer0_init `(v ~T0 @X0 0 ef ]
-"9 ./LEDarray.h
-[; ;./LEDarray.h: 9: void LEDarray_init(void);
+"16 ./LEDarray.h
+[; ;./LEDarray.h: 16: void LEDarray_init(void);
 [v _LEDarray_init `(v ~T0 @X0 0 ef ]
 "16 ./smartlight.h
 [; ;./smartlight.h: 16: unsigned char daylight_saving_time (unsigned char midday, unsigned int daylight, unsigned int daylight_pre);
@@ -60,8 +60,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "17
 [; ;./smartlight.h: 17: void one_to_five(unsigned char hour);
 [v _one_to_five `(v ~T0 @X0 0 ef1`uc ]
-"10 ./LEDarray.h
-[; ;./LEDarray.h: 10: void LEDarray_disp_bin(unsigned int number);
+"17 ./LEDarray.h
+[; ;./LEDarray.h: 17: void LEDarray_disp_bin(unsigned int number);
 [v _LEDarray_disp_bin `(v ~T0 @X0 0 ef1`ui ]
 [t ~ __interrupt . k ]
 [t T2 __interrupt high_priority ]
@@ -2072,7 +2072,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 40928: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
 "21 main.c
-[; ;main.c: 21: unsigned char second = 0, minute = 0, hour = 0, midday = 13;
+[; ;main.c: 21: unsigned char second = 0, minute = 0, hour = 0, midday = 12;
 [v _second `uc ~T0 @X0 1 e ]
 [i _second
 -> -> 0 `i `uc
@@ -2087,7 +2087,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 ]
 [v _midday `uc ~T0 @X0 1 e ]
 [i _midday
--> -> 13 `i `uc
+-> -> 12 `i `uc
 ]
 "25
 [; ;main.c: 25: unsigned int min_accu = 0, sun_set = 0, sun_rise = 0, daylight = 0, daylight_pre = 0;
@@ -2174,8 +2174,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 46:         one_to_five(hour);
 [e ( _one_to_five (1 _hour ]
 "48
-[; ;main.c: 48:         if (sun_rise > 0 && sun_set > 0){
-[e $ ! && > _sun_rise -> -> 0 `i `ui > _sun_set -> -> 0 `i `ui 2022  ]
+[; ;main.c: 48:         if (sun_rise > 0 && sun_set > 0 && sun_set > sun_rise){
+[e $ ! && && > _sun_rise -> -> 0 `i `ui > _sun_set -> -> 0 `i `ui > _sun_set _sun_rise 2022  ]
 {
 "49
 [; ;main.c: 49:             daylight = sun_set - sun_rise;
@@ -2230,23 +2230,23 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :UE 2015 ]
 }
 [v $root$_HighISR `(v ~T0 @X0 0 e ]
-"71
-[; ;main.c: 71: void __attribute__((picinterrupt(("high_priority")))) HighISR()
+"70
+[; ;main.c: 70: void __attribute__((picinterrupt(("high_priority")))) HighISR()
 [v _HighISR `(v ~T2 @X0 1 ef ]
-"72
-[; ;main.c: 72: {
+"71
+[; ;main.c: 71: {
 {
 [e :U _HighISR ]
 [f ]
-"74
-[; ;main.c: 74:     if (PIR2bits.C1IF){
+"73
+[; ;main.c: 73:     if (PIR2bits.C1IF){
 [e $ ! != -> . . _PIR2bits 0 0 `i -> 0 `i 2026  ]
 {
-"75
-[; ;main.c: 75:         LATHbits.LATH3 = !LATHbits.LATH3;
+"74
+[; ;main.c: 74:         LATHbits.LATH3 = !LATHbits.LATH3;
 [e = . . _LATHbits 0 3 -> -> ! != -> . . _LATHbits 0 3 `i -> 0 `i `i `uc ]
-"76
-[; ;main.c: 76:         if (LATHbits.LATH3){sun_set = min_accu;} else {sun_rise = min_accu;}
+"75
+[; ;main.c: 75:         if (LATHbits.LATH3){sun_set = min_accu;} else {sun_rise = min_accu;}
 [e $ ! != -> . . _LATHbits 0 3 `i -> 0 `i 2027  ]
 {
 [e = _sun_set _min_accu ]
@@ -2257,24 +2257,24 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _sun_rise _min_accu ]
 }
 [e :U 2028 ]
-"77
-[; ;main.c: 77:         PIR2bits.C1IF = 0; }
+"76
+[; ;main.c: 76:         PIR2bits.C1IF = 0; }
 [e = . . _PIR2bits 0 0 -> -> 0 `i `uc ]
 }
 [e :U 2026 ]
-"79
-[; ;main.c: 79:     if (PIR0bits.TMR0IF){
+"78
+[; ;main.c: 78:     if (PIR0bits.TMR0IF){
 [e $ ! != -> . . _PIR0bits 0 5 `i -> 0 `i 2029  ]
 {
-"80
-[; ;main.c: 80:         second += 1;
+"79
+[; ;main.c: 79:         second += 1;
 [e =+ _second -> -> 1 `i `uc ]
-"81
-[; ;main.c: 81:         PIR0bits.TMR0IF = 0; }
+"80
+[; ;main.c: 80:         PIR0bits.TMR0IF = 0; }
 [e = . . _PIR0bits 0 5 -> -> 0 `i `uc ]
 }
 [e :U 2029 ]
-"83
-[; ;main.c: 83: }
+"82
+[; ;main.c: 82: }
 [e :UE 2025 ]
 }

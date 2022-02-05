@@ -24240,14 +24240,7 @@ unsigned char __t3rd16on(void);
 # 8 "main.c" 2
 
 # 1 "./LEDarray.h" 1
-
-
-
-
-
-
-
-
+# 16 "./LEDarray.h"
 void LEDarray_init(void);
 void LEDarray_disp_bin(unsigned int number);
 void LEDarray_disp_dec(unsigned int number);
@@ -24255,37 +24248,19 @@ void LEDarray_disp_PPM(unsigned int number, unsigned int max);
 # 9 "main.c" 2
 
 # 1 "./interrupts.h" 1
-
-
-
-
-
-
-
+# 15 "./interrupts.h"
 void Interrupts_init(void);
 void __attribute__((picinterrupt(("high_priority")))) HighISR();
 # 10 "main.c" 2
 
 # 1 "./comparator.h" 1
-
-
-
-
-
-
-
+# 15 "./comparator.h"
 void DAC_init(void);
 void Comp1_init(void);
 # 11 "main.c" 2
 
 # 1 "./timers.h" 1
-
-
-
-
-
-
-
+# 15 "./timers.h"
 void Timer0_init(void);
 unsigned int get16bitTMR0val(void);
 # 12 "main.c" 2
@@ -24303,7 +24278,7 @@ void one_to_five(unsigned char hour);
 
 
 
-unsigned char second = 0, minute = 0, hour = 0, midday = 13;
+unsigned char second = 0, minute = 0, hour = 0, midday = 12;
 
 
 
@@ -24330,7 +24305,7 @@ void main(void) {
         midday = daylight_saving_time(midday, daylight, daylight_pre);
         one_to_five(hour);
 
-        if (sun_rise > 0 && sun_set > 0){
+        if (sun_rise > 0 && sun_set > 0 && sun_set > sun_rise){
             daylight = sun_set - sun_rise;
             if (4 * 1 < daylight){
                 hour = midday + (daylight/2)/1;
@@ -24347,7 +24322,6 @@ void main(void) {
     }
 
 }
-
 
 
 

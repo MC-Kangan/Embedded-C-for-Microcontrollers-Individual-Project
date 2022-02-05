@@ -24232,13 +24232,7 @@ unsigned char __t3rd16on(void);
 # 1 "interrupts.c" 2
 
 # 1 "./interrupts.h" 1
-
-
-
-
-
-
-
+# 15 "./interrupts.h"
 void Interrupts_init(void);
 void __attribute__((picinterrupt(("high_priority")))) HighISR();
 # 2 "interrupts.c" 2

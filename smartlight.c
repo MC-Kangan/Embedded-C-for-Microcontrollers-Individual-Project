@@ -1,6 +1,15 @@
 #include <xc.h>
 #include "smartlight.h"
 
+/************************************
+/ daylight_saving_time
+/ Function used to adjust the daylight saving time of the program. The fuction will check the daylight of two consecutive days 
+/ and determine whether it is winter time (midday = 12) or summer time (midday = 13)
+
+/ Arguments: midday, daylight, daylight_pre
+/ Return: midday 
+************************************/
+
 unsigned char daylight_saving_time (unsigned char midday, unsigned int daylight, unsigned int daylight_pre){
     if (midday == 12){ // Means winter time 
         // At winter, if two consecutive days have a daylight time more than 11 hours, it becomes summer time
@@ -16,6 +25,13 @@ unsigned char daylight_saving_time (unsigned char midday, unsigned int daylight,
     }
     return midday;
 }    
+
+/************************************
+/ one_to_five
+/ Function used to switch off the LED between 1 am to 5 am, despite the surrounding lighting conditions.
+
+/ Arguments: hour
+************************************/
 
 void one_to_five(unsigned char hour){
     if ((hour >= 1) && (hour < 5)){LATHbits.LATH3 = 0;} // During 1 am to 5 am, turn off LED

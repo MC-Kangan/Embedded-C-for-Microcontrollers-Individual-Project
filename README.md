@@ -113,6 +113,17 @@ LED will show 17, 18, 19, 20, 21 ...
 
 Since both two days have a daylight time < 11h, the midday on the 2nd day will be shifted to 12 due to the transition to winter time.
 
+----------------------------------------------------------------------------------
+Test 4 (Additional Features)
+
+Due to error, if the daylight time is less than 4 hours, the daylight time will be assumed to be the same as the previous day
+and time correction will not happen.
+
+- Uncover at 8
+- Cover at 10
+
+LED will show 10, 11, 12, 13, 14 ... (Unaffected)
+
 
 
 

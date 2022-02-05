@@ -14,14 +14,11 @@ void Interrupts_init(void)
 	// turn on global interrupts, peripheral interrupts and the interrupt source 
 	// It's a good idea to turn on global interrupts last, once all other interrupt configuration is done.
     INTCONbits.IPEN = 1; // Enable priority levels on interrupts
-    INTCONbits.GIEL = 1;// Enable peripheral interrupts (PEIE also ok, see datasheet P209)
+    INTCONbits.GIEL = 1; // Enable peripheral interrupts (PEIE also ok, see datasheet P209)
     PIE0bits.TMR0IE = 1; // Turn on Timer0 TMR0 interrupt source (From datasheet P222)
-    // INTCONbits.INT0EDG = 0; // Interrupt on falling edge of INT0 pin
-    // PIR0bits. INT0IF = 0; // Clear the interrupt flag
-    // IRP0 = 0b00000001; // External Interrupt INT0 set to low priority
-    PIE2bits.C1IE = 1; // From instruction: To make use of the comparator interrupt you need to enable it by setting C1IE in the PIE2 register 
-                       // and check the C1IF bit in PIR2 in your ISR.(From datasheet P224)
-    INTCONbits.GIE=1; 	//Turn on interrupts globally (when this is off, all interrupts are deactivated)
+    PIE2bits.C1IE = 1;   // From instruction: To make use of the comparator interrupt you need to enable it by setting C1IE in the PIE2 register 
+                         // and check the C1IF bit in PIR2 in your ISR.(From datasheet P224)
+    INTCONbits.GIE=1; 	 //Turn on interrupts globally (when this is off, all interrupts are deactivated)
 }
 
 

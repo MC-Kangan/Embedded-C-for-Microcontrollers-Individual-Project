@@ -18,7 +18,7 @@
 
 
 // Set the second, minute and hour to 0 initially; the midday is 12 o'clock for winter time and 13 o'clock for summer time
-unsigned char second = 0, minute = 0, hour = 0, midday = 13; 
+unsigned char second = 0, minute = 0, hour = 0, midday = 12; 
 
 // Set the min_accu (accumulative minute); sun_set (time when LED is on); sun_rise (time when LED is off);
 // daylight (daylight time); daylight_pre (daylight time of the previous day)
@@ -31,10 +31,10 @@ void main(void) {
     LATHbits.LATH3 = 1;   // LATx registers (output latch),set the light to be on initially 
     TRISHbits.TRISH3 = 0; // TRISx registers (data direction), set TRIS value for pin (output)
     
-    Interrupts_init();   // Enable Interrupt
-    Comp1_init();        // Enable Comparator
-    Timer0_init();       // Enable timer0
-    LEDarray_init();     // Enable LED array (from lab 2)
+    Interrupts_init();    // Enable Interrupt
+    Comp1_init();         // Enable Comparator
+    Timer0_init();        // Enable timer0
+    LEDarray_init();      // Enable LED array (from lab 2)
     
     
     while (1) {
@@ -42,19 +42,19 @@ void main(void) {
         if (minute == TIME) {hour += 1; minute = 0;}
         if (hour == 24) {hour = 0; min_accu = 0; sun_rise = 0; sun_set = 0;} // When time passes 12am/0am min_accu, sun_rise and sun_set is reset 
         
-        midday = daylight_saving_time(midday, daylight, daylight_pre);
+        midday = daylight_saving_time(midday, daylight, daylight_pre);       
         one_to_five(hour);
        
-        if (sun_rise > 0 && sun_set > 0){
-            daylight = sun_set - sun_rise; // Daylight time in minutes
-            if (4 * TIME < daylight){ // Typical daylight length should be greater than 4 hours, otherwise, it could be an error
+        if (sun_rise > 0 && sun_set > 0 && sun_set > sun_rise){
+            daylight = sun_set - sun_rise;         // Daylight time in minutes
+            if (4 * TIME < daylight){              // Typical daylight length should be greater than 4 hours, otherwise, it could be an error
                 hour = midday + (daylight/2)/TIME; // Overwrite the current hour (Take the quotient of the division as the hour)
-                minute = (daylight/2) % TIME; // Overwrite the current minute (Take the remainder of the division as the minute)
-                daylight_pre = daylight; // Store today's daylight to daylight of the previous day
-                sun_rise = 0; // Clear the sun_rise time today
-                sun_set = 0; // Clear the sun_set time today
+                minute = (daylight/2) % TIME;      // Overwrite the current minute (Take the remainder of the division as the minute)
+                daylight_pre = daylight;           // Store today's daylight to daylight of the previous day
+                sun_rise = 0;                      // Clear the sun_rise time today
+                sun_set = 0;                       // Clear the sun_set time today
             }else{
-                daylight = daylight_pre; // If the daylight time is less than 4 hour, let daylight = daylight_pre 
+                daylight = daylight_pre;           // If the daylight time is less than 4 hour, let daylight = daylight_pre 
             }
         }
       
@@ -62,7 +62,6 @@ void main(void) {
     }
     
 }
-
 
 /************************************
  * High priority interrupt service routine

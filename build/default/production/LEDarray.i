@@ -24232,14 +24232,7 @@ unsigned char __t3rd16on(void);
 # 1 "LEDarray.c" 2
 
 # 1 "./LEDarray.h" 1
-
-
-
-
-
-
-
-
+# 16 "./LEDarray.h"
 void LEDarray_init(void);
 void LEDarray_disp_bin(unsigned int number);
 void LEDarray_disp_dec(unsigned int number);

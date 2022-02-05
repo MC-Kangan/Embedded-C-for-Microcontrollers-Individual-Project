@@ -1,3 +1,10 @@
+/* 
+ * File:   comparator.h
+ * Author: Kangan Chen
+ *
+ * Created on February 5, 2022, 12:00 AM
+ */
+
 #ifndef _comparator_H
 #define _comparator_H
 
