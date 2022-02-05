@@ -21,9 +21,10 @@ Design and program a device that meets the following requirements:
 
 Please use this GitHub repo to manage your software development and submit your individual project code.
 
-## Functionality
 
-1. The program has two mode, test and normal mode. In the Test mode, each hour will be displayed in seconds on the LED array(1h = 1s). 
+## Program Setup Guild
+
+1. The program has two modes, Test and Normal mode. In the Test mode, each hour will be displayed in seconds on the LED array(1h = 1s). 
 In the Normal mode, each hour will be displayed in actual hours on the LED array (1h = 3600s).
 
 2. Before running the program, the user has to input the current time into the variable 'hour' and 'minute', the default timing is 0:00. 
@@ -31,12 +32,47 @@ After initialising the program, the program is able to synchronise with the sun 
 to input the 'midday' variable to implement the adjustment for Daylight Saving Time. The 'midday' variable only takes two values: 12 and 13.
 The solar midday is 12 o'clock in winter time and 13 o'clock in summer time. By default, 'midday' is 12.
 
-3. This program is able to turn on the LED when the surrounding environment is dark and turn off the LED when the surrounding environment is 
-bright
+3. Once the program is correctly setup, the program is able to fulfill all the requirements in the specification.
 
-By default, midday = 12 (winter time). 
 
 ## Methodology 
+
+1. Timing 
+[Relevant files: timers.c/timers.h/interrupts.c/interrupts.h/main.c]
+The timing is achieved by an ISR (Interrupt Service Routine). The 16-bit Timer0 is setup to achieve overflow in every second by employing the same
+methodology in Lab 3 Exercise 2.3. Every second, when timer overflows, the ISR will be waken and plus 1 second to the 'second' variable. In the Normal
+mode, as the 'second' variable increases to 60, this variable will be cleared to 0 and the 'minute' variable will plus one. The 'hour' variable will
+increment in the similar way. The timing will be displayed on the LED array in binary.
+
+2. Light sensing
+[Relevant files: interrupts.c/interrupts.h/comparator.c/comparator.h/main.c]
+The light sensing is also achieved by an ISR (Interrupt Service Routine) by using the comparator. Interrupt flag will be set on both the postive and
+negative edge of the comparator. The interrupt will trigger the ISR to toggle the LED. 
+
+3. Energy saving from 1 to 5 am
+[Relevant files: smartlight.c/smartlight.h/main.c]
+A function called 'one_to_five' is defined in document 'smartlight.c'. The functions will turn off the LED between 1 am to 5 am, despite the surrounding 
+lighting condition. At 5 am, the comparator output is checked. If the surrounding is dark, the LED will turn on and if the surrounding is bright, the LED
+will remain off. At summer time, sun rise is possible to take place at 5 am. 
+
+4. Adjusting the time by synchronising with the sun light 
+[Relevant files: main.c]
+Every day at 0 o'clock, variable 'min_accu' will start counting the accumulative minutes from 0. When the LED is toggled, the accumulative timing will be recorded 
+in variables 'sun_set' and 'sun_rise', which are initially set to 0. After toggling, if the LED switches from off to on, the 'min_accu' will be recorded to 'sun_set', 
+as the LED only turns on when the surrounding is dark; If the LED switches from on to off, the timing will be recorded to 'sun_rise' as the LED only turns off when 
+the surrounding becomes bright. 
+
+As soon as sun_set is recorded, the difference between 'sun_set' and 'sun_rise' is immediately computed, which is the length of daylight in minutes. It is assumed 
+that sun rise and sun set are symmetrical about the solar midday. Therefore, the timing of the sun set will be overwritten as an adjustment. For example,
+if the 'daylight' is 520 mins, according to the above assumption, the solar midday (12 at winter time)should happen 260 mins (520/2) before the 'sun_set' time. 
+Thus, the current 'hour' will be overwrote to 16 (12 + 260/60 = 12 + 4) and the current 'minute' will be overwrote to 20 (260 % 60 = 20), hence 16:20. With this
+method, every day the timer will be adjusted and synchronised at the sun set time.
+
+     
+
+
+
+
 
 
 
