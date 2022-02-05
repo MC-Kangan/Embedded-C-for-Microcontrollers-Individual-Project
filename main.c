@@ -42,7 +42,7 @@ void main(void) {
         if (minute == TIME) {hour += 1; minute = 0;}
         if (hour == 24) {hour = 0; min_accu = 0; sun_rise = 0; sun_set = 0;} // When time passes 12am/0am min_accu, sun_rise and sun_set is reset 
         
-        daylight_saving_time(midday, daylight, daylight_pre);
+        midday = daylight_saving_time(midday, daylight, daylight_pre);
         one_to_five(hour);
        
         if (sun_rise > 0 && sun_set > 0){
@@ -50,10 +50,11 @@ void main(void) {
             if (4 * TIME < daylight){ // Typical daylight length should be greater than 4 hours, otherwise, it could be an error
                 hour = midday + (daylight/2)/TIME; // Overwrite the current hour (Take the quotient of the division as the hour)
                 minute = (daylight/2) % TIME; // Overwrite the current minute (Take the remainder of the division as the minute)
-                second = 0;
                 daylight_pre = daylight; // Store today's daylight to daylight of the previous day
                 sun_rise = 0; // Clear the sun_rise time today
                 sun_set = 0; // Clear the sun_set time today
+            }else{
+                daylight = daylight_pre; // If the daylight time is less than 4 hour, let daylight = daylight_pre 
             }
         }
       
@@ -61,7 +62,6 @@ void main(void) {
     }
     
 }
-
 
 
 /************************************
@@ -81,3 +81,4 @@ void __interrupt(high_priority) HighISR()
         PIR0bits.TMR0IF = 0; }			      //clear the interrupt flag!
     
 }
+

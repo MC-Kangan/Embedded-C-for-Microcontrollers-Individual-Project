@@ -43,7 +43,7 @@
 [v _HighISR HighISR `IIH(v  1 e 1 0 ]
 "4 C:\Users\Kangan Chen\MPLABXProjects\mini-proj-MC-Kangan.X\smartlight.c
 [v _daylight_saving_time daylight_saving_time `(uc  1 e 1 0 ]
-"19
+"20
 [v _one_to_five one_to_five `(v  1 e 1 0 ]
 "7 C:\Users\Kangan Chen\MPLABXProjects\mini-proj-MC-Kangan.X\timers.c
 [v _Timer0_init Timer0_init `(v  1 e 1 0 ]
@@ -428,6 +428,7 @@
 [v _second second `uc  1 e 1 0 ]
 [v _minute minute `uc  1 e 1 0 ]
 [v _hour hour `uc  1 e 1 0 ]
+[v _midday midday `uc  1 e 1 0 ]
 "25
 [v _min_accu min_accu `ui  1 e 2 0 ]
 [v _sun_set sun_set `ui  1 e 2 0 ]
@@ -437,15 +438,15 @@
 "27
 [v _main main `(v  1 e 1 0 ]
 {
-"63
+"64
 } 0
-"19 C:\Users\Kangan Chen\MPLABXProjects\mini-proj-MC-Kangan.X\smartlight.c
+"20 C:\Users\Kangan Chen\MPLABXProjects\mini-proj-MC-Kangan.X\smartlight.c
 [v _one_to_five one_to_five `(v  1 e 1 0 ]
 {
 [v one_to_five@hour hour `uc  1 a 1 wreg ]
 [v one_to_five@hour hour `uc  1 a 1 wreg ]
 [v one_to_five@hour hour `uc  1 a 1 1 ]
-"25
+"26
 } 0
 "4
 [v _daylight_saving_time daylight_saving_time `(uc  1 e 1 0 ]
@@ -455,7 +456,7 @@
 [v daylight_saving_time@daylight daylight `ui  1 p 2 1 ]
 [v daylight_saving_time@daylight_pre daylight_pre `ui  1 p 2 3 ]
 [v daylight_saving_time@midday midday `uc  1 a 1 5 ]
-"17
+"18
 } 0
 "7 C:\Users\Kangan Chen\MPLABXProjects\mini-proj-MC-Kangan.X\timers.c
 [v _Timer0_init Timer0_init `(v  1 e 1 0 ]

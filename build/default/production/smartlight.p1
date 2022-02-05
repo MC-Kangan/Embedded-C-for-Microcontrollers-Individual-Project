@@ -2065,48 +2065,52 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 2019 ]
 [e :U 2018 ]
 "17
-[; ;smartlight.c: 17: }
+[; ;smartlight.c: 17:     return midday;
+[e ) _midday ]
+[e $UE 2015  ]
+"18
+[; ;smartlight.c: 18: }
 [e :UE 2015 ]
 }
-"19
-[; ;smartlight.c: 19: void one_to_five(unsigned char hour){
+"20
+[; ;smartlight.c: 20: void one_to_five(unsigned char hour){
 [v _one_to_five `(v ~T0 @X0 1 ef1`uc ]
 {
 [e :U _one_to_five ]
 [v _hour `uc ~T0 @X0 1 r1 ]
 [f ]
-"20
-[; ;smartlight.c: 20:     if ((hour >= 1) && (hour < 5)){LATHbits.LATH3 = 0;}
+"21
+[; ;smartlight.c: 21:     if ((hour >= 1) && (hour < 5)){LATHbits.LATH3 = 0;}
 [e $ ! && >= -> _hour `i -> 1 `i < -> _hour `i -> 5 `i 2022  ]
 {
 [e = . . _LATHbits 0 3 -> -> 0 `i `uc ]
 }
 [e $U 2023  ]
-"21
-[; ;smartlight.c: 21:     else if (hour == 5){
+"22
+[; ;smartlight.c: 22:     else if (hour == 5){
 [e :U 2022 ]
 [e $ ! == -> _hour `i -> 5 `i 2024  ]
 {
-"22
-[; ;smartlight.c: 22:         if (CMOUTbits.MC1OUT == 1){LATHbits.LATH3 = 1;}
+"23
+[; ;smartlight.c: 23:         if (CMOUTbits.MC1OUT == 1){LATHbits.LATH3 = 1;}
 [e $ ! == -> . . _CMOUTbits 0 0 `i -> 1 `i 2025  ]
 {
 [e = . . _LATHbits 0 3 -> -> 1 `i `uc ]
 }
 [e $U 2026  ]
-"23
-[; ;smartlight.c: 23:         else {LATHbits.LATH3 = 0;}
+"24
+[; ;smartlight.c: 24:         else {LATHbits.LATH3 = 0;}
 [e :U 2025 ]
 {
 [e = . . _LATHbits 0 3 -> -> 0 `i `uc ]
 }
 [e :U 2026 ]
-"24
-[; ;smartlight.c: 24:     }
+"25
+[; ;smartlight.c: 25:     }
 }
 [e :U 2024 ]
 [e :U 2023 ]
-"25
-[; ;smartlight.c: 25: }
+"26
+[; ;smartlight.c: 26: }
 [e :UE 2021 ]
 }

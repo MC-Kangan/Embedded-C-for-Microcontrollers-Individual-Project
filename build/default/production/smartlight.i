@@ -24251,6 +24251,7 @@ unsigned char daylight_saving_time (unsigned char midday, unsigned int daylight,
             midday = 12;
         }
     }
+    return midday;
 }
 
 void one_to_five(unsigned char hour){

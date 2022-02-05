@@ -10,12 +10,12 @@
 ### Memory Usage ###
  Intel Hex-file ranges:
   0h - 3h		(dist/default/production\mini-proj-MC-Kangan.X.production.hex)
-  8h - 3D4h		(dist/default/production\mini-proj-MC-Kangan.X.production.hex)
+  8h - 3E8h		(dist/default/production\mini-proj-MC-Kangan.X.production.hex)
   200000h - 20000Fh		(dist/default/production\mini-proj-MC-Kangan.X.production.hex)
   300000h - 30000Bh		(dist/default/production\mini-proj-MC-Kangan.X.production.hex)
  Unused ranges:
   4h - 7h
-  3D5h - 1FFFFFh
+  3E9h - 1FFFFFh
   200010h - 2FFFFFh
 
 ### Hex Memory Map ###
@@ -86,7 +86,8 @@
 000003A0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 000003B0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 000003C0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
-000003D0 | H1 H1 H1 H1 H1 -- -- -- -- -- -- -- -- -- -- --
+000003D0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+000003E0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 -- -- -- -- -- -- --
 ----------------------------------------------------------
 00200000 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 ----------------------------------------------------------

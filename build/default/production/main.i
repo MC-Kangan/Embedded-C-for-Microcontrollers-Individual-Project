@@ -24327,7 +24327,7 @@ void main(void) {
         if (minute == 1) {hour += 1; minute = 0;}
         if (hour == 24) {hour = 0; min_accu = 0; sun_rise = 0; sun_set = 0;}
 
-        daylight_saving_time(midday, daylight, daylight_pre);
+        midday = daylight_saving_time(midday, daylight, daylight_pre);
         one_to_five(hour);
 
         if (sun_rise > 0 && sun_set > 0){
@@ -24335,10 +24335,11 @@ void main(void) {
             if (4 * 1 < daylight){
                 hour = midday + (daylight/2)/1;
                 minute = (daylight/2) % 1;
-                second = 0;
                 daylight_pre = daylight;
                 sun_rise = 0;
                 sun_set = 0;
+            }else{
+                daylight = daylight_pre;
             }
         }
 
@@ -24346,7 +24347,6 @@ void main(void) {
     }
 
 }
-
 
 
 
