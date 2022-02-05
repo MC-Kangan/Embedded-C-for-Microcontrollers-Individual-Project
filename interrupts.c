@@ -27,5 +27,3 @@ void Interrupts_init(void)
 
 
 
-//void __interrupt(low_priority) LowISR()
-

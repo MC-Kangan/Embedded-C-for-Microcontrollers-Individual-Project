@@ -3,4 +3,5 @@ main.c  \
 LEDarray.h  \
 interrupts.h  \
 comparator.h  \
-timers.h 
+timers.h  \
+smartlight.h 

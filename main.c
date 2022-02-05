@@ -10,6 +10,7 @@
 #include "interrupts.h"
 #include "comparator.h"
 #include "timers.h"
+#include "smartlight.h"
 
 #define _XTAL_FREQ 64000000 //note intrinsic _delay function is 62.5ns at 64,000,000Hz  
 //#define TIME 60 // Normal Mode (1 min = 60 seconds, 1 hour = 60 minutes)
@@ -35,44 +36,32 @@ void main(void) {
     Timer0_init();       // Enable timer0
     LEDarray_init();     // Enable LED array (from lab 2)
     
+    
     while (1) {
         if (second == TIME) {minute += 1; min_accu += 1; second = 0;}
         if (minute == TIME) {hour += 1; minute = 0;}
         if (hour == 24) {hour = 0; min_accu = 0; sun_rise = 0; sun_set = 0;} // When time passes 12am/0am min_accu, sun_rise and sun_set is reset 
         
-        if (midday == 12){ // Means winter; 
-            // At winter, if two consecutive days have a daylight time more than 11 hours, it becomes summer time
-            if (daylight >= 11*TIME && daylight_pre >= 11*TIME){
-                midday = 13; 
-            }
-        }
-        if (midday == 13){ //Summer = 1 means summer.
-            // At summer, if two consecutive days have a daylight time less than 11 hours, it becomes winter time
-            if (daylight < 11*TIME && daylight_pre < 11*TIME){
-                midday = 12;
-            }
-        }    
-                
-        if ((hour >= 1) && (hour < 5)){LATHbits.LATH3 = 0;} // During 1 am to 5 am, turn off LED
-        else if (hour == 5){ 
-            if (CMOUTbits.MC1OUT == 1){LATHbits.LATH3 = 1;} // At 5 am, if the surrounding environment is still dark, turn on LED (Check the comparator output pin)
-            else {LATHbits.LATH3 = 0;} // At 5 am, if the sun rises, turn off LED
-        }
-        
+        daylight_saving_time(midday, daylight, daylight_pre);
+        one_to_five(hour);
+       
         if (sun_rise > 0 && sun_set > 0){
             daylight = sun_set - sun_rise; // Daylight time in minutes
-            second = 0;
-            hour = midday + (daylight/2)/TIME; // Overwrite the current hour
-            minute = (daylight/2) % TIME; // Overwrite the current minute
-            daylight_pre = daylight; // Store today's daylight to daylight of the previous day
-            sun_rise = 0; // Clear the sun_rise time today
-            sun_set = 0; // Clear the sun_set time today
+            if (4 * TIME < daylight){ // Typical daylight length should be greater than 4 hours, otherwise, it could be an error
+                hour = midday + (daylight/2)/TIME; // Overwrite the current hour (Take the quotient of the division as the hour)
+                minute = (daylight/2) % TIME; // Overwrite the current minute (Take the remainder of the division as the minute)
+                second = 0;
+                daylight_pre = daylight; // Store today's daylight to daylight of the previous day
+                sun_rise = 0; // Clear the sun_rise time today
+                sun_set = 0; // Clear the sun_set time today
+            }
         }
-        
+      
 		LEDarray_disp_bin(hour); // Current timer value
     }
     
 }
+
 
 
 /************************************
@@ -91,4 +80,4 @@ void __interrupt(high_priority) HighISR()
         second += 1;
         PIR0bits.TMR0IF = 0; }			      //clear the interrupt flag!
     
-    }
+}

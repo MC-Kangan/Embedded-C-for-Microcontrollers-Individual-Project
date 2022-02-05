@@ -23,6 +23,8 @@
       <itemPath>timers.c</itemPath>
       <itemPath>timers.h</itemPath>
       <itemPath>Makefile</itemPath>
+      <itemPath>smartlight.h</itemPath>
+      <itemPath>smartlight.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
