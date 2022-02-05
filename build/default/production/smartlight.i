@@ -24247,7 +24247,7 @@ unsigned char daylight_saving_time (unsigned char midday, unsigned int daylight,
     }
     else if (midday == 13){
 
-        if (daylight < 11*1 && daylight_pre < 11*1){
+        if (0 < daylight && daylight < 11*1 && 0 < daylight_pre && daylight_pre < 11*1){
             midday = 12;
         }
     }

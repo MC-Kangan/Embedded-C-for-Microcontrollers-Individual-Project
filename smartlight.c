@@ -9,8 +9,8 @@ unsigned char daylight_saving_time (unsigned char midday, unsigned int daylight,
         }
     }
     else if (midday == 13){ // Means summer time
-        // At summer, if two consecutive days have a daylight time less than 11 hours, it becomes winter time
-        if (daylight < 11*TIME && daylight_pre < 11*TIME){
+        // At summer, if two consecutive days have a daylight time less than 11 hours (but greater than 0), it becomes winter time
+        if (0 < daylight && daylight < 11*TIME && 0 < daylight_pre && daylight_pre < 11*TIME){
             midday = 12;
         }
     }

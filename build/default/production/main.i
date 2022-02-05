@@ -24303,7 +24303,7 @@ void one_to_five(unsigned char hour);
 
 
 
-unsigned char second = 0, minute = 0, hour = 0, midday = 12;
+unsigned char second = 0, minute = 0, hour = 0, midday = 13;
 
 
 

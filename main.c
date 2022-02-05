@@ -18,7 +18,7 @@
 
 
 // Set the second, minute and hour to 0 initially; the midday is 12 o'clock for winter time and 13 o'clock for summer time
-unsigned char second = 0, minute = 0, hour = 0, midday = 12; 
+unsigned char second = 0, minute = 0, hour = 0, midday = 13; 
 
 // Set the min_accu (accumulative minute); sun_set (time when LED is on); sun_rise (time when LED is off);
 // daylight (daylight time); daylight_pre (daylight time of the previous day)

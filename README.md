@@ -37,13 +37,24 @@ http://wordpress.mrreid.org/2010/10/31/why-change-the-clocks/
 
 ## Test
 
-Spec 1 and 3: Cover LDR (LED ON), Uncover LDR (LED OFF); During 1 to 5 am, Cover LDR (LED OFF), Uncover LDR (LED OFF)
+Test 1 (Requirement 1 & 2 & 3):
+
+Anytime except (1 to 5 am):
+- Cover LDR (LED ON)
+- Uncover LDR (LED OFF)
+
+Between 1 to 5 am: 
+- Cover LDR (LED OFF)
+- Uncover LDR (LED OFF)
+
+At 5 am (At summer times, sun rise could be before 5 am.): 
+- Cover LDR (LED ON)
+- Uncover LDR (LED OFF)
 
 ----------------------------------------------------------------------------------
-Spec 5: 
+Test 2.1 (Requirement 5 & 6)
 Condition 1: Clock too fast
 Assume at winter time, ideally, if sun rises at 8, midday is 12 and sun sets at 16.
-
 If the clock is too fast, it might detects sun rise at 8 and sun set at 18.
 
 - Uncover at 8
@@ -53,6 +64,7 @@ Time will be overwrote to 12 + (18 - 8)/2 = 17
 LED will show 17, 18, 19, 20, 21 ...
 
 ----------------------------------------------------------------------------------
+Test 2.2 (Requirement 5 & 6)
 Condition 2: Clock too slow
 Assume at winter time, ideally, if sun rises at 8, midday is 12 and sun sets at 16.
 If the clock is too slow, it might detects sun rise at 8 and sun set at 14.
@@ -64,7 +76,9 @@ Time will be overwrote to 12 + (14 - 8)/2 = 15
 LED will show 15, 16, 17, 18, 19 ...
 
 ----------------------------------------------------------------------------------
-From winter time to summer time
+Test 3.1 (Requirement 4)
+
+Condition 1: From winter time (midday = 12) to summer time (midday = 13)
 
 1st Day:
 - Uncover at 6
@@ -81,22 +95,23 @@ LED will show 21, 22, 23, 0, 1 ...
 Since both two days have a daylight time >= 11h, the midday on the 2nd day will be shifted to 13 due to the transition to summer time.
 
 ----------------------------------------------------------------------------------
+Test 3.2 (Requirement 4)
 
-From summer time to winter time
+Condition 2: From summer time (midday = 13) to winter time (midday = 12) 
 
 1st Day:
-- Uncover at 6
-- Cover at 18
-Time will be overwrote to 12 + (18 - 6)/2 = 18
-LED will show 18, 19, 20, 21, 22 ...
+- Uncover at 8
+- Cover at 16
+Time will be overwrote to 13 + (16 - 8)/2 = 17
+LED will show 17, 18, 19, 20, 21 ...
 
 2nd Day:
-- Uncover at 6
-- Cover at 22
-Time will be overwrote to 13 + (22 - 6)/2 = 21
-LED will show 21, 22, 23, 0, 1 ...
+- Uncover at 8
+- Cover at 18
+Time will be overwrote to 12 + (18 - 8)/2 = 17
+LED will show 17, 18, 19, 20, 21 ...
 
-Since both two days have a daylight time >= 11h, the midday on the 2nd day will be shifted to 13 due to the transition to summer time.
+Since both two days have a daylight time < 11h, the midday on the 2nd day will be shifted to 12 due to the transition to winter time.
 
 
 

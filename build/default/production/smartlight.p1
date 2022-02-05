@@ -2049,8 +2049,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $ ! == -> _midday `i -> 13 `i 2019  ]
 {
 "13
-[; ;smartlight.c: 13:         if (daylight < 11*1 && daylight_pre < 11*1){
-[e $ ! && < _daylight -> * -> 11 `i -> 1 `i `ui < _daylight_pre -> * -> 11 `i -> 1 `i `ui 2020  ]
+[; ;smartlight.c: 13:         if (0 < daylight && daylight < 11*1 && 0 < daylight_pre && daylight_pre < 11*1){
+[e $ ! && && && < -> -> 0 `i `ui _daylight < _daylight -> * -> 11 `i -> 1 `i `ui < -> -> 0 `i `ui _daylight_pre < _daylight_pre -> * -> 11 `i -> 1 `i `ui 2020  ]
 {
 "14
 [; ;smartlight.c: 14:             midday = 12;

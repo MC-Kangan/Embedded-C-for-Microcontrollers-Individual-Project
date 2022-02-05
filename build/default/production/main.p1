@@ -2072,7 +2072,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 40928: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
 "21 main.c
-[; ;main.c: 21: unsigned char second = 0, minute = 0, hour = 0, midday = 12;
+[; ;main.c: 21: unsigned char second = 0, minute = 0, hour = 0, midday = 13;
 [v _second `uc ~T0 @X0 1 e ]
 [i _second
 -> -> 0 `i `uc
@@ -2087,7 +2087,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 ]
 [v _midday `uc ~T0 @X0 1 e ]
 [i _midday
--> -> 12 `i `uc
+-> -> 13 `i `uc
 ]
 "25
 [; ;main.c: 25: unsigned int min_accu = 0, sun_set = 0, sun_rise = 0, daylight = 0, daylight_pre = 0;

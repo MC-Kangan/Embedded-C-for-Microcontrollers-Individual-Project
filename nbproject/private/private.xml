@@ -4,12 +4,12 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/Kangan%20Chen/MPLABXProjects/mini-proj-MC-Kangan.X/smartlight.c</file>
-            <file>file:/C:/Users/Kangan%20Chen/MPLABXProjects/mini-proj-MC-Kangan.X/comparator.c</file>
-            <file>file:/C:/Users/Kangan%20Chen/MPLABXProjects/mini-proj-MC-Kangan.X/timers.c</file>
             <file>file:/C:/Users/Kangan%20Chen/MPLABXProjects/mini-proj-MC-Kangan.X/main.c</file>
-            <file>file:/C:/Users/Kangan%20Chen/MPLABXProjects/mini-proj-MC-Kangan.X/LEDarray.c</file>
-            <file>file:/C:/Users/Kangan%20Chen/MPLABXProjects/mini-proj-MC-Kangan.X/interrupts.c</file>
+            <file>file:/C:/Users/Kangan%20Chen/MPLABXProjects/mini-proj-MC-Kangan.X/interrupts.h</file>
             <file>file:/C:/Users/Kangan%20Chen/MPLABXProjects/mini-proj-MC-Kangan.X/comparator.h</file>
+            <file>file:/C:/Users/Kangan%20Chen/MPLABXProjects/mini-proj-MC-Kangan.X/interrupts.c</file>
+            <file>file:/C:/Users/Kangan%20Chen/MPLABXProjects/mini-proj-MC-Kangan.X/Makefile</file>
+            <file>file:/C:/Users/Kangan%20Chen/MPLABXProjects/mini-proj-MC-Kangan.X/README.md</file>
             <file>file:/C:/Users/Kangan%20Chen/MPLABXProjects/mini-proj-MC-Kangan.X/smartlight.h</file>
         </group>
     </open-files>
