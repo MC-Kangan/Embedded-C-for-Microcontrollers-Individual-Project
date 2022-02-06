@@ -129,6 +129,7 @@ If the clock is too fast, it might detects sun rise at 8 and sun set at 18.
 - Cover at 18
 
 Time will be overwrote to 12 + (18 - 8)/2 = 17
+
 LED will show 17, 18, 19, 20, 21 ...
 
 ----------------------------------------------------------------------------------
@@ -143,6 +144,7 @@ If the clock is too slow, it might detects sun rise at 8 and sun set at 14.
 - Cover at 14
 
 Time will be overwrote to 12 + (14 - 8)/2 = 15
+
 LED will show 15, 16, 17, 18, 19 ...
 
 ----------------------------------------------------------------------------------
