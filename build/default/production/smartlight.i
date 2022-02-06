@@ -24252,7 +24252,7 @@ unsigned char daylight_saving_time (unsigned char midday, unsigned int daylight,
     }
     return midday;
 }
-# 37 "smartlight.c"
+# 36 "smartlight.c"
 void one_to_five(unsigned char hour){
     if ((hour >= 1) && (hour < 5)){LATHbits.LATH3 = 0;}
     else if (hour == 5){

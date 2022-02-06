@@ -39,11 +39,11 @@
 [v _LEDarray_disp_bin LEDarray_disp_bin `(v  1 e 1 0 ]
 "27 C:\Users\Kangan Chen\MPLABXProjects\mini-proj-MC-Kangan.X\main.c
 [v _main main `(v  1 e 1 0 ]
-"70
+"67
 [v _HighISR HighISR `IIH(v  1 e 1 0 ]
 "13 C:\Users\Kangan Chen\MPLABXProjects\mini-proj-MC-Kangan.X\smartlight.c
 [v _daylight_saving_time daylight_saving_time `(uc  1 e 1 0 ]
-"37
+"36
 [v _one_to_five one_to_five `(v  1 e 1 0 ]
 "7 C:\Users\Kangan Chen\MPLABXProjects\mini-proj-MC-Kangan.X\timers.c
 [v _Timer0_init Timer0_init `(v  1 e 1 0 ]
@@ -438,15 +438,15 @@
 "27
 [v _main main `(v  1 e 1 0 ]
 {
-"64
+"61
 } 0
-"37 C:\Users\Kangan Chen\MPLABXProjects\mini-proj-MC-Kangan.X\smartlight.c
+"36 C:\Users\Kangan Chen\MPLABXProjects\mini-proj-MC-Kangan.X\smartlight.c
 [v _one_to_five one_to_five `(v  1 e 1 0 ]
 {
 [v one_to_five@hour hour `uc  1 a 1 wreg ]
 [v one_to_five@hour hour `uc  1 a 1 wreg ]
 [v one_to_five@hour hour `uc  1 a 1 1 ]
-"43
+"42
 } 0
 "13
 [v _daylight_saving_time daylight_saving_time `(uc  1 e 1 0 ]
@@ -477,7 +477,7 @@
 "12 C:\Users\Kangan Chen\MPLABXProjects\mini-proj-MC-Kangan.X\interrupts.c
 [v _Interrupts_init Interrupts_init `(v  1 e 1 0 ]
 {
-"25
+"22
 } 0
 "22 C:\Users\Kangan Chen\MPLABXProjects\mini-proj-MC-Kangan.X\comparator.c
 [v _Comp1_init Comp1_init `(v  1 e 1 0 ]
@@ -489,7 +489,7 @@
 {
 "16
 } 0
-"70 C:\Users\Kangan Chen\MPLABXProjects\mini-proj-MC-Kangan.X\main.c
+"67 C:\Users\Kangan Chen\MPLABXProjects\mini-proj-MC-Kangan.X\main.c
 [v _HighISR HighISR `IIH(v  1 e 1 0 ]
 {
 "82

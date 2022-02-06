@@ -24244,9 +24244,6 @@ void Interrupts_init(void)
     INTCONbits.IPEN = 1;
     INTCONbits.GIEL = 1;
     PIE0bits.TMR0IE = 1;
-
-
-
     PIE2bits.C1IE = 1;
 
     INTCONbits.GIE=1;

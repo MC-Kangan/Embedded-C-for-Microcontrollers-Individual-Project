@@ -5,10 +5,10 @@ Linker command line:
 -W-3 --edf=C:\Program Files\Microchip\xc8\v2.35\pic\dat\en_msgs.txt -cn \
   -h+dist/default/production\mini-proj-MC-Kangan.X.production.sym \
   --cmf=dist/default/production\mini-proj-MC-Kangan.X.production.cmf -z \
-  -Q18F67K40 -oC:\Users\KANGAN~1\AppData\Local\Temp\xcAsllg.4 \
+  -Q18F67K40 -oC:\Users\KANGAN~1\AppData\Local\Temp\xcAs92s.4 \
   --defsym=__MPLAB_BUILD=1 \
   -Mdist/default/production/mini-proj-MC-Kangan.X.production.map \
-  --md=C:\Users\KANGAN~1\AppData\Local\Temp\xcAsllg.dat -E1 \
+  --md=C:\Users\KANGAN~1\AppData\Local\Temp\xcAs92s.dat -E1 \
   -ver=XC8 Compiler --acfsm=1493 -ACODE=00h-01FFFFh -ACONST=00h-01FFFFh \
   -ASMALLCONST=0E00h-0EFFhx498 -AMEDIUMCONST=0E00h-0FFFFh,010E00h-01FFFFh \
   -ACOMRAM=01h-05Fh -AABS1=00h-0DE9h -ABIGRAM=01h-0DE9h \
@@ -28,7 +28,7 @@ Linker command line:
   -pfarbss=FARRAM,fardata=FARRAM,nvFARRAM=FARRAM \
   -pintsave_regs=BIGRAM,bigbss=BIGRAM,bigdata=BIGRAM -pbss=RAM \
   -pidata=CODE,irdata=CODE,ibigdata=CODE,ifardata=CODE -prparam=COMRAM \
-  C:\Users\KANGAN~1\AppData\Local\Temp\xcAsllg.o \
+  C:\Users\KANGAN~1\AppData\Local\Temp\xcAs92s.o \
   dist/default/production\mini-proj-MC-Kangan.X.production.o 
 
 Object code version is 3.11
@@ -38,13 +38,13 @@ Machine type is 18F67K40
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\KANGAN~1\AppData\Local\Temp\xcAsllg.o
+C:\Users\KANGAN~1\AppData\Local\Temp\xcAs92s.o
                 idloc                            200000   200000       10        0       5
                 config                           300000   300000        C        0       4
-                init                                 7A       7A        4        4       0
+                init                                 D8       D8        4        4       0
                 reset_vec                             0        0        4        0       0
 dist/default/production\mini-proj-MC-Kangan.X.production.o
-                intcode                               8        8       72        4       0
+                intcode                               8        8       D0        4       0
                 idloc                            200000   200000       10        0       5
                 config                           300000   300000        C        0       4
                 temp                                 17       17        1        1       1
@@ -56,7 +56,7 @@ dist/default/production\mini-proj-MC-Kangan.X.production.o
                 text3                               3E0      3E0       20        4       0
                 text2                               1B4      1B4       B2        4       0
                 text1                               318      318       54        4       0
-                text0                                7E       7E      136        4       0
+                text0                                DC       DC       D8        4       0
                 cstackCOMRAM                          E        E        8        1       1
                 dataCOMRAM                           16       16        1        1       1
                 bssCOMRAM                             1        1        D        1       1
@@ -65,8 +65,8 @@ dist/default/production\mini-proj-MC-Kangan.X.production.o
 
 TOTAL           Name                               Link     Load   Length     Space
         CLASS   CODE           
-                intcode                               8        8       72         0
-                init                                 7A       7A        4         0
+                intcode                               8        8       D0         0
+                init                                 D8       D8        4         0
                 reset_vec                             0        0        4         0
                 text8                               400      400       14         0
                 text7                               3BA      3BA       26         0
@@ -76,7 +76,7 @@ TOTAL           Name                               Link     Load   Length     Sp
                 text3                               3E0      3E0       20         0
                 text2                               1B4      1B4       B2         0
                 text1                               318      318       54         0
-                text0                                7E       7E      136         0
+                text0                                DC       DC       D8         0
                 cinit                               36C      36C       28         0
                 idataCOMRAM                         422      422        1         0
 
@@ -259,10 +259,10 @@ __Hidata                          idata        000000
 __HidataCOMRAM                    idataCOMRAM  000000
 __Hidloc                          idloc        200010
 __Hifardata                       ifardata     000000
-__Hinit                           init         00007E
-__Hintcode                        intcode      00007A
+__Hinit                           init         0000DC
+__Hintcode                        intcode      0000D8
 __Hintcode_body                   intcode_body 000000
-__Hintcodelo                      intcodelo    00007A
+__Hintcodelo                      intcodelo    0000D8
 __Hintentry                       intentry     000000
 __Hintret                         intret       000000
 __Hintsave_regs                   intsave_regs 000000
@@ -272,7 +272,7 @@ __HnvFARRAM                       nvFARRAM     000000
 __Hnvbit                          nvbit        000000
 __Hnvrram                         nvrram       000000
 __Hparam                          rparam       000000
-__Hpowerup                        powerup      00007A
+__Hpowerup                        powerup      0000D8
 __Hram                            ram          000000
 __Hramtop                         ramtop       000E00
 __Hrbit                           rbit         000000
@@ -338,10 +338,10 @@ __Lidata                          idata        000000
 __LidataCOMRAM                    idataCOMRAM  000000
 __Lidloc                          idloc        000000
 __Lifardata                       ifardata     000000
-__Linit                           init         00007A
+__Linit                           init         0000D8
 __Lintcode                        intcode      000008
 __Lintcode_body                   intcode_body 000000
-__Lintcodelo                      intcodelo    00007A
+__Lintcodelo                      intcodelo    0000D8
 __Lintentry                       intentry     000000
 __Lintret                         intret       000000
 __Lintsave_regs                   intsave_regs 000000
@@ -351,7 +351,7 @@ __LnvFARRAM                       nvFARRAM     000000
 __Lnvbit                          nvbit        000000
 __Lnvrram                         nvrram       000000
 __Lparam                          rparam       000000
-__Lpowerup                        powerup      00007A
+__Lpowerup                        powerup      0000D8
 __Lram                            ram          000000
 __Lramtop                         ramtop       000E00
 __Lrbit                           rbit         000000
@@ -393,7 +393,7 @@ __accesstop                       (abs)        000060
 __activetblptr                    (abs)        000000
 __end_of_Comp1_init               text7        0003E0
 __end_of_DAC_init                 text8        000414
-__end_of_HighISR                  intcode      00007A
+__end_of_HighISR                  intcode      0000D8
 __end_of_Interrupts_init          text6        000422
 __end_of_LEDarray_disp_bin        text5        000318
 __end_of_LEDarray_init            text4        0003BA
@@ -410,7 +410,7 @@ __pcstackCOMRAM                   cstackCOMRAM 00000E
 __pdataCOMRAM                     dataCOMRAM   000016
 __pidataCOMRAM                    idataCOMRAM  000422
 __pintcode                        intcode      000008
-__ptext0                          text0        00007E
+__ptext0                          text0        0000DC
 __ptext1                          text1        000318
 __ptext2                          text2        0001B4
 __ptext3                          text3        0003E0
@@ -425,7 +425,7 @@ _daylight                         bssCOMRAM    000003
 _daylight_pre                     bssCOMRAM    000001
 _daylight_saving_time             text2        0001B4
 _hour                             bssCOMRAM    00000B
-_main                             text0        00007E
+_main                             text0        0000DC
 _midday                           dataCOMRAM   000016
 _min_accu                         bssCOMRAM    000009
 _minute                           bssCOMRAM    00000C
@@ -448,7 +448,7 @@ isa$xinst                         (abs)        000000
 one_to_five@hour                  cstackCOMRAM 00000F
 stackhi                           (abs)        000000
 stacklo                           (abs)        000000
-start                             init         00007A
+start                             init         0000D8
 start_initialization              cinit        00036C
 ttemp5                            temp         000018
 ttemp6                            temp         00001B
@@ -493,8 +493,8 @@ smartlight.c
 smartlight.c estimated size: 262
 
 main.c
-		_main          		CODE           	007E	0000	310
-		_HighISR       		CODE           	0008	0000	114
+		_main          		CODE           	00DC	0000	216
+		_HighISR       		CODE           	0008	0000	208
 
 main.c estimated size: 424
 

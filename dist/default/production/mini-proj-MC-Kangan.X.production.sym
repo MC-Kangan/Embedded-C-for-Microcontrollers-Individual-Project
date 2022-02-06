@@ -5,10 +5,10 @@ __S4 0 0 ABS 0
 __S5 0 0 ABS 0
 __Hintentry 0 0 ABS 0
 __Lintentry 0 0 ABS 0
-_main 7E 0 CODE 0
+_main DC 0 CODE 0
 ___sp 0 0 STACK 2
 btemp 17 0 COMRAM 1
-start 7A 0 CODE 0
+start D8 0 CODE 0
 _hour B 0 COMRAM 1
 _TMR0H FD4 0 ABS 0
 _TMR0L FD3 0 ABS 0
@@ -76,7 +76,7 @@ __Hmediumconst 0 0 MEDIUMCONST 0
 __Lmediumconst 0 0 MEDIUMCONST 0
 __Hfarbss 0 0 FARRAM 0
 __Lfarbss 0 0 FARRAM 0
-__Hintcode 7A 0 CODE 0
+__Hintcode D8 0 CODE 0
 __Lintcode 8 0 CODE 0
 __Hfardata 0 0 FARRAM 0
 _daylight_pre 1 0 COMRAM 1
@@ -101,11 +101,11 @@ __Ltemp 17 0 COMRAM 1
 stacklo 0 0 ABS 0
 __Hrbit 0 0 COMRAM 1
 __Lrbit 0 0 COMRAM 1
-__Hinit 7E 0 CODE 0
-__Linit 7A 0 CODE 0
+__Hinit DC 0 CODE 0
+__Linit D8 0 CODE 0
 _midday 16 0 COMRAM 1
-__Hintcodelo 7A 0 CODE 0
-__Lintcodelo 7A 0 CODE 0
+__Hintcodelo D8 0 CODE 0
+__Lintcodelo D8 0 CODE 0
 __Hrbss 0 0 COMRAM 1
 __end_of_main 1B4 0 CODE 0
 __Lrbss 0 0 COMRAM 1
@@ -137,9 +137,9 @@ __Hbank4 0 0 ABS 0
 __Lbank4 0 0 ABS 0
 __Hbank5 0 0 ABS 0
 __Lbank5 0 0 ABS 0
-__Hpowerup 7A 0 CODE 0
+__Hpowerup D8 0 CODE 0
 _CM1CON0bits ED0 0 ABS 0
-__Lpowerup 7A 0 CODE 0
+__Lpowerup D8 0 CODE 0
 __Hbank6 0 0 ABS 0
 __Lbank6 0 0 ABS 0
 _CM1CON1bits ED1 0 ABS 0
@@ -153,7 +153,7 @@ __Hbank9 0 0 ABS 0
 __Lbank9 0 0 ABS 0
 __Htext1 0 0 ABS 0
 __Ltext1 0 0 ABS 0
-__ptext0 7E 0 CODE 0
+__ptext0 DC 0 CODE 0
 __Htext2 0 0 ABS 0
 __Ltext2 0 0 ABS 0
 __ptext1 318 0 CODE 0
@@ -265,7 +265,7 @@ start_initialization 36C 0 CODE 0
 __initialization 36C 0 CODE 0
 daylight_saving_time@midday 13 0 COMRAM 1
 __activetblptr 0 0 ABS 0
-__end_of_HighISR 7A 0 CODE 0
+__end_of_HighISR D8 0 CODE 0
 %segments
 reset_vec 0 3 CODE 0 0
 intcode 8 422 CODE 8 0
@@ -273,7 +273,7 @@ bssCOMRAM 1 17 COMRAM 1 1
 %locals
 dist/default/production\mini-proj-MC-Kangan.X.production.o
 C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h
-C:\Users\KANGAN~1\AppData\Local\Temp\xcAsllg.s
+C:\Users\KANGAN~1\AppData\Local\Temp\xcAs92s.s
 8099 36C 0 CODE 0
 8101 36C 0 CODE 0
 8104 36C 0 CODE 0
@@ -297,36 +297,33 @@ C:\Users\KANGAN~1\AppData\Local\Temp\xcAsllg.s
 8172 38E 0 CODE 0
 8173 390 0 CODE 0
 main.c
-27 7E 0 CODE 0
-31 7E 0 CODE 0
-32 80 0 CODE 0
-34 82 0 CODE 0
-35 86 0 CODE 0
-36 8A 0 CODE 0
-37 8E 0 CODE 0
-41 92 0 CODE 0
-42 AC 0 CODE 0
-43 C2 0 CODE 0
-45 F0 0 CODE 0
-46 108 0 CODE 0
-48 10E 0 CODE 0
-49 148 0 CODE 0
-50 154 0 CODE 0
-51 16A 0 CODE 0
-52 17A 0 CODE 0
-53 17E 0 CODE 0
-54 186 0 CODE 0
-55 18E 0 CODE 0
-56 196 0 CODE 0
-57 19A 0 CODE 0
-61 1A2 0 CODE 0
+27 DC 0 CODE 0
+31 DC 0 CODE 0
+32 DE 0 CODE 0
+34 E0 0 CODE 0
+35 E4 0 CODE 0
+36 E8 0 CODE 0
+37 EC 0 CODE 0
+42 F0 0 CODE 0
+43 108 0 CODE 0
+45 10E 0 CODE 0
+46 148 0 CODE 0
+47 154 0 CODE 0
+48 16A 0 CODE 0
+49 17A 0 CODE 0
+50 17E 0 CODE 0
+51 186 0 CODE 0
+52 18E 0 CODE 0
+53 196 0 CODE 0
+54 19A 0 CODE 0
+58 1A2 0 CODE 0
 smartlight.c
-37 318 0 CODE 0
-38 31A 0 CODE 0
-39 340 0 CODE 0
-40 352 0 CODE 0
-41 368 0 CODE 0
-43 36A 0 CODE 0
+36 318 0 CODE 0
+37 31A 0 CODE 0
+38 340 0 CODE 0
+39 352 0 CODE 0
+40 368 0 CODE 0
+42 36A 0 CODE 0
 smartlight.c
 13 1B4 0 CODE 0
 14 1B6 0 CODE 0
@@ -385,9 +382,9 @@ interrupts.c
 16 414 0 CODE 0
 17 416 0 CODE 0
 18 418 0 CODE 0
-22 41C 0 CODE 0
-24 41E 0 CODE 0
-25 420 0 CODE 0
+19 41C 0 CODE 0
+21 41E 0 CODE 0
+22 420 0 CODE 0
 comparator.c
 22 3BA 0 CODE 0
 24 3BA 0 CODE 0
@@ -407,15 +404,18 @@ comparator.c
 14 408 0 CODE 0
 15 410 0 CODE 0
 16 412 0 CODE 0
-C:\Users\KANGAN~1\AppData\Local\Temp\xcAsllg.s
-9748 8 0 CODE 0
+C:\Users\KANGAN~1\AppData\Local\Temp\xcAs92s.s
+9679 8 0 CODE 0
 main.c
-70 8 0 CODE 0
-73 A 0 CODE 0
-74 1A 0 CODE 0
-75 3E 0 CODE 0
-76 60 0 CODE 0
-78 64 0 CODE 0
-79 72 0 CODE 0
-80 74 0 CODE 0
-82 76 0 CODE 0
+67 8 0 CODE 0
+70 A 0 CODE 0
+71 1A 0 CODE 0
+72 3E 0 CODE 0
+73 60 0 CODE 0
+75 64 0 CODE 0
+76 72 0 CODE 0
+77 74 0 CODE 0
+78 8E 0 CODE 0
+79 A4 0 CODE 0
+80 D2 0 CODE 0
+82 D4 0 CODE 0

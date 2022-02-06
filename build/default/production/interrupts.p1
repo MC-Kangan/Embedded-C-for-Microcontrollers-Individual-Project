@@ -2035,13 +2035,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 "18
 [; ;interrupts.c: 18:     PIE0bits.TMR0IE = 1;
 [e = . . _PIE0bits 0 5 -> -> 1 `i `uc ]
-"22
-[; ;interrupts.c: 22:     PIE2bits.C1IE = 1;
+"19
+[; ;interrupts.c: 19:     PIE2bits.C1IE = 1;
 [e = . . _PIE2bits 0 0 -> -> 1 `i `uc ]
-"24
-[; ;interrupts.c: 24:     INTCONbits.GIE=1;
+"21
+[; ;interrupts.c: 21:     INTCONbits.GIE=1;
 [e = . . _INTCONbits 1 2 -> -> 1 `i `uc ]
-"25
-[; ;interrupts.c: 25: }
+"22
+[; ;interrupts.c: 22: }
 [e :UE 2015 ]
 }

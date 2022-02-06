@@ -24278,7 +24278,7 @@ void one_to_five(unsigned char hour);
 
 
 
-unsigned char second = 0, minute = 0, hour = 0, midday = 12;
+unsigned char second = 0, minute = 0, hour = 0, midday = 13;
 
 
 
@@ -24298,9 +24298,6 @@ void main(void) {
 
 
     while (1) {
-        if (second == 1) {minute += 1; min_accu += 1; second = 0;}
-        if (minute == 1) {hour += 1; minute = 0;}
-        if (hour == 24) {hour = 0; min_accu = 0; sun_rise = 0; sun_set = 0;}
 
         midday = daylight_saving_time(midday, daylight, daylight_pre);
         one_to_five(hour);
@@ -24337,6 +24334,9 @@ void __attribute__((picinterrupt(("high_priority")))) HighISR()
 
     if (PIR0bits.TMR0IF){
         second += 1;
+        if (second == 1) {minute += 1; min_accu += 1; second = 0;}
+        if (minute == 1) {hour += 1; minute = 0;}
+        if (hour == 24) {hour = 0; min_accu = 0; sun_rise = 0; sun_set = 0;}
         PIR0bits.TMR0IF = 0; }
 
 }

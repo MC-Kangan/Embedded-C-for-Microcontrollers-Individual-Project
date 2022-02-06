@@ -18,7 +18,7 @@
 
 
 // Set the second, minute and hour to 0 initially; the midday is 12 o'clock for winter time and 13 o'clock for summer time
-unsigned char second = 0, minute = 0, hour = 0, midday = 12; 
+unsigned char second = 0, minute = 0, hour = 0, midday = 13; 
 
 // Set the min_accu (accumulative minute); sun_set (time when LED is on); sun_rise (time when LED is off);
 // daylight (daylight time); daylight_pre (daylight time of the previous day)
@@ -37,10 +37,7 @@ void main(void) {
     LEDarray_init();      // Enable LED array (from lab 2)
     
     
-    while (1) {
-        if (second == TIME) {minute += 1; min_accu += 1; second = 0;}
-        if (minute == TIME) {hour += 1; minute = 0;}
-        if (hour == 24) {hour = 0; min_accu = 0; sun_rise = 0; sun_set = 0;} // When time passes 12am/0am min_accu, sun_rise and sun_set is reset 
+    while (1) { 
         
         midday = daylight_saving_time(midday, daylight, daylight_pre);       
         one_to_five(hour);
@@ -77,6 +74,9 @@ void __interrupt(high_priority) HighISR()
    
     if (PIR0bits.TMR0IF){ // if TMR0IF ==1    //check the interrupt source for the timer, if overflow occur
         second += 1;
+        if (second == TIME) {minute += 1; min_accu += 1; second = 0;}
+        if (minute == TIME) {hour += 1; minute = 0;}
+        if (hour == 24) {hour = 0; min_accu = 0; sun_rise = 0; sun_set = 0;} // When time passes 12am/0am min_accu, sun_rise and sun_set is reset 
         PIR0bits.TMR0IF = 0; }			      //clear the interrupt flag!
     
 }
