@@ -37,7 +37,7 @@ The solar midday is 12 o'clock in winter time and 13 o'clock in summer time. By 
 
 ## Methodology 
 
-Timing 
+### 1. Timing 
 
 [Relevant files: timers.c/timers.h/interrupts.c/interrupts.h/main.c]
 
@@ -47,7 +47,7 @@ mode, as the 'second' variable increases to 60, this variable will be cleared to
 increment in the similar way. The timing will be displayed on the LED array in binary.
 
 ----------------------------------------------------------------------------------
-Light-sensing
+### 2. Light-sensing
 
 [Relevant files: interrupts.c/interrupts.h/comparator.c/comparator.h/main.c]
 
@@ -55,7 +55,7 @@ The light-sensing is also achieved by an ISR (Interrupt Service Routine) by usin
 negative edge of the comparator. The interrupt will trigger the ISR to toggle the LED. 
 
 ----------------------------------------------------------------------------------
-Energy-saving from 1 to 5 am
+### 3. Energy-saving from 1 to 5 am
 
 [Relevant files: smartlight.c/smartlight.h/main.c]
 
@@ -64,7 +64,7 @@ lighting condition. At 5 am, the comparator output is checked. If the surroundin
 will remain off. At summer time, sunrise is possible to occur at 5 am. 
 
 ----------------------------------------------------------------------------------
-Adjusting the time by synchronising with the sun light 
+### 4. Adjusting the time by synchronising with the sun light 
 
 [Relevant files: main.c]
 
@@ -81,7 +81,7 @@ method, every day the timer will be adjusted and synchronised at the sunset time
 the 'daylight' will be stored in 'daylight_pre', which is the daylight of the previous day.
 
 ----------------------------------------------------------------------------------
-Adjusting for Daylight Saving Time
+### 5. Adjusting for Daylight Saving Time
 
 [Relevant files: smartlight.c/smartlight.h/main.c]
 
@@ -90,7 +90,7 @@ function will check the daylight time for two consecutive days. If both days hav
 (summer time). If both days have a daylight time less than 11 hours, the program will set 'midday' to 12 (winter time). Be default, midday = 12.
 
 ----------------------------------------------------------------------------------
-Disturbance prevention from unexpected light sources and obstacles
+### 6. Disturbance prevention from unexpected light sources and obstacles
 
 [Relevant files: main.c]
 
