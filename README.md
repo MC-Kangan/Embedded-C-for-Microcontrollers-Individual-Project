@@ -103,7 +103,7 @@ executed and the 'daylight' will be set to be the same as the previous day.
 
 ## Test
 
-Test 1 (Requirement 1 & 2 & 3):
+### Test 1 (Requirement 1 & 2 & 3):
 
 Anytime except (1 to 5 am):
 - Cover LDR (LED ON)
@@ -118,8 +118,10 @@ At 5 am (At summer times, sun rise could be before 5 am.):
 - Uncover LDR (LED OFF)
 
 ----------------------------------------------------------------------------------
-Test 2.1 (Requirement 5 & 6)
+### Test 2.1 (Requirement 5 & 6)
+
 Condition 1: Clock too fast
+
 Assume at winter time, ideally, if sun rises at 8, midday is 12 and sun sets at 16.
 If the clock is too fast, it might detects sun rise at 8 and sun set at 18.
 
@@ -130,8 +132,10 @@ Time will be overwrote to 12 + (18 - 8)/2 = 17
 LED will show 17, 18, 19, 20, 21 ...
 
 ----------------------------------------------------------------------------------
-Test 2.2 (Requirement 5 & 6)
+### Test 2.2 (Requirement 5 & 6)
+
 Condition 2: Clock too slow
+
 Assume at winter time, ideally, if sun rises at 8, midday is 12 and sun sets at 16.
 If the clock is too slow, it might detects sun rise at 8 and sun set at 14.
 
@@ -142,7 +146,7 @@ Time will be overwrote to 12 + (14 - 8)/2 = 15
 LED will show 15, 16, 17, 18, 19 ...
 
 ----------------------------------------------------------------------------------
-Test 3.1 (Requirement 4)
+### Test 3.1 (Requirement 4)
 
 Condition 1: From winter time (midday = 12) to summer time (midday = 13)
 
@@ -161,7 +165,7 @@ LED will show 21, 22, 23, 0, 1 ...
 Since both two days have a daylight time >= 11h, the midday on the 2nd day will be shifted to 13 due to the transition to summer time.
 
 ----------------------------------------------------------------------------------
-Test 3.2 (Requirement 4)
+### Test 3.2 (Requirement 4)
 
 Condition 2: From summer time (midday = 13) to winter time (midday = 12) 
 
@@ -180,7 +184,7 @@ LED will show 17, 18, 19, 20, 21 ...
 Since both two days have a daylight time < 11h, the midday on the 2nd day will be shifted to 12 due to the transition to winter time.
 
 ----------------------------------------------------------------------------------
-Test 4 (Additional Features)
+### Test 4 (Additional Features)
 
 Due to errors, if the daylight time is less than 4 hours, the daylight time will be assumed to be the same as the previous day
 and time correction will not happen.
