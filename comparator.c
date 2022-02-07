@@ -6,13 +6,13 @@
 ************************************/
 void DAC_init(void)
 {
-    DAC1CON0bits.PSS=0b00;      //3.3V for positive source (Vdd) hello
-    DAC1CON0bits.NSS=0b0;      //0v for Negative source (Vss))
+    DAC1CON0bits.PSS=0b00;      //3.3V for positive source (Vdd) 
+    DAC1CON0bits.NSS=0b0;       //0v for Negative source (Vss))
 	//5-bit DAC value to set output voltage
     // min is 0 = 0V
     // max is 2^5-1 = 31 = 3.3V
-    DAC1CON1bits.DAC1R=0b11011; // adjust according to ambient light 27~2.87V
-    DAC1CON0bits.DAC1EN=1;      //turn on DAC
+    DAC1CON1bits.DAC1R=0b11011; // Adjust according to ambient light 27~2.87V
+    DAC1CON0bits.DAC1EN=1;      // Turn on DAC
 }
 
 /************************************
@@ -21,13 +21,13 @@ void DAC_init(void)
 ************************************/
 void Comp1_init(void)
 {
-    TRISFbits.TRISF7=1;		// set pin RF7 as input
-    CM1NCHbits.NCH=0b011; 	// pin RF7 as negative input for comparator
-    CM1PCHbits.PCH=0b101;   // use DAC output for positive input
-    CM1CON0bits.HYS=1;      //a little bit of hysteresis to stop multiple triggers
-    CM1CON0bits.POL=1;      //needed for interrupt to work (inverted polarity P686)
-    CM1CON1bits.INTP=1; 	//set interrupt flag on positive going edge
-    CM1CON1bits.INTN=1; 	//set interrupt flag on negative going edge
-    DAC_init();				//initialise the DAC
-    CM1CON0bits.EN=1;   	//enable comparator 1
+    TRISFbits.TRISF7=1;		// Set pin RF7 as input
+    CM1NCHbits.NCH=0b011; 	// Pin RF7 as negative input for comparator
+    CM1PCHbits.PCH=0b101;   // Use DAC output for positive input
+    CM1CON0bits.HYS=1;      // A little bit of hysteresis to stop multiple triggers
+    CM1CON0bits.POL=1;      // Needed for interrupt to work (inverted polarity P686)
+    CM1CON1bits.INTP=1; 	// Set interrupt flag on positive going edge
+    CM1CON1bits.INTN=1; 	// Set interrupt flag on negative going edge
+    DAC_init();				// Initialise the DAC
+    CM1CON0bits.EN=1;   	// Enable comparator 
 }
