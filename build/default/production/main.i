@@ -24278,14 +24278,10 @@ void one_to_five(unsigned char hour);
 
 
 
-unsigned char second = 0, minute = 0, hour = 0, midday = 13;
-
-
-
-unsigned int min_accu = 0, sun_set = 0, sun_rise = 0, daylight = 0, daylight_pre = 0;
+unsigned char second = 0, minute = 0, hour = 0;
+unsigned int min_accu = 0, sun_set = 0, sun_rise = 0;
 
 void main(void) {
-
 
 
     LATHbits.LATH3 = 1;
@@ -24297,16 +24293,22 @@ void main(void) {
     LEDarray_init();
 
 
+    unsigned char midday = 12;
+    unsigned int daylight = 0, daylight_pre = 0;
+
+
     while (1) {
 
         midday = daylight_saving_time(midday, daylight, daylight_pre);
         one_to_five(hour);
 
+
         if (sun_rise > 0 && sun_set > 0 && sun_set > sun_rise){
             daylight = sun_set - sun_rise;
             if (4 * 1 < daylight){
-                hour = midday + (daylight/2)/1;
-                minute = (daylight/2) % 1;
+                hour = midday + (daylight / 2) / 1;
+                minute = (daylight / 2) % 1;
+                second = 0;
                 daylight_pre = daylight;
                 sun_rise = 0;
                 sun_set = 0;

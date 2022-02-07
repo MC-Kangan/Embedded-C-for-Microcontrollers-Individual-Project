@@ -156,12 +156,14 @@ Condition 1: From winter time (midday = 12) to summer time (midday = 13)
 - Uncover at 6
 - Cover at 18
 Time will be overwrote to 12 + (18 - 6)/2 = 18
+
 LED will show 18, 19, 20, 21, 22 ...
 
 2nd Day:
 - Uncover at 6
 - Cover at 22
 Time will be overwrote to 13 + (22 - 6)/2 = 21
+
 LED will show 21, 22, 23, 0, 1 ...
 
 Since both two days have a daylight time >= 11h, the midday on the 2nd day will be shifted to 13 due to the transition to summer time.
@@ -175,12 +177,14 @@ Condition 2: From summer time (midday = 13) to winter time (midday = 12)
 - Uncover at 8
 - Cover at 16
 Time will be overwrote to 13 + (16 - 8)/2 = 17
+
 LED will show 17, 18, 19, 20, 21 ...
 
 2nd Day:
 - Uncover at 8
 - Cover at 18
 Time will be overwrote to 12 + (18 - 8)/2 = 17
+
 LED will show 17, 18, 19, 20, 21 ...
 
 Since both two days have a daylight time < 11h, the midday on the 2nd day will be shifted to 12 due to the transition to winter time.
