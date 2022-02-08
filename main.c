@@ -7,7 +7,7 @@
 #pragma config RSTOSC = EXTOSC_4PLL// Power-up default value for COSC bits (EXTOSC with 4x PLL, with EXTOSC operating per FEXTOSC bits)
 
 // CONFIG3L
-#pragma config WDTE = OFF        // WDT operating mode (WDT enabled regardless of sleep)
+#pragma config WDTE = OFF       // WDT operating mode (WDT enabled regardless of sleep)
 
 #include <xc.h>
 #include "LEDarray.h"
@@ -18,9 +18,21 @@
 
 #define _XTAL_FREQ 64000000 //note intrinsic _delay function is 62.5ns at 64,000,000Hz 
 
+
 // Normal Mode and Test Mode
+
+// The program has two modes, Test and Normal mode. In the Test mode, each hour will be displayed in seconds on the LED array(1h = 1s). 
+// In the Normal mode, each hour will be displayed in actual hours on the LED array (1h = 3600s).
+
 //#define TIME 60 // Normal Mode (1 min = 60 seconds, 1 hour = 60 minutes)
 #define TIME 1 // Test Mode (1 min = 1 seconds, 1 hour = 1 minutes)  
+
+
+// Program Setup
+
+// Before running the program, the user has to input the current time into the variable 'hour' and 'minute', the default timing is 0:00. 
+// Besides, the user also needs to input the 'midday' variable to implement the adjustment for Daylight Saving Time (in the main program)
+// The 'midday' variable only takes two values: 12 and 13. The solar midday is 12 o'clock in winter time and 13 o'clock in summer time. By default, 'midday' is 12.
 
 // Set the global variables
 unsigned char second = 0, minute = 0, hour = 0; // Set the second, minute and hour to 0 initially;
@@ -47,7 +59,7 @@ void main(void) {
     while (1) { 
         
         midday = daylight_saving_time(midday, daylight, daylight_pre); // Defined in smartlight.c, used to make adjustment for Daylight Saving Time       
-        one_to_five(hour); // Defined in smartlight.c, used to switch off the LED during 1 am to 5 am
+        one_to_five(hour);                                             // Defined in smartlight.c, used to switch off the LED during 1 am to 5 am
        
         // Adjusting the current time by synchronising with sunlight
         if (sun_rise > 0 && sun_set > 0 && sun_set > sun_rise){ // sun_rise and sun_set are only valid when they both > 0 and sun_set > sun_rise (Both variables are initially 0)
@@ -57,8 +69,8 @@ void main(void) {
                 minute = (daylight / 2) % TIME;        // Overwrite the current minute to synchronise with sunlight (Take the remainder of the division as the minute)
                 second = 0;                            // After the overwrite, reset the second to 0
                 daylight_pre = daylight;               // Store today's daylight to daylight of the previous day, to keep track the daylight time for 2 consecutive days
-                sun_rise = 0;                          // Clear the sun_rise time today after synchronising with sunlight
-                sun_set = 0;                           // Clear the sun_set time today after synchronising with sunlight
+                sun_rise = 0;                          // Clear the sun_rise time today after synchronising with sunlight to 0
+                sun_set = 0;                           // Clear the sun_set time today after synchronising with sunlight t0 0
             }else{
                 daylight = daylight_pre;               // If the daylight time is less than 4 hour, assume daylight = daylight_pre 
             }

@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.35 build 20211206165544 
-                                                                                               Mon Feb 07 11:19:09 2022
+                                                                                               Tue Feb 08 09:43:09 2022
 
 Microchip MPLAB XC8 C Compiler v2.35 (Free license) build 20211206165544 Og1 
      1                           	processor	18F67K40
@@ -196,7 +196,7 @@ Microchip MPLAB XC8 C Compiler v2.35 (Free license) build 20211206165544 Og1
    182 ;;
    183 ;; *************** function _main *****************
    184 ;; Defined at:
-   185 ;;		line 24 in file "main.c"
+   185 ;;		line 30 in file "main.c"
    186 ;; Parameters:    Size  Location     Type
    187 ;;		None
    188 ;; Auto vars:     Size  Location     Type
@@ -242,29 +242,29 @@ Microchip MPLAB XC8 C Compiler v2.35 (Free license) build 20211206165544 Og1
    223  0000DC                     _main:
    224                           	callstack 28
    225  0000DC                     
-   226                           ;main.c: 27:     LATHbits.LATH3 = 1;
+   226                           ;main.c: 33:     LATHbits.LATH3 = 1;
    227  0000DC  8680               	bsf	128,3,c	;volatile
    228                           
-   229                           ;main.c: 28:     TRISHbits.TRISH3 = 0;
+   229                           ;main.c: 34:     TRISHbits.TRISH3 = 0;
    230  0000DE  9688               	bcf	136,3,c	;volatile
    231  0000E0                     
-   232                           ;main.c: 30:     Interrupts_init();
+   232                           ;main.c: 37:     Interrupts_init();
    233  0000E0  EC0D  F002         	call	_Interrupts_init	;wreg free
    234  0000E4                     
-   235                           ;main.c: 31:     Comp1_init();
+   235                           ;main.c: 38:     Comp1_init();
    236  0000E4  ECD5  F001         	call	_Comp1_init	;wreg free
    237  0000E8                     
-   238                           ;main.c: 32:     Timer0_init();
+   238                           ;main.c: 39:     Timer0_init();
    239  0000E8  ECE8  F001         	call	_Timer0_init	;wreg free
    240                           
-   241                           ;main.c: 33:     LEDarray_init();
+   241                           ;main.c: 40:     LEDarray_init();
    242  0000EC  ECC2  F001         	call	_LEDarray_init	;wreg free
    243  0000F0                     
-   244                           ;main.c: 36:     unsigned char midday = 12;
+   244                           ;main.c: 43:     unsigned char midday = 12;
    245  0000F0  0E0C               	movlw	12
    246  0000F2  6E0B               	movwf	main@midday^0,c
    247  0000F4                     
-   248                           ;main.c: 37:     unsigned int daylight = 0, daylight_pre = 0;
+   248                           ;main.c: 44:     unsigned int daylight = 0, daylight_pre = 0;
    249  0000F4  0E00               	movlw	0
    250  0000F6  6E0D               	movwf	(main@daylight+1)^0,c
    251  0000F8  0E00               	movlw	0
@@ -275,7 +275,7 @@ Microchip MPLAB XC8 C Compiler v2.35 (Free license) build 20211206165544 Og1
    256  000102  6E09               	movwf	main@daylight_pre^0,c
    257  000104                     l1274:
    258                           
-   259                           ;main.c: 42:         midday = daylight_saving_time(midday, daylight, daylight_pre);
+   259                           ;main.c: 49:         midday = daylight_saving_time(midday, daylight, daylight_pre);
    260  000104  C00C  F002         	movff	main@daylight,daylight_saving_time@daylight
    261  000108  C00D  F003         	movff	main@daylight+1,daylight_saving_time@daylight+1
    262  00010C  C009  F004         	movff	main@daylight_pre,daylight_saving_time@daylight_pre
@@ -284,11 +284,11 @@ Microchip MPLAB XC8 C Compiler v2.35 (Free license) build 20211206165544 Og1
    265  000116  ECE6  F000         	call	_daylight_saving_time
    266  00011A  6E0B               	movwf	main@midday^0,c
    267  00011C                     
-   268                           ;main.c: 43:         one_to_five(hour);
+   268                           ;main.c: 50:         one_to_five(hour);
    269  00011C  5014               	movf	_hour^0,w,c
    270  00011E  EC98  F001         	call	_one_to_five
    271  000122                     
-   272                           ;main.c: 46:         if (sun_rise > 0 && sun_set > 0 && sun_set > sun_rise){
+   272                           ;main.c: 53:         if (sun_rise > 0 && sun_set > 0 && sun_set > sun_rise){
    273  000122  500E               	movf	_sun_rise^0,w,c
    274  000124  100F               	iorwf	(_sun_rise+1)^0,w,c
    275  000126  B4D8               	btfsc	status,2,c
@@ -316,7 +316,7 @@ Microchip MPLAB XC8 C Compiler v2.35 (Free license) build 20211206165544 Og1
    297  000158  EFDD  F000         	goto	l1298
    298  00015C                     u1170:
    299  00015C                     
-   300                           ;main.c: 47:             daylight = sun_set - sun_rise;
+   300                           ;main.c: 54:             daylight = sun_set - sun_rise;
    301  00015C  500E               	movf	_sun_rise^0,w,c
    302  00015E  5C10               	subwf	_sun_set^0,w,c
    303  000160  6E0C               	movwf	main@daylight^0,c
@@ -324,7 +324,7 @@ Microchip MPLAB XC8 C Compiler v2.35 (Free license) build 20211206165544 Og1
    305  000164  5811               	subwfb	(_sun_set+1)^0,w,c
    306  000166  6E0D               	movwf	(main@daylight+1)^0,c
    307                           
-   308                           ;main.c: 48:             if (4 * 1 < daylight){
+   308                           ;main.c: 55:             if (4 * 1 < daylight){
    309  000168  500D               	movf	(main@daylight+1)^0,w,c
    310  00016A  E109               	bnz	u1180
    311  00016C  0E05               	movlw	5
@@ -336,7 +336,7 @@ Microchip MPLAB XC8 C Compiler v2.35 (Free license) build 20211206165544 Og1
    317  00017A  EFD9  F000         	goto	l140
    318  00017E                     u1180:
    319  00017E                     
-   320                           ;main.c: 49:                 hour = midday + (daylight / 2) / 1;
+   320                           ;main.c: 56:                 hour = midday + (daylight / 2) / 1;
    321  00017E  90D8               	bcf	status,0,c
    322  000180  300D               	rrcf	(main@daylight+1)^0,w,c
    323  000182  6E08               	movwf	(??_main+1)^0,c
@@ -346,40 +346,40 @@ Microchip MPLAB XC8 C Compiler v2.35 (Free license) build 20211206165544 Og1
    327  00018A  240B               	addwf	main@midday^0,w,c
    328  00018C  6E14               	movwf	_hour^0,c
    329  00018E                     
-   330                           ;main.c: 50:                 minute = (daylight / 2) % 1;
+   330                           ;main.c: 57:                 minute = (daylight / 2) % 1;
    331  00018E  0E00               	movlw	0
    332  000190  6E15               	movwf	_minute^0,c
    333  000192                     
-   334                           ;main.c: 51:                 second = 0;
+   334                           ;main.c: 58:                 second = 0;
    335  000192  0E00               	movlw	0
    336  000194  6E16               	movwf	_second^0,c
    337  000196                     
-   338                           ;main.c: 52:                 daylight_pre = daylight;
+   338                           ;main.c: 59:                 daylight_pre = daylight;
    339  000196  C00C  F009         	movff	main@daylight,main@daylight_pre
    340  00019A  C00D  F00A         	movff	main@daylight+1,main@daylight_pre+1
    341  00019E                     
-   342                           ;main.c: 53:                 sun_rise = 0;
+   342                           ;main.c: 60:                 sun_rise = 0;
    343  00019E  0E00               	movlw	0
    344  0001A0  6E0F               	movwf	(_sun_rise+1)^0,c
    345  0001A2  0E00               	movlw	0
    346  0001A4  6E0E               	movwf	_sun_rise^0,c
    347  0001A6                     
-   348                           ;main.c: 54:                 sun_set = 0;
+   348                           ;main.c: 61:                 sun_set = 0;
    349  0001A6  0E00               	movlw	0
    350  0001A8  6E11               	movwf	(_sun_set+1)^0,c
    351  0001AA  0E00               	movlw	0
    352  0001AC  6E10               	movwf	_sun_set^0,c
    353                           
-   354                           ;main.c: 55:             }else{
+   354                           ;main.c: 62:             }else{
    355  0001AE  EFDD  F000         	goto	l1298
    356  0001B2                     l140:
    357                           
-   358                           ;main.c: 56:                 daylight = daylight_pre;
+   358                           ;main.c: 63:                 daylight = daylight_pre;
    359  0001B2  C009  F00C         	movff	main@daylight_pre,main@daylight
    360  0001B6  C00A  F00D         	movff	main@daylight_pre+1,main@daylight+1
    361  0001BA                     l1298:
    362                           
-   363                           ;main.c: 60:   LEDarray_disp_bin(hour);
+   363                           ;main.c: 67:   LEDarray_disp_bin(hour);
    364  0001BA  C014  F002         	movff	_hour,LEDarray_disp_bin@number
    365  0001BE  6A03               	clrf	(LEDarray_disp_bin@number+1)^0,c
    366  0001C0  EC3F  F001         	call	_LEDarray_disp_bin	;wreg free
@@ -1168,7 +1168,7 @@ Microchip MPLAB XC8 C Compiler v2.35 (Free license) build 20211206165544 Og1
   1100                           
   1101 ;; *************** function _HighISR *****************
   1102 ;; Defined at:
-  1103 ;;		line 69 in file "main.c"
+  1103 ;;		line 77 in file "main.c"
   1104 ;; Parameters:    Size  Location     Type
   1105 ;;		None
   1106 ;; Auto vars:     Size  Location     Type
@@ -1210,7 +1210,7 @@ Microchip MPLAB XC8 C Compiler v2.35 (Free license) build 20211206165544 Og1
   1137                           ;incstack = 0
   1138  000008  8217               	bsf	int$flags,1,c	;set compiler interrupt flag (level 2)
   1139  00000A                     
-  1140                           ;main.c: 72:     if (PIR2bits.C1IF){
+  1140                           ;main.c: 81:     if (PIR2bits.C1IF){
   1141  00000A  010E               	movlb	14	; () banked
   1142  00000C  A135               	btfss	53,0,b	;volatile
   1143  00000E  EF0B  F000         	goto	i2u58_41
@@ -1220,7 +1220,7 @@ Microchip MPLAB XC8 C Compiler v2.35 (Free license) build 20211206165544 Og1
   1147  00001A                     i2u58_40:
   1148  00001A                     
   1149                           ; BSR set to: 14
-  1150                           ;main.c: 73:         LATHbits.LATH3 = !LATHbits.LATH3;
+  1150                           ;main.c: 82:         LATHbits.LATH3 = !LATHbits.LATH3;
   1151  00001A  A680               	btfss	128,3,c	;volatile
   1152  00001C  EF12  F000         	goto	i2u59_41
   1153  000020  EF16  F000         	goto	i2u59_40
@@ -1240,7 +1240,7 @@ Microchip MPLAB XC8 C Compiler v2.35 (Free license) build 20211206165544 Og1
   1167  00003A  1801               	xorwf	??_HighISR^0,w,c
   1168  00003C  6E80               	movwf	128,c	;volatile
   1169  00003E                     
-  1170                           ;main.c: 74:         if (LATHbits.LATH3){sun_set = min_accu;} else {sun_rise = min_accu;
+  1170                           ;main.c: 83:         if (LATHbits.LATH3){sun_set = min_accu;} else {sun_rise = min_accu;
       +                          }
   1171  00003E  A680               	btfss	128,3,c	;volatile
   1172  000040  EF24  F000         	goto	i2u61_41
@@ -1256,13 +1256,13 @@ Microchip MPLAB XC8 C Compiler v2.35 (Free license) build 20211206165544 Og1
   1182  00005C  C013  F00F         	movff	_min_accu+1,_sun_rise+1
   1183  000060                     i2l151:
   1184                           
-  1185                           ;main.c: 75:         PIR2bits.C1IF = 0; }
+  1185                           ;main.c: 84:         PIR2bits.C1IF = 0; }
   1186  000060  010E               	movlb	14	; () banked
   1187  000062  9135               	bcf	53,0,b	;volatile
   1188  000064                     i2l149:
   1189                           
   1190                           ; BSR set to: 14
-  1191                           ;main.c: 77:     if (PIR0bits.TMR0IF){
+  1191                           ;main.c: 87:     if (PIR0bits.TMR0IF){
   1192  000064  AB33               	btfss	51,5,b	;volatile
   1193  000066  EF37  F000         	goto	i2u62_41
   1194  00006A  EF39  F000         	goto	i2u62_40
@@ -1271,11 +1271,11 @@ Microchip MPLAB XC8 C Compiler v2.35 (Free license) build 20211206165544 Og1
   1197  000072                     i2u62_40:
   1198  000072                     
   1199                           ; BSR set to: 14
-  1200                           ;main.c: 78:         second += 1;
+  1200                           ;main.c: 88:         second += 1;
   1201  000072  2A16               	incf	_second^0,f,c
   1202  000074                     
   1203                           ; BSR set to: 14
-  1204                           ;main.c: 79:         if (second == 1) {minute += 1; min_accu += 1; second = 0;}
+  1204                           ;main.c: 89:         if (second == 1) {minute += 1; min_accu += 1; second = 0;}
   1205  000074  0416               	decf	_second^0,w,c
   1206  000076  A4D8               	btfss	status,2,c
   1207  000078  EF40  F000         	goto	i2u63_41
@@ -1295,7 +1295,7 @@ Microchip MPLAB XC8 C Compiler v2.35 (Free license) build 20211206165544 Og1
   1221  00008E                     i2l1106:
   1222                           
   1223                           ; BSR set to: 14
-  1224                           ;main.c: 80:         if (minute == 1) {hour += 1; minute = 0;}
+  1224                           ;main.c: 90:         if (minute == 1) {hour += 1; minute = 0;}
   1225  00008E  0415               	decf	_minute^0,w,c
   1226  000090  A4D8               	btfss	status,2,c
   1227  000092  EF4D  F000         	goto	i2u64_41
@@ -1313,7 +1313,7 @@ Microchip MPLAB XC8 C Compiler v2.35 (Free license) build 20211206165544 Og1
   1239  0000A4                     i2l1112:
   1240                           
   1241                           ; BSR set to: 14
-  1242                           ;main.c: 81:         if (hour == 24) {hour = 0; min_accu = 0; sun_rise = 0; sun_set = 0;
+  1242                           ;main.c: 91:         if (hour == 24) {hour = 0; min_accu = 0; sun_rise = 0; sun_set = 0;
       +                          }
   1243  0000A4  0E18               	movlw	24
   1244  0000A6  1814               	xorwf	_hour^0,w,c
@@ -1342,7 +1342,7 @@ Microchip MPLAB XC8 C Compiler v2.35 (Free license) build 20211206165544 Og1
   1267  0000D2                     i2l1116:
   1268                           
   1269                           ; BSR set to: 14
-  1270                           ;main.c: 82:         PIR0bits.TMR0IF = 0; }
+  1270                           ;main.c: 92:         PIR0bits.TMR0IF = 0; }
   1271  0000D2  9B33               	bcf	51,5,b	;volatile
   1272  0000D4                     i2l156:
   1273                           
@@ -1861,7 +1861,7 @@ CODE                 0      0       0       0        0.0%
 
 
 Microchip Technology PIC18 Macro Assembler V2.35 build 20211206165544 
-Symbol Table                                                                                   Mon Feb 07 11:19:09 2022
+Symbol Table                                                                                   Tue Feb 08 09:43:09 2022
 
                               l30 02EA                                l22 0292  
                               l31 02EC                                l23 0294  

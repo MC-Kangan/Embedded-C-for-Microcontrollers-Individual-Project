@@ -37,9 +37,9 @@
 [v _LEDarray_init LEDarray_init `(v  1 e 1 0 ]
 "39
 [v _LEDarray_disp_bin LEDarray_disp_bin `(v  1 e 1 0 ]
-"24 C:\Users\Kangan Chen\MPLABXProjects\mini-proj-MC-Kangan.X\main.c
+"30 C:\Users\Kangan Chen\MPLABXProjects\mini-proj-MC-Kangan.X\main.c
 [v _main main `(v  1 e 1 0 ]
-"69
+"77
 [v _HighISR HighISR `IIH(v  1 e 1 0 ]
 "13 C:\Users\Kangan Chen\MPLABXProjects\mini-proj-MC-Kangan.X\smartlight.c
 [v _daylight_saving_time daylight_saving_time `(uc  1 e 1 0 ]
@@ -424,23 +424,23 @@
 "40500
 "40500
 [v _INTCONbits INTCONbits `VES566  1 e 1 @4082 ]
-"21 C:\Users\Kangan Chen\MPLABXProjects\mini-proj-MC-Kangan.X\main.c
+"26 C:\Users\Kangan Chen\MPLABXProjects\mini-proj-MC-Kangan.X\main.c
 [v _second second `uc  1 e 1 0 ]
 [v _minute minute `uc  1 e 1 0 ]
 [v _hour hour `uc  1 e 1 0 ]
-"22
+"27
 [v _min_accu min_accu `ui  1 e 2 0 ]
 [v _sun_set sun_set `ui  1 e 2 0 ]
 [v _sun_rise sun_rise `ui  1 e 2 0 ]
-"24
+"30
 [v _main main `(v  1 e 1 0 ]
 {
-"37
+"44
 [v main@daylight daylight `ui  1 a 2 11 ]
 [v main@daylight_pre daylight_pre `ui  1 a 2 8 ]
-"36
+"43
 [v main@midday midday `uc  1 a 1 10 ]
-"63
+"70
 } 0
 "36 C:\Users\Kangan Chen\MPLABXProjects\mini-proj-MC-Kangan.X\smartlight.c
 [v _one_to_five one_to_five `(v  1 e 1 0 ]
@@ -491,8 +491,8 @@
 {
 "16
 } 0
-"69 C:\Users\Kangan Chen\MPLABXProjects\mini-proj-MC-Kangan.X\main.c
+"77 C:\Users\Kangan Chen\MPLABXProjects\mini-proj-MC-Kangan.X\main.c
 [v _HighISR HighISR `IIH(v  1 e 1 0 ]
 {
-"84
+"94
 } 0
