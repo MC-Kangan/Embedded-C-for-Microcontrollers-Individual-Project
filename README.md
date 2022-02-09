@@ -24,12 +24,12 @@ Please use this GitHub repo to manage your software development and submit your 
 
 ## Program Setup Guide
 
-1. The program has two modes, Test and Normal mode. In the Test mode, each hour will be displayed in seconds on the LED array(1h = 1s). 
+1. The program has two modes, Test and Normal mode. In the Test mode, each hour will be displayed in seconds on the LED array (1h = 1s). 
 In the Normal mode, each hour will be displayed in actual hours on the LED array (1h = 3600s).
 
 2. Before running the program, the user has to input the current time into the variable 'hour' and 'minute', the default timing is 0:00. 
 After initialising the program, the program is able to synchronise with the sun light automatically every day. Besides, the user also needs
-to input the 'midday' variable to implement the adjustment for Daylight Saving Time. The 'midday' variable only takes two values: 12 and 13.
+to input the 'midday' variable to implement the adjustments for Daylight Saving Time. The 'midday' variable only takes two values: 12 and 13.
 The solar midday is 12 o'clock in winter time and 13 o'clock in summer time. By default, 'midday' is 12.
 
 3. Once the program is correctly setup, the program is able to fulfill all the requirements in the specification.
@@ -52,7 +52,7 @@ increment in the similar way. The timing will be displayed on the LED array in b
 [Relevant files: interrupts.c/interrupts.h/comparator.c/comparator.h/main.c]
 
 The light-sensing is also achieved by an ISR (Interrupt Service Routine) by using the comparator. Interrupt flag will be set on both the postive and
-negative edge of the comparator. The interrupt will trigger the ISR to toggle the LED. 
+negative edges of the comparator. The interrupt will trigger the ISR to toggle the LED. 
 
 ----------------------------------------------------------------------------------
 ### 3. Energy-saving from 1 to 5 am
@@ -60,7 +60,7 @@ negative edge of the comparator. The interrupt will trigger the ISR to toggle th
 [Relevant files: smartlight.c/smartlight.h/main.c]
 
 A function called 'one_to_five' is defined in document 'smartlight.c'. The functions will turn off the LED between 1 am and 5 am, despite the surrounding 
-lighting condition. At 5 am, the comparator output is checked. If the surrounding is dark, the LED will turn on and if the surrounding is bright, the LED
+lighting conditions. At 5 am, the comparator output is checked. If the surrounding is dark, the LED will turn on and if the surrounding is bright, the LED
 will remain off. At summer time, sunrise is possible to occur at 5 am. 
 
 ----------------------------------------------------------------------------------
@@ -74,9 +74,10 @@ as the LED only turns on when the surrounding is dark; If the LED switches from 
 the surrounding becomes bright. 
 
 As soon as 'sun_set' is recorded, the difference between 'sun_set' and 'sun_rise' is computed, which is the length of daylight in minutes. It is assumed 
-that sunrise and sunset are symmetrical about the solar midday. Therefore, the timing of the sunset will be overwritten as an adjustment. For example,
-if the 'daylight' is 520 mins, according to the above assumption, the solar midday (12 at winter time) should occur 260 mins (520/2) before the 'sun_set' time. 
-Thus, the current 'hour' will be overwrote to 16 (12 + 260/60 = 12 + 4) and the current 'minute' will be overwrote to 20 (260 % 60 = 20), hence 16:20. With this
+that sunrise and sunset are symmetrical about the solar midday. Therefore, the timing of the sunset will be overwritten as an adjustment. 
+
+For example, if the 'daylight' is 520 mins, according to the above assumption, the solar midday (12 at winter time) should occur 260 mins (520/2) before the 'sun_set' 
+time. Thus, the current 'hour' will be overwrote to 16 (12 + 260/60 = 12 + 4) and the current 'minute' will be overwrote to 20 (260 % 60 = 20), hence 16:20. With this
 method, every day the timer will be adjusted and synchronised at the sunset time. After the time is synchronised, 'sun_rise' and 'sun_set' will be cleared to 0 and
 the 'daylight' will be stored in 'daylight_pre', which is the daylight of the previous day.
 
