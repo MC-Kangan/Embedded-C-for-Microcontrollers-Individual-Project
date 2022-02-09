@@ -3,7 +3,7 @@
 
 /************************************
 / daylight_saving_time
-/ Function used to adjust the daylight saving time of the program. The fuction will check the daylight of two consecutive days 
+/ Function used to adjust the daylight saving time of the program. The fuction will check the daylight length of two consecutive days 
 / and determine whether it is winter time (midday = 12) or summer time (midday = 13)
 
 / Arguments: midday, daylight, daylight_pre
@@ -19,7 +19,8 @@ unsigned char daylight_saving_time (unsigned char midday, unsigned int daylight,
     }
     else if (midday == 13){ // Means summer time
         // At summer, if two consecutive days have a daylight time less than 11 hours (but greater than 0), it becomes winter time
-        if (0 < daylight && daylight < 11*TIME && 0 < daylight_pre && daylight_pre < 11*TIME){
+        // The daylight needs to be greater than 0 to be valid.
+        if (0 < daylight && daylight < 11 * TIME && 0 < daylight_pre && daylight_pre < 11 * TIME){
             midday = 12;
         }
     }

@@ -1,4 +1,11 @@
 
+/* 
+ * File:   main.c
+ * Author: Kangan Chen
+ *
+ * Created on February 5, 2022, 12:00 AM
+ */
+
 
 //SEE README FILE FOR ALL THE EXPLANATIONS OF THE PROGRAM
 
@@ -42,14 +49,14 @@ unsigned int min_accu = 0, sun_set = 0, sun_rise = 0; // Set the min_accu (accum
 void main(void) {
     
      // Setup pin for output (connected to LED - RH3)
-    LATHbits.LATH3 = 1;   // LATx registers (output latch),set the light to be on initially 
+    LATHbits.LATH3 = 1;   // LATx registers (output latch), set the light to be on initially 
     TRISHbits.TRISH3 = 0; // TRISx registers (data direction), set TRIS value for pin (output)
     
     // Call init functions
-    Interrupts_init();    // Enable Interrupt
-    Comp1_init();         // Enable Comparator
-    Timer0_init();        // Enable timer0
-    LEDarray_init();      // Enable LED array (from lab 2)
+    Interrupts_init();    // Enable Interrupt (see interrupts.c)
+    Comp1_init();         // Enable Comparator (see comparator.c)
+    Timer0_init();        // Enable timer0 (see timers.c)
+    LEDarray_init();      // Enable LED array (see LEDarray.c)
     
     // Set the local variables
     unsigned char midday = 12; // The midday is 12 o'clock for winter time and 13 o'clock for summer time. By default, midday = 12.
@@ -58,7 +65,7 @@ void main(void) {
     // Endless loop that repeats itself
     while (1) { 
         
-        midday = daylight_saving_time(midday, daylight, daylight_pre); // Defined in smartlight.c, used to make adjustment for Daylight Saving Time       
+        midday = daylight_saving_time(midday, daylight, daylight_pre); // Defined in smartlight.c, used to make adjustments for Daylight Saving Time       
         one_to_five(hour);                                             // Defined in smartlight.c, used to switch off the LED during 1 am to 5 am
        
         // Adjusting the current time by synchronising with sunlight

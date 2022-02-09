@@ -1,4 +1,4 @@
-# 1 "main.c"
+# 1 "../lab4-kangan-yuhai.X/comparator.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,15 +6,7 @@
 # 1 "<built-in>" 2
 # 1 "C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "main.c" 2
-# 13 "main.c"
-#pragma config FEXTOSC = HS
-#pragma config RSTOSC = EXTOSC_4PLL
-
-
-#pragma config WDTE = OFF
-
-
+# 1 "../lab4-kangan-yuhai.X/comparator.c" 2
 # 1 "C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -24237,106 +24229,48 @@ __attribute__((__unsupported__("The READTIMER" "0" "() macro is not available wi
 unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
 # 34 "C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\\pic\\include\\xc.h" 2 3
-# 19 "main.c" 2
+# 1 "../lab4-kangan-yuhai.X/comparator.c" 2
 
-# 1 "./LEDarray.h" 1
-# 16 "./LEDarray.h"
-void LEDarray_init(void);
-void LEDarray_disp_bin(unsigned int number);
-void LEDarray_disp_dec(unsigned int number);
-void LEDarray_disp_PPM(unsigned int number, unsigned int max);
-# 20 "main.c" 2
+# 1 "../lab4-kangan-yuhai.X/comparator.h" 1
 
-# 1 "./interrupts.h" 1
-# 15 "./interrupts.h"
-void Interrupts_init(void);
-void __attribute__((picinterrupt(("high_priority")))) HighISR();
-# 21 "main.c" 2
 
-# 1 "./comparator.h" 1
-# 15 "./comparator.h"
+
+
+
+
+
 void DAC_init(void);
 void Comp1_init(void);
-# 22 "main.c" 2
-
-# 1 "./timers.h" 1
-# 15 "./timers.h"
-void Timer0_init(void);
-unsigned int get16bitTMR0val(void);
-# 23 "main.c" 2
-
-# 1 "./smartlight.h" 1
-# 16 "./smartlight.h"
-unsigned char daylight_saving_time (unsigned char midday, unsigned int daylight, unsigned int daylight_pre);
-void one_to_five(unsigned char hour);
-# 24 "main.c" 2
-# 45 "main.c"
-unsigned char second = 0, minute = 0, hour = 0;
-unsigned int min_accu = 0, sun_set = 0, sun_rise = 0;
+# 2 "../lab4-kangan-yuhai.X/comparator.c" 2
 
 
-void main(void) {
 
 
-    LATHbits.LATH3 = 1;
-    TRISHbits.TRISH3 = 0;
+
+void DAC_init(void)
+{
+    DAC1CON0bits.PSS=0b00;
+    DAC1CON0bits.NSS=0b0;
 
 
-    Interrupts_init();
-    Comp1_init();
-    Timer0_init();
-    LEDarray_init();
 
-
-    unsigned char midday = 12;
-    unsigned int daylight = 0, daylight_pre = 0;
-
-
-    while (1) {
-
-        midday = daylight_saving_time(midday, daylight, daylight_pre);
-        one_to_five(hour);
-
-
-        if (sun_rise > 0 && sun_set > 0 && sun_set > sun_rise){
-            daylight = sun_set - sun_rise;
-            if (4 * 1 < daylight){
-                hour = midday + (daylight / 2) / 1;
-                minute = (daylight / 2) % 1;
-                second = 0;
-                daylight_pre = daylight;
-                sun_rise = 0;
-                sun_set = 0;
-            }else{
-                daylight = daylight_pre;
-            }
-        }
-
-  LEDarray_disp_bin(hour);
-    }
-
+    DAC1CON1bits.DAC1R=0b11011;
+    DAC1CON0bits.DAC1EN=1;
 }
 
 
 
 
 
-
-void __attribute__((picinterrupt(("high_priority")))) HighISR()
+void Comp1_init(void)
 {
-
-
-    if (PIR2bits.C1IF){
-        LATHbits.LATH3 = !LATHbits.LATH3;
-        if (LATHbits.LATH3){sun_set = min_accu;} else {sun_rise = min_accu;}
-        PIR2bits.C1IF = 0; }
-
-
-    if (PIR0bits.TMR0IF){
-        second += 1;
-        if (second == 1) {minute += 1; min_accu += 1; second = 0;}
-        if (minute == 1) {hour += 1; minute = 0;}
-        if (hour == 24) {hour = 0; min_accu = 0; sun_rise = 0; sun_set = 0;}
-        PIR0bits.TMR0IF = 0; }
-
+    TRISFbits.TRISF7=1;
+    CM1NCHbits.NCH=0b011;
+    CM1PCHbits.PCH=0b101;
+    CM1CON0bits.HYS=1;
+    CM1CON0bits.POL=1;
+    CM1CON1bits.INTP=1;
+    CM1CON1bits.INTN=1;
+    DAC_init();
+    CM1CON0bits.EN=1;
 }

@@ -57,17 +57,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=LEDarray.c comparator.c interrupts.c main.c timers.c smartlight.c
+SOURCEFILES_QUOTED_IF_SPACED=LEDarray.c interrupts.c main.c timers.c smartlight.c ../lab4-kangan-yuhai.X/comparator.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/LEDarray.p1 ${OBJECTDIR}/comparator.p1 ${OBJECTDIR}/interrupts.p1 ${OBJECTDIR}/main.p1 ${OBJECTDIR}/timers.p1 ${OBJECTDIR}/smartlight.p1
-POSSIBLE_DEPFILES=${OBJECTDIR}/LEDarray.p1.d ${OBJECTDIR}/comparator.p1.d ${OBJECTDIR}/interrupts.p1.d ${OBJECTDIR}/main.p1.d ${OBJECTDIR}/timers.p1.d ${OBJECTDIR}/smartlight.p1.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/LEDarray.p1 ${OBJECTDIR}/interrupts.p1 ${OBJECTDIR}/main.p1 ${OBJECTDIR}/timers.p1 ${OBJECTDIR}/smartlight.p1 ${OBJECTDIR}/_ext/125699972/comparator.p1
+POSSIBLE_DEPFILES=${OBJECTDIR}/LEDarray.p1.d ${OBJECTDIR}/interrupts.p1.d ${OBJECTDIR}/main.p1.d ${OBJECTDIR}/timers.p1.d ${OBJECTDIR}/smartlight.p1.d ${OBJECTDIR}/_ext/125699972/comparator.p1.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/LEDarray.p1 ${OBJECTDIR}/comparator.p1 ${OBJECTDIR}/interrupts.p1 ${OBJECTDIR}/main.p1 ${OBJECTDIR}/timers.p1 ${OBJECTDIR}/smartlight.p1
+OBJECTFILES=${OBJECTDIR}/LEDarray.p1 ${OBJECTDIR}/interrupts.p1 ${OBJECTDIR}/main.p1 ${OBJECTDIR}/timers.p1 ${OBJECTDIR}/smartlight.p1 ${OBJECTDIR}/_ext/125699972/comparator.p1
 
 # Source Files
-SOURCEFILES=LEDarray.c comparator.c interrupts.c main.c timers.c smartlight.c
+SOURCEFILES=LEDarray.c interrupts.c main.c timers.c smartlight.c ../lab4-kangan-yuhai.X/comparator.c
 
 
 
@@ -102,14 +102,6 @@ ${OBJECTDIR}/LEDarray.p1: LEDarray.c  nbproject/Makefile-${CND_CONF}.mk
 	@-${MV} ${OBJECTDIR}/LEDarray.d ${OBJECTDIR}/LEDarray.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/LEDarray.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/comparator.p1: comparator.c  nbproject/Makefile-${CND_CONF}.mk 
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/comparator.p1.d 
-	@${RM} ${OBJECTDIR}/comparator.p1 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1  -mdebugger=pickit4   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/comparator.p1 comparator.c 
-	@-${MV} ${OBJECTDIR}/comparator.d ${OBJECTDIR}/comparator.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/comparator.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
-	
 ${OBJECTDIR}/interrupts.p1: interrupts.c  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/interrupts.p1.d 
@@ -142,6 +134,14 @@ ${OBJECTDIR}/smartlight.p1: smartlight.c  nbproject/Makefile-${CND_CONF}.mk
 	@-${MV} ${OBJECTDIR}/smartlight.d ${OBJECTDIR}/smartlight.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/smartlight.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
+${OBJECTDIR}/_ext/125699972/comparator.p1: ../lab4-kangan-yuhai.X/comparator.c  nbproject/Makefile-${CND_CONF}.mk 
+	@${MKDIR} "${OBJECTDIR}/_ext/125699972" 
+	@${RM} ${OBJECTDIR}/_ext/125699972/comparator.p1.d 
+	@${RM} ${OBJECTDIR}/_ext/125699972/comparator.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1  -mdebugger=pickit4   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/_ext/125699972/comparator.p1 ../lab4-kangan-yuhai.X/comparator.c 
+	@-${MV} ${OBJECTDIR}/_ext/125699972/comparator.d ${OBJECTDIR}/_ext/125699972/comparator.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/_ext/125699972/comparator.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
 else
 ${OBJECTDIR}/LEDarray.p1: LEDarray.c  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}" 
@@ -150,14 +150,6 @@ ${OBJECTDIR}/LEDarray.p1: LEDarray.c  nbproject/Makefile-${CND_CONF}.mk
 	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/LEDarray.p1 LEDarray.c 
 	@-${MV} ${OBJECTDIR}/LEDarray.d ${OBJECTDIR}/LEDarray.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/LEDarray.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
-	
-${OBJECTDIR}/comparator.p1: comparator.c  nbproject/Makefile-${CND_CONF}.mk 
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/comparator.p1.d 
-	@${RM} ${OBJECTDIR}/comparator.p1 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/comparator.p1 comparator.c 
-	@-${MV} ${OBJECTDIR}/comparator.d ${OBJECTDIR}/comparator.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/comparator.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 ${OBJECTDIR}/interrupts.p1: interrupts.c  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}" 
@@ -190,6 +182,14 @@ ${OBJECTDIR}/smartlight.p1: smartlight.c  nbproject/Makefile-${CND_CONF}.mk
 	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/smartlight.p1 smartlight.c 
 	@-${MV} ${OBJECTDIR}/smartlight.d ${OBJECTDIR}/smartlight.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/smartlight.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/_ext/125699972/comparator.p1: ../lab4-kangan-yuhai.X/comparator.c  nbproject/Makefile-${CND_CONF}.mk 
+	@${MKDIR} "${OBJECTDIR}/_ext/125699972" 
+	@${RM} ${OBJECTDIR}/_ext/125699972/comparator.p1.d 
+	@${RM} ${OBJECTDIR}/_ext/125699972/comparator.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/_ext/125699972/comparator.p1 ../lab4-kangan-yuhai.X/comparator.c 
+	@-${MV} ${OBJECTDIR}/_ext/125699972/comparator.d ${OBJECTDIR}/_ext/125699972/comparator.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/_ext/125699972/comparator.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 endif
 
