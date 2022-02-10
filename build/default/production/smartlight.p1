@@ -2048,69 +2048,69 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 2016 ]
 [e $ ! == -> _midday `i -> 13 `i 2019  ]
 {
-"22
-[; ;smartlight.c: 22:         if (0 < daylight && daylight < 11*1 && 0 < daylight_pre && daylight_pre < 11*1){
+"23
+[; ;smartlight.c: 23:         if (0 < daylight && daylight < 11 * 1 && 0 < daylight_pre && daylight_pre < 11 * 1){
 [e $ ! && && && < -> -> 0 `i `ui _daylight < _daylight -> * -> 11 `i -> 1 `i `ui < -> -> 0 `i `ui _daylight_pre < _daylight_pre -> * -> 11 `i -> 1 `i `ui 2020  ]
 {
-"23
-[; ;smartlight.c: 23:             midday = 12;
-[e = _midday -> -> 12 `i `uc ]
 "24
-[; ;smartlight.c: 24:         }
+[; ;smartlight.c: 24:             midday = 12;
+[e = _midday -> -> 12 `i `uc ]
+"25
+[; ;smartlight.c: 25:         }
 }
 [e :U 2020 ]
-"25
-[; ;smartlight.c: 25:     }
+"26
+[; ;smartlight.c: 26:     }
 }
 [e :U 2019 ]
 [e :U 2018 ]
-"26
-[; ;smartlight.c: 26:     return midday;
+"27
+[; ;smartlight.c: 27:     return midday;
 [e ) _midday ]
 [e $UE 2015  ]
-"27
-[; ;smartlight.c: 27: }
+"28
+[; ;smartlight.c: 28: }
 [e :UE 2015 ]
 }
-"36
-[; ;smartlight.c: 36: void one_to_five(unsigned char hour){
+"37
+[; ;smartlight.c: 37: void one_to_five(unsigned char hour){
 [v _one_to_five `(v ~T0 @X0 1 ef1`uc ]
 {
 [e :U _one_to_five ]
 [v _hour `uc ~T0 @X0 1 r1 ]
 [f ]
-"37
-[; ;smartlight.c: 37:     if ((hour >= 1) && (hour < 5)){LATHbits.LATH3 = 0;}
+"38
+[; ;smartlight.c: 38:     if ((hour >= 1) && (hour < 5)){LATHbits.LATH3 = 0;}
 [e $ ! && >= -> _hour `i -> 1 `i < -> _hour `i -> 5 `i 2022  ]
 {
 [e = . . _LATHbits 0 3 -> -> 0 `i `uc ]
 }
 [e $U 2023  ]
-"38
-[; ;smartlight.c: 38:     else if (hour == 5){
+"39
+[; ;smartlight.c: 39:     else if (hour == 5){
 [e :U 2022 ]
 [e $ ! == -> _hour `i -> 5 `i 2024  ]
 {
-"39
-[; ;smartlight.c: 39:         if (CMOUTbits.MC1OUT == 1){LATHbits.LATH3 = 1;}
+"40
+[; ;smartlight.c: 40:         if (CMOUTbits.MC1OUT == 1){LATHbits.LATH3 = 1;}
 [e $ ! == -> . . _CMOUTbits 0 0 `i -> 1 `i 2025  ]
 {
 [e = . . _LATHbits 0 3 -> -> 1 `i `uc ]
 }
 [e $U 2026  ]
-"40
-[; ;smartlight.c: 40:         else {LATHbits.LATH3 = 0;}
+"41
+[; ;smartlight.c: 41:         else {LATHbits.LATH3 = 0;}
 [e :U 2025 ]
 {
 [e = . . _LATHbits 0 3 -> -> 0 `i `uc ]
 }
 [e :U 2026 ]
-"41
-[; ;smartlight.c: 41:     }
+"42
+[; ;smartlight.c: 42:     }
 }
 [e :U 2024 ]
 [e :U 2023 ]
-"42
-[; ;smartlight.c: 42: }
+"43
+[; ;smartlight.c: 43: }
 [e :UE 2021 ]
 }

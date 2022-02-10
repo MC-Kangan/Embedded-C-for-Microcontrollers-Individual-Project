@@ -2101,8 +2101,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;../lab4-kangan-yuhai.X/comparator.c: 10:     DAC1CON0bits.NSS=0b0;
 [e = . . _DAC1CON0bits 0 0 -> -> 0 `i `uc ]
 "14
-[; ;../lab4-kangan-yuhai.X/comparator.c: 14:     DAC1CON1bits.DAC1R=0b11011;
-[e = . . _DAC1CON1bits 0 0 -> -> 27 `i `uc ]
+[; ;../lab4-kangan-yuhai.X/comparator.c: 14:     DAC1CON1bits.DAC1R=0b10100;
+[e = . . _DAC1CON1bits 0 0 -> -> 20 `i `uc ]
 "15
 [; ;../lab4-kangan-yuhai.X/comparator.c: 15:     DAC1CON0bits.DAC1EN=1;
 [e = . . _DAC1CON0bits 1 7 -> -> 1 `i `uc ]

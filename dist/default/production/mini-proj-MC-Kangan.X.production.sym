@@ -267,7 +267,7 @@ cstackCOMRAM 1 17 COMRAM 1 1
 %locals
 dist/default/production\mini-proj-MC-Kangan.X.production.o
 C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h
-C:\Users\KANGAN~1\AppData\Local\Temp\xcAs42jg.s
+C:\Users\KANGAN~1\AppData\Local\Temp\xcAs32ik.s
 8088 3F0 0 CODE 0
 8090 3F0 0 CODE 0
 8093 3F0 0 CODE 0
@@ -307,23 +307,23 @@ main.c
 82 1B2 0 CODE 0
 86 1BA 0 CODE 0
 smartlight.c
-36 330 0 CODE 0
-37 332 0 CODE 0
-38 358 0 CODE 0
-39 36A 0 CODE 0
-40 380 0 CODE 0
-42 382 0 CODE 0
+37 330 0 CODE 0
+38 332 0 CODE 0
+39 358 0 CODE 0
+40 36A 0 CODE 0
+41 380 0 CODE 0
+43 382 0 CODE 0
 smartlight.c
 13 1CC 0 CODE 0
 14 1CE 0 CODE 0
 16 1E0 0 CODE 0
 17 20C 0 CODE 0
 20 214 0 CODE 0
-22 226 0 CODE 0
-23 276 0 CODE 0
-25 27A 0 CODE 0
+23 226 0 CODE 0
+24 276 0 CODE 0
 26 27A 0 CODE 0
-27 27C 0 CODE 0
+27 27A 0 CODE 0
+28 27C 0 CODE 0
 timers.c
 7 3D0 0 CODE 0
 9 3D0 0 CODE 0
@@ -393,7 +393,7 @@ interrupts.c
 14 40E 0 CODE 0
 15 416 0 CODE 0
 16 418 0 CODE 0
-C:\Users\KANGAN~1\AppData\Local\Temp\xcAs42jg.s
+C:\Users\KANGAN~1\AppData\Local\Temp\xcAs32ik.s
 9679 8 0 CODE 0
 main.c
 96 8 0 CODE 0

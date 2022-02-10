@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.35 build 20211206165544 
-                                                                                               Wed Feb 09 23:43:13 2022
+                                                                                               Thu Feb 10 09:55:36 2022
 
 Microchip MPLAB XC8 C Compiler v2.35 (Free license) build 20211206165544 Og1 
      1                           	processor	18F67K40
@@ -390,7 +390,7 @@ Microchip MPLAB XC8 C Compiler v2.35 (Free license) build 20211206165544 Og1
    371                           
    372 ;; *************** function _one_to_five *****************
    373 ;; Defined at:
-   374 ;;		line 36 in file "smartlight.c"
+   374 ;;		line 37 in file "smartlight.c"
    375 ;; Parameters:    Size  Location     Type
    376 ;;  hour            1    wreg     unsigned char 
    377 ;; Auto vars:     Size  Location     Type
@@ -433,7 +433,7 @@ Microchip MPLAB XC8 C Compiler v2.35 (Free license) build 20211206165544 Og1
    409                           ;one_to_five@hour stored from wreg
    410  000330  6E02               	movwf	one_to_five@hour^0,c
    411  000332                     
-   412                           ;smartlight.c: 37:     if ((hour >= 1) && (hour < 5)){LATHbits.LATH3 = 0;}
+   412                           ;smartlight.c: 38:     if ((hour >= 1) && (hour < 5)){LATHbits.LATH3 = 0;}
    413  000332  5002               	movf	one_to_five@hour^0,w,c
    414  000334  B4D8               	btfsc	status,2,c
    415  000336  EF9F  F001         	goto	u171
@@ -460,7 +460,7 @@ Microchip MPLAB XC8 C Compiler v2.35 (Free license) build 20211206165544 Og1
    436  000366  EFC1  F001         	goto	l170
    437  00036A                     u190:
    438  00036A                     
-   439                           ;smartlight.c: 39:         if (CMOUTbits.MC1OUT == 1){LATHbits.LATH3 = 1;}
+   439                           ;smartlight.c: 40:         if (CMOUTbits.MC1OUT == 1){LATHbits.LATH3 = 1;}
    440  00036A  010E               	movlb	14	; () banked
    441  00036C  A1D4               	btfss	212,0,b	;volatile
    442  00036E  EFBB  F001         	goto	u201
@@ -574,8 +574,8 @@ Microchip MPLAB XC8 C Compiler v2.35 (Free license) build 20211206165544 Og1
    545  000222  EF3D  F001         	goto	l159
    546  000226                     u770:
    547  000226                     
-   548                           ;smartlight.c: 22:         if (0 < daylight && daylight < 11*1 && 0 < daylight_pre && da
-      +                          ylight_pre < 11*1){
+   548                           ;smartlight.c: 23:         if (0 < daylight && daylight < 11 * 1 && 0 < daylight_pre && 
+      +                          daylight_pre < 11 * 1){
    549  000226  5002               	movf	daylight_saving_time@daylight^0,w,c
    550  000228  1003               	iorwf	(daylight_saving_time@daylight+1)^0,w,c
    551  00022A  B4D8               	btfsc	status,2,c
@@ -613,12 +613,12 @@ Microchip MPLAB XC8 C Compiler v2.35 (Free license) build 20211206165544 Og1
    583  000272  EF3D  F001         	goto	l159
    584  000276                     u810:
    585  000276                     
-   586                           ;smartlight.c: 23:             midday = 12;
+   586                           ;smartlight.c: 24:             midday = 12;
    587  000276  0E0C               	movlw	12
    588  000278  6E06               	movwf	daylight_saving_time@midday^0,c
    589  00027A                     l159:
    590                           
-   591                           ;smartlight.c: 26:     return midday;
+   591                           ;smartlight.c: 27:     return midday;
    592  00027A  5006               	movf	daylight_saving_time@midday^0,w,c
    593  00027C  0012               	return		;funcret
    594  00027E                     __end_of_daylight_saving_time:
@@ -1151,10 +1151,10 @@ Microchip MPLAB XC8 C Compiler v2.35 (Free license) build 20211206165544 Og1
   1083                           ;../lab4-kangan-yuhai.X/comparator.c: 10:     DAC1CON0bits.NSS=0b0;
   1084  00040C  91C6               	bcf	198,0,b	;volatile
   1085                           
-  1086                           ;../lab4-kangan-yuhai.X/comparator.c: 14:     DAC1CON1bits.DAC1R=0b11011;
+  1086                           ;../lab4-kangan-yuhai.X/comparator.c: 14:     DAC1CON1bits.DAC1R=0b10100;
   1087  00040E  51C7               	movf	199,w,b	;volatile
   1088  000410  0BE0               	andlw	-32
-  1089  000412  091B               	iorlw	27
+  1089  000412  0914               	iorlw	20
   1090  000414  6FC7               	movwf	199,b	;volatile
   1091  000416                     
   1092                           ; BSR set to: 14
@@ -1861,7 +1861,7 @@ CODE                 0      0       0       0        0.0%
 
 
 Microchip Technology PIC18 Macro Assembler V2.35 build 20211206165544 
-Symbol Table                                                                                   Wed Feb 09 23:43:13 2022
+Symbol Table                                                                                   Thu Feb 10 09:55:36 2022
 
                               l30 02EA                                l22 0292  
                               l31 02EC                                l23 0294  

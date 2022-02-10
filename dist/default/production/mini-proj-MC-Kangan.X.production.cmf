@@ -28,7 +28,7 @@ temp COMRAM 1 17 17 1 1 1
 intcode CODE 0 8 8 D0 1 2
 bssCOMRAM COMRAM 1 E E 9 1 1
 config CONFIG 4 300000 300000 C 1 1
-$C:\Users\KANGAN~1\AppData\Local\Temp\xcAs42jg.o
+$C:\Users\KANGAN~1\AppData\Local\Temp\xcAs32ik.o
 idloc IDLOC 5 200000 200000 10 1 1
 init CODE 0 D8 D8 4 1 2
 reset_vec CODE 0 0 0 4 1 2
@@ -80,7 +80,7 @@ MEDIUMCONST 10E00-1FFFF 1
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\mini-proj-MC-Kangan.X.production.o
-8 intcode CODE >9679:C:\Users\KANGAN~1\AppData\Local\Temp\xcAs42jg.s
+8 intcode CODE >9679:C:\Users\KANGAN~1\AppData\Local\Temp\xcAs32ik.s
 8 intcode CODE >96:C:\Users\Kangan Chen\MPLABXProjects\mini-proj-MC-Kangan.X\main.c
 A intcode CODE >100:C:\Users\Kangan Chen\MPLABXProjects\mini-proj-MC-Kangan.X\main.c
 1A intcode CODE >101:C:\Users\Kangan Chen\MPLABXProjects\mini-proj-MC-Kangan.X\main.c
@@ -161,17 +161,17 @@ D4 intcode CODE >113:C:\Users\Kangan Chen\MPLABXProjects\mini-proj-MC-Kangan.X\m
 1E0 text2 CODE >16:C:\Users\Kangan Chen\MPLABXProjects\mini-proj-MC-Kangan.X\smartlight.c
 20C text2 CODE >17:C:\Users\Kangan Chen\MPLABXProjects\mini-proj-MC-Kangan.X\smartlight.c
 214 text2 CODE >20:C:\Users\Kangan Chen\MPLABXProjects\mini-proj-MC-Kangan.X\smartlight.c
-226 text2 CODE >22:C:\Users\Kangan Chen\MPLABXProjects\mini-proj-MC-Kangan.X\smartlight.c
-276 text2 CODE >23:C:\Users\Kangan Chen\MPLABXProjects\mini-proj-MC-Kangan.X\smartlight.c
-27A text2 CODE >25:C:\Users\Kangan Chen\MPLABXProjects\mini-proj-MC-Kangan.X\smartlight.c
+226 text2 CODE >23:C:\Users\Kangan Chen\MPLABXProjects\mini-proj-MC-Kangan.X\smartlight.c
+276 text2 CODE >24:C:\Users\Kangan Chen\MPLABXProjects\mini-proj-MC-Kangan.X\smartlight.c
 27A text2 CODE >26:C:\Users\Kangan Chen\MPLABXProjects\mini-proj-MC-Kangan.X\smartlight.c
-27C text2 CODE >27:C:\Users\Kangan Chen\MPLABXProjects\mini-proj-MC-Kangan.X\smartlight.c
-330 text1 CODE >36:C:\Users\Kangan Chen\MPLABXProjects\mini-proj-MC-Kangan.X\smartlight.c
-332 text1 CODE >37:C:\Users\Kangan Chen\MPLABXProjects\mini-proj-MC-Kangan.X\smartlight.c
-358 text1 CODE >38:C:\Users\Kangan Chen\MPLABXProjects\mini-proj-MC-Kangan.X\smartlight.c
-36A text1 CODE >39:C:\Users\Kangan Chen\MPLABXProjects\mini-proj-MC-Kangan.X\smartlight.c
-380 text1 CODE >40:C:\Users\Kangan Chen\MPLABXProjects\mini-proj-MC-Kangan.X\smartlight.c
-382 text1 CODE >42:C:\Users\Kangan Chen\MPLABXProjects\mini-proj-MC-Kangan.X\smartlight.c
+27A text2 CODE >27:C:\Users\Kangan Chen\MPLABXProjects\mini-proj-MC-Kangan.X\smartlight.c
+27C text2 CODE >28:C:\Users\Kangan Chen\MPLABXProjects\mini-proj-MC-Kangan.X\smartlight.c
+330 text1 CODE >37:C:\Users\Kangan Chen\MPLABXProjects\mini-proj-MC-Kangan.X\smartlight.c
+332 text1 CODE >38:C:\Users\Kangan Chen\MPLABXProjects\mini-proj-MC-Kangan.X\smartlight.c
+358 text1 CODE >39:C:\Users\Kangan Chen\MPLABXProjects\mini-proj-MC-Kangan.X\smartlight.c
+36A text1 CODE >40:C:\Users\Kangan Chen\MPLABXProjects\mini-proj-MC-Kangan.X\smartlight.c
+380 text1 CODE >41:C:\Users\Kangan Chen\MPLABXProjects\mini-proj-MC-Kangan.X\smartlight.c
+382 text1 CODE >43:C:\Users\Kangan Chen\MPLABXProjects\mini-proj-MC-Kangan.X\smartlight.c
 DC text0 CODE >49:C:\Users\Kangan Chen\MPLABXProjects\mini-proj-MC-Kangan.X\main.c
 DC text0 CODE >52:C:\Users\Kangan Chen\MPLABXProjects\mini-proj-MC-Kangan.X\main.c
 DE text0 CODE >53:C:\Users\Kangan Chen\MPLABXProjects\mini-proj-MC-Kangan.X\main.c
@@ -195,20 +195,20 @@ F4 text0 CODE >63:C:\Users\Kangan Chen\MPLABXProjects\mini-proj-MC-Kangan.X\main
 1AE text0 CODE >81:C:\Users\Kangan Chen\MPLABXProjects\mini-proj-MC-Kangan.X\main.c
 1B2 text0 CODE >82:C:\Users\Kangan Chen\MPLABXProjects\mini-proj-MC-Kangan.X\main.c
 1BA text0 CODE >86:C:\Users\Kangan Chen\MPLABXProjects\mini-proj-MC-Kangan.X\main.c
-3F0 cinit CODE >8088:C:\Users\KANGAN~1\AppData\Local\Temp\xcAs42jg.s
-3F0 cinit CODE >8090:C:\Users\KANGAN~1\AppData\Local\Temp\xcAs42jg.s
-3F0 cinit CODE >8093:C:\Users\KANGAN~1\AppData\Local\Temp\xcAs42jg.s
-3F0 cinit CODE >8120:C:\Users\KANGAN~1\AppData\Local\Temp\xcAs42jg.s
-3F4 cinit CODE >8121:C:\Users\KANGAN~1\AppData\Local\Temp\xcAs42jg.s
-3F6 cinit CODE >8122:C:\Users\KANGAN~1\AppData\Local\Temp\xcAs42jg.s
-3F6 cinit CODE >8123:C:\Users\KANGAN~1\AppData\Local\Temp\xcAs42jg.s
-3F8 cinit CODE >8124:C:\Users\KANGAN~1\AppData\Local\Temp\xcAs42jg.s
-3FA cinit CODE >8125:C:\Users\KANGAN~1\AppData\Local\Temp\xcAs42jg.s
-3FC cinit CODE >8131:C:\Users\KANGAN~1\AppData\Local\Temp\xcAs42jg.s
-3FC cinit CODE >8133:C:\Users\KANGAN~1\AppData\Local\Temp\xcAs42jg.s
-3FE cinit CODE >8134:C:\Users\KANGAN~1\AppData\Local\Temp\xcAs42jg.s
-400 cinit CODE >8135:C:\Users\KANGAN~1\AppData\Local\Temp\xcAs42jg.s
-402 cinit CODE >8136:C:\Users\KANGAN~1\AppData\Local\Temp\xcAs42jg.s
+3F0 cinit CODE >8088:C:\Users\KANGAN~1\AppData\Local\Temp\xcAs32ik.s
+3F0 cinit CODE >8090:C:\Users\KANGAN~1\AppData\Local\Temp\xcAs32ik.s
+3F0 cinit CODE >8093:C:\Users\KANGAN~1\AppData\Local\Temp\xcAs32ik.s
+3F0 cinit CODE >8120:C:\Users\KANGAN~1\AppData\Local\Temp\xcAs32ik.s
+3F4 cinit CODE >8121:C:\Users\KANGAN~1\AppData\Local\Temp\xcAs32ik.s
+3F6 cinit CODE >8122:C:\Users\KANGAN~1\AppData\Local\Temp\xcAs32ik.s
+3F6 cinit CODE >8123:C:\Users\KANGAN~1\AppData\Local\Temp\xcAs32ik.s
+3F8 cinit CODE >8124:C:\Users\KANGAN~1\AppData\Local\Temp\xcAs32ik.s
+3FA cinit CODE >8125:C:\Users\KANGAN~1\AppData\Local\Temp\xcAs32ik.s
+3FC cinit CODE >8131:C:\Users\KANGAN~1\AppData\Local\Temp\xcAs32ik.s
+3FC cinit CODE >8133:C:\Users\KANGAN~1\AppData\Local\Temp\xcAs32ik.s
+3FE cinit CODE >8134:C:\Users\KANGAN~1\AppData\Local\Temp\xcAs32ik.s
+400 cinit CODE >8135:C:\Users\KANGAN~1\AppData\Local\Temp\xcAs32ik.s
+402 cinit CODE >8136:C:\Users\KANGAN~1\AppData\Local\Temp\xcAs32ik.s
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -228,14 +228,14 @@ __Hspace_2 0 0 ABS 0 - dist/default/production\mini-proj-MC-Kangan.X.production.
 __Hspace_4 60000C 0 ABS 0 - dist/default/production\mini-proj-MC-Kangan.X.production.o
 __end_of_one_to_five 384 0 CODE 0 text1 dist/default/production\mini-proj-MC-Kangan.X.production.o
 __Hibigdata 0 0 CODE 0 ibigdata dist/default/production\mini-proj-MC-Kangan.X.production.o
-__mediumconst 0 0 MEDIUMCONST 0 mediumconst C:\Users\KANGAN~1\AppData\Local\Temp\xcAs42jg.o
+__mediumconst 0 0 MEDIUMCONST 0 mediumconst C:\Users\KANGAN~1\AppData\Local\Temp\xcAs32ik.o
 __Heeprom_data 0 0 EEDATA 0 eeprom_data dist/default/production\mini-proj-MC-Kangan.X.production.o
 __Lsmallconst 0 0 SMALLCONST 0 smallconst dist/default/production\mini-proj-MC-Kangan.X.production.o
-___sp 0 0 STACK 2 stack C:\Users\KANGAN~1\AppData\Local\Temp\xcAs42jg.o
+___sp 0 0 STACK 2 stack C:\Users\KANGAN~1\AppData\Local\Temp\xcAs32ik.o
 _hour 14 0 COMRAM 1 bssCOMRAM dist/default/production\mini-proj-MC-Kangan.X.production.o
 _main DC 0 CODE 0 text0 dist/default/production\mini-proj-MC-Kangan.X.production.o
 btemp 17 0 COMRAM 1 temp dist/default/production\mini-proj-MC-Kangan.X.production.o
-start D8 0 CODE 0 init C:\Users\KANGAN~1\AppData\Local\Temp\xcAs42jg.o
+start D8 0 CODE 0 init C:\Users\KANGAN~1\AppData\Local\Temp\xcAs32ik.o
 __HbssCOMRAM 0 0 ABS 0 bssCOMRAM dist/default/production\mini-proj-MC-Kangan.X.production.o
 __Hpowerup D8 0 CODE 0 powerup dist/default/production\mini-proj-MC-Kangan.X.production.o
 _DAC_init 406 0 CODE 0 text8 dist/default/production\mini-proj-MC-Kangan.X.production.o
@@ -243,11 +243,11 @@ ttemp5 18 0 COMRAM 1 temp dist/default/production\mini-proj-MC-Kangan.X.producti
 ttemp6 1B 0 COMRAM 1 temp dist/default/production\mini-proj-MC-Kangan.X.production.o
 ttemp7 1F 0 COMRAM 1 temp dist/default/production\mini-proj-MC-Kangan.X.production.o
 _LEDarray_init 384 0 CODE 0 text4 dist/default/production\mini-proj-MC-Kangan.X.production.o
-__accesstop 60 0 ABS 0 - C:\Users\KANGAN~1\AppData\Local\Temp\xcAs42jg.o
-intlevel0 0 0 CODE 0 text C:\Users\KANGAN~1\AppData\Local\Temp\xcAs42jg.o
-intlevel1 0 0 CODE 0 text C:\Users\KANGAN~1\AppData\Local\Temp\xcAs42jg.o
-intlevel2 0 0 CODE 0 text C:\Users\KANGAN~1\AppData\Local\Temp\xcAs42jg.o
-intlevel3 0 0 CODE 0 text C:\Users\KANGAN~1\AppData\Local\Temp\xcAs42jg.o
+__accesstop 60 0 ABS 0 - C:\Users\KANGAN~1\AppData\Local\Temp\xcAs32ik.o
+intlevel0 0 0 CODE 0 text C:\Users\KANGAN~1\AppData\Local\Temp\xcAs32ik.o
+intlevel1 0 0 CODE 0 text C:\Users\KANGAN~1\AppData\Local\Temp\xcAs32ik.o
+intlevel2 0 0 CODE 0 text C:\Users\KANGAN~1\AppData\Local\Temp\xcAs32ik.o
+intlevel3 0 0 CODE 0 text C:\Users\KANGAN~1\AppData\Local\Temp\xcAs32ik.o
 __LbssCOMRAM 0 0 ABS 0 bssCOMRAM dist/default/production\mini-proj-MC-Kangan.X.production.o
 __end_of_DAC_init 41A 0 CODE 0 text8 dist/default/production\mini-proj-MC-Kangan.X.production.o
 __LnvFARRAM 0 0 FARRAM 0 nvFARRAM dist/default/production\mini-proj-MC-Kangan.X.production.o
@@ -256,8 +256,8 @@ __Hifardata 0 0 CODE 0 ifardata dist/default/production\mini-proj-MC-Kangan.X.pr
 __Hclrtext 0 0 ABS 0 clrtext dist/default/production\mini-proj-MC-Kangan.X.production.o
 _LEDarray_disp_bin 27E 0 CODE 0 text5 dist/default/production\mini-proj-MC-Kangan.X.production.o
 __end_of_Interrupts_init 428 0 CODE 0 text6 dist/default/production\mini-proj-MC-Kangan.X.production.o
-___inthi_sp 0 0 STACK 2 stack C:\Users\KANGAN~1\AppData\Local\Temp\xcAs42jg.o
-___intlo_sp 0 0 STACK 2 stack C:\Users\KANGAN~1\AppData\Local\Temp\xcAs42jg.o
+___inthi_sp 0 0 STACK 2 stack C:\Users\KANGAN~1\AppData\Local\Temp\xcAs32ik.o
+___intlo_sp 0 0 STACK 2 stack C:\Users\KANGAN~1\AppData\Local\Temp\xcAs32ik.o
 __Hintcode_body 0 0 ABS 0 intcode_body dist/default/production\mini-proj-MC-Kangan.X.production.o
 __Lintsave_regs 0 0 BIGRAM 1 intsave_regs dist/default/production\mini-proj-MC-Kangan.X.production.o
 _CM1CON0bits ED0 0 ABS 0 - dist/default/production\mini-proj-MC-Kangan.X.production.o
@@ -278,7 +278,7 @@ _TRISGbits F87 0 ABS 0 - dist/default/production\mini-proj-MC-Kangan.X.productio
 _TRISHbits F88 0 ABS 0 - dist/default/production\mini-proj-MC-Kangan.X.production.o
 ___rparam_used 1 0 ABS 0 - dist/default/production\mini-proj-MC-Kangan.X.production.o
 _min_accu 12 0 COMRAM 1 bssCOMRAM dist/default/production\mini-proj-MC-Kangan.X.production.o
-isa$xinst 0 0 ABS 0 - C:\Users\KANGAN~1\AppData\Local\Temp\xcAs42jg.o
+isa$xinst 0 0 ABS 0 - C:\Users\KANGAN~1\AppData\Local\Temp\xcAs32ik.o
 __end_of_LEDarray_init 3AA 0 CODE 0 text4 dist/default/production\mini-proj-MC-Kangan.X.production.o
 __Hbank0 0 0 ABS 0 bank0 dist/default/production\mini-proj-MC-Kangan.X.production.o
 __Hbank1 0 0 ABS 0 bank1 dist/default/production\mini-proj-MC-Kangan.X.production.o
@@ -317,7 +317,7 @@ __Hbank13 0 0 ABS 0 bank13 dist/default/production\mini-proj-MC-Kangan.X.product
 __Hbigbss 0 0 BIGRAM 1 bigbss dist/default/production\mini-proj-MC-Kangan.X.production.o
 __Hbigram 0 0 ABS 0 bigram dist/default/production\mini-proj-MC-Kangan.X.production.o
 __Hbigsfr 0 0 ABS 0 bigsfr dist/default/production\mini-proj-MC-Kangan.X.production.o
-__smallconst 0 0 SMALLCONST 0 smallconst C:\Users\KANGAN~1\AppData\Local\Temp\xcAs42jg.o
+__smallconst 0 0 SMALLCONST 0 smallconst C:\Users\KANGAN~1\AppData\Local\Temp\xcAs32ik.o
 __end_of_HighISR D8 0 CODE 0 intcode dist/default/production\mini-proj-MC-Kangan.X.production.o
 __Hcomram 0 0 ABS 0 comram dist/default/production\mini-proj-MC-Kangan.X.production.o
 __Hconfig 30000C 0 CONFIG 4 config dist/default/production\mini-proj-MC-Kangan.X.production.o
@@ -407,10 +407,10 @@ _LATHbits F80 0 ABS 0 - dist/default/production\mini-proj-MC-Kangan.X.production
 __Lfarbss 0 0 FARRAM 0 farbss dist/default/production\mini-proj-MC-Kangan.X.production.o
 _second 16 0 COMRAM 1 bssCOMRAM dist/default/production\mini-proj-MC-Kangan.X.production.o
 __Lfardata 0 0 FARRAM 0 fardata dist/default/production\mini-proj-MC-Kangan.X.production.o
-isa$std 1 0 ABS 0 - C:\Users\KANGAN~1\AppData\Local\Temp\xcAs42jg.o
+isa$std 1 0 ABS 0 - C:\Users\KANGAN~1\AppData\Local\Temp\xcAs32ik.o
 _daylight_saving_time 1CC 0 CODE 0 text2 dist/default/production\mini-proj-MC-Kangan.X.production.o
-stackhi 0 0 ABS 0 - C:\Users\KANGAN~1\AppData\Local\Temp\xcAs42jg.o
-stacklo 0 0 ABS 0 - C:\Users\KANGAN~1\AppData\Local\Temp\xcAs42jg.o
+stackhi 0 0 ABS 0 - C:\Users\KANGAN~1\AppData\Local\Temp\xcAs32ik.o
+stacklo 0 0 ABS 0 - C:\Users\KANGAN~1\AppData\Local\Temp\xcAs32ik.o
 daylight_saving_time@midday 6 0 COMRAM 1 cstackCOMRAM dist/default/production\mini-proj-MC-Kangan.X.production.o
 __Lintcode 8 0 CODE 0 intcode dist/default/production\mini-proj-MC-Kangan.X.production.o
 __Lintret 0 0 ABS 0 intret dist/default/production\mini-proj-MC-Kangan.X.production.o
@@ -442,7 +442,7 @@ __ptext6 41A 0 CODE 0 text6 dist/default/production\mini-proj-MC-Kangan.X.produc
 __ptext7 3AA 0 CODE 0 text7 dist/default/production\mini-proj-MC-Kangan.X.production.o
 __ptext8 406 0 CODE 0 text8 dist/default/production\mini-proj-MC-Kangan.X.production.o
 __Lstruct 0 0 COMRAM 1 struct dist/default/production\mini-proj-MC-Kangan.X.production.o
-__ramtop E00 0 RAM 0 ramtop C:\Users\KANGAN~1\AppData\Local\Temp\xcAs42jg.o
+__ramtop E00 0 RAM 0 ramtop C:\Users\KANGAN~1\AppData\Local\Temp\xcAs32ik.o
 _HighISR 8 0 CODE 0 intcode dist/default/production\mini-proj-MC-Kangan.X.production.o
 main@midday B 0 COMRAM 1 cstackCOMRAM dist/default/production\mini-proj-MC-Kangan.X.production.o
 __Lpowerup D8 0 CODE 0 powerup dist/default/production\mini-proj-MC-Kangan.X.production.o
@@ -450,8 +450,8 @@ __Leeprom_data 0 0 EEDATA 0 eeprom_data dist/default/production\mini-proj-MC-Kan
 _CM1NCHbits ED2 0 ABS 0 - dist/default/production\mini-proj-MC-Kangan.X.production.o
 _CMOUTbits ED4 0 ABS 0 - dist/default/production\mini-proj-MC-Kangan.X.production.o
 __Lreset_vec 0 0 CODE 0 reset_vec dist/default/production\mini-proj-MC-Kangan.X.production.o
-___heap_hi 0 0 ABS 0 - C:\Users\KANGAN~1\AppData\Local\Temp\xcAs42jg.o
-___heap_lo 0 0 ABS 0 - C:\Users\KANGAN~1\AppData\Local\Temp\xcAs42jg.o
+___heap_hi 0 0 ABS 0 - C:\Users\KANGAN~1\AppData\Local\Temp\xcAs32ik.o
+___heap_lo 0 0 ABS 0 - C:\Users\KANGAN~1\AppData\Local\Temp\xcAs32ik.o
 _sun_set 10 0 COMRAM 1 bssCOMRAM dist/default/production\mini-proj-MC-Kangan.X.production.o
 ___param_bank 0 0 ABS 0 - dist/default/production\mini-proj-MC-Kangan.X.production.o
 __Hbigdata 0 0 BIGRAM 1 bigdata dist/default/production\mini-proj-MC-Kangan.X.production.o

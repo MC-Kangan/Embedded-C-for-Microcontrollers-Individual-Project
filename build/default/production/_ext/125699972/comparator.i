@@ -24254,7 +24254,7 @@ void DAC_init(void)
 
 
 
-    DAC1CON1bits.DAC1R=0b11011;
+    DAC1CON1bits.DAC1R=0b10100;
     DAC1CON0bits.DAC1EN=1;
 }
 

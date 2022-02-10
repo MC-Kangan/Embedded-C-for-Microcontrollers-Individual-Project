@@ -24246,13 +24246,14 @@ unsigned char daylight_saving_time (unsigned char midday, unsigned int daylight,
     }
     else if (midday == 13){
 
-        if (0 < daylight && daylight < 11*1 && 0 < daylight_pre && daylight_pre < 11*1){
+
+        if (0 < daylight && daylight < 11 * 1 && 0 < daylight_pre && daylight_pre < 11 * 1){
             midday = 12;
         }
     }
     return midday;
 }
-# 36 "smartlight.c"
+# 37 "smartlight.c"
 void one_to_five(unsigned char hour){
     if ((hour >= 1) && (hour < 5)){LATHbits.LATH3 = 0;}
     else if (hour == 5){

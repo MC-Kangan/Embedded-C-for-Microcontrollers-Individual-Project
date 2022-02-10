@@ -22,6 +22,11 @@ Design and program a device that meets the following requirements:
 Please use this GitHub repo to manage your software development and submit your individual project code.
 
 
+## Demonstration
+ 
+YouTube Link: https://www.youtube.com/watch?v=5-1QxjH4rXE
+
+
 ## Program Setup Guide
 
 1. The program has two modes, Test and Normal mode. In the Test mode, each hour will be displayed in seconds on the LED array (1h = 1s). 
@@ -103,6 +108,8 @@ executed and the 'daylight' will be set to be the same as the previous day.
      
 
 ## Test
+
+Demonstration is presented in the YouTube Link.
 
 ### Test 1 (Requirement 1 & 2 & 3):
 
