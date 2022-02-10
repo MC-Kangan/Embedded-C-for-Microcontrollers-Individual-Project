@@ -11,7 +11,7 @@
 
 void Interrupts_init(void)
 {
-	// turn on global interrupts, peripheral interrupts and the interrupt source 
+	// Turn on global interrupts, peripheral interrupts and the interrupt source 
 	// It's a good idea to turn on global interrupts last, once all other interrupt configuration is done.
     INTCONbits.IPEN = 1; // Enable priority levels on interrupts
     INTCONbits.GIEL = 1; // Enable peripheral interrupts (PEIE also ok, see datasheet P209)

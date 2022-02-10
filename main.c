@@ -38,7 +38,7 @@
 // Program Setup
 
 // Before running the program, the user has to input the current time into the variable 'hour' and 'minute', the default timing is 0:00. 
-// Besides, the user also needs to input the 'midday' variable to implement the adjustment for Daylight Saving Time (in the main program)
+// Besides, the user also needs to input the 'midday' variable to implement the adjustments for Daylight Saving Time (in the main program)
 // The 'midday' variable only takes two values: 12 and 13. The solar midday is 12 o'clock in winter time and 13 o'clock in summer time. By default, 'midday' is 12.
 
 // Set the global variables
@@ -77,7 +77,7 @@ void main(void) {
                 second = 0;                            // After the overwrite, reset the second to 0
                 daylight_pre = daylight;               // Store today's daylight to daylight of the previous day, to keep track the daylight time for 2 consecutive days
                 sun_rise = 0;                          // Clear the sun_rise time today after synchronising with sunlight to 0
-                sun_set = 0;                           // Clear the sun_set time today after synchronising with sunlight t0 0
+                sun_set = 0;                           // Clear the sun_set time today after synchronising with sunlight to 0
             }else{
                 daylight = daylight_pre;               // If the daylight time is less than 4 hour, assume daylight = daylight_pre 
             }
@@ -97,10 +97,10 @@ void __interrupt(high_priority) HighISR()
 {
 	
     // ISR 1: Light sensing by using comparator
-    if (PIR2bits.C1IF){ // if C1IF ==1                                       //check the interrupt source for the comparator; When surrounding light is dark, turn on LED; vice versa.
-        LATHbits.LATH3 = !LATHbits.LATH3;                                    //toggle LED (same procedure as lab-1)
-        if (LATHbits.LATH3){sun_set = min_accu;} else {sun_rise = min_accu;} // After the toggle, if LED is on, means sun set; if LED is off, means sun rise
-        PIR2bits.C1IF = 0; }                                                 //clear the interrupt flag!
+    if (PIR2bits.C1IF){ // if C1IF ==1                                       // Check the interrupt source for the comparator; When surrounding light is dark, turn on LED; vice versa.
+        LATHbits.LATH3 = !LATHbits.LATH3;                                    // Toggle LED (same procedure as lab-1)
+        if (LATHbits.LATH3){sun_set = min_accu;} else {sun_rise = min_accu;} // After the toggle, if LED is on, means sunset; if LED is off, means sunrise; Record the accumulative minutes for sunrise and sunset.
+        PIR2bits.C1IF = 0; }                                                 // Clear the interrupt flag!
    
     // ISR 2: Timing by using Timer0
     if (PIR0bits.TMR0IF){                                                    // Check the interrupt source for the timer, if overflow occur
@@ -108,7 +108,7 @@ void __interrupt(high_priority) HighISR()
         if (second == TIME) {minute += 1; min_accu += 1; second = 0;}        // Increment minute and min_accu (accumulative minute). After the increment, reset second to 0
         if (minute == TIME) {hour += 1; minute = 0;}                         // Increment hour. After the increment, reset minute to 0
         if (hour == 24) {hour = 0; min_accu = 0; sun_rise = 0; sun_set = 0;} // When time passes 12am/0am, min_accu, sun_rise and sun_set is reset to 0
-        PIR0bits.TMR0IF = 0; }			                                     //clear the interrupt flag!
+        PIR0bits.TMR0IF = 0; }			                                     // Clear the interrupt flag!
     
 }
 

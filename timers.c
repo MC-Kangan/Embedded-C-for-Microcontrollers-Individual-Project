@@ -24,7 +24,7 @@ void Timer0_init(void)
 ************************************/
 unsigned int get16bitTMR0val(void)
 {
-    TMR0L; // Read TMR0L first to get the updated value for TMR0H
+    TMR0L;        // Read TMR0L first to get the updated value for TMR0H
     return TMR0H; // Return TMR0H, which contains 8 most significant figures
    
 }
